@@ -1,0 +1,109 @@
+<html>
+<title>Weapons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<body bgcolor="black">
+
+<div class="w3-container w3-center">
+<img src="pb3.png" style="width: 100%">
+</div>
+
+<div class="w3-bar w3-gray">
+<button class="w3-bar-item w3-button" onclick="openWeapon('home')">Home</button>
+<button class="w3-bar-item w3-button" onclick="openWeapon('assault')">Assault</button>
+<button class="w3-bar-item w3-button" onclick="openWeapon('smg')">Sub Machine Gun</button>
+<button class="w3-bar-item w3-button" onclick="openWeapon('sniper')">Sniper</button>
+<button class="w3-bar-item w3-button" onclick="openWeapon('shotgun')">shotgun</button>
+	<div class="w3-dropdown-hover">
+    <button class="w3-button">More</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-2">
+            <button class="w3-bar-item w3-button" onclick="openWeapon('knife')">Knife</button>
+            <button class="w3-bar-item w3-button" onclick="openWeapon('Bomb')">Bomb</button>
+            <button class="w3-bar-item w3-button" onclick="openWeapon('handgun')">Handgun</button>       
+		</div>
+	</div>
+<button class="w3-bar-item w3-button w3-right" onclick="openWeapon('profile')">My Profile</button>
+</div>
+
+<center>
+
+<div id="home" class="w3-container w3-animate-fading Weapon" style="display:block">
+<br>
+<h1 class="w3-text-white">WELCOME</h1>
+<p class="w3-text-white">Have Fun :)</p>
+</div>
+
+<div id="profile" class="w3-container w3-animate-top Weapon" style="display:none">
+<h1 class="w3-text-white">My Profile</h1>
+<img src="12.jpg" style="width: 15%">
+<p class="w3-text-white">
+Nama :	Hilmy Abdurrahman Darmawan<br>
+NIM :	10122013<br>
+Kelas :	IF-1</p>
+</div>
+
+<div id="assault" class="w3-container w3-animate-zoom Weapon" style="display:none">
+<h1 class="w3-text-white">AUG-A3</h1>
+<img src="aug.jpg">
+<p class="w3-text-white">Steyr AUG adalah rangkaian senapan yang pertama kali diperkenalkan pada tahun 1977 oleh perusahaan senjata Austria Steyr Mannlicher. AUG adalah singkatan dari Armee Universal Gewehr, yang berarti "Senapan Tentara Universal". Nama Steyr AUG sendiri lebih sering digunakan untuk menyebut versi yang spesifik, yaitu varian senapan serbu bullpup kaliber 5.56 mm NATO, dengan warna hijau dan teleskop yang terintegrasi. Senapan ini sebenarnya telah memiliki banyak varian, mulai dari senapan submesin, senapan penembak jitu, sampai senapan mesin ringan. Senapan ini telah diadopsi menjadi senapan utama angkatan bersenjata Austria, Australia, Selandia Baru, Luxembourg, Irlandia, dan juga sempat dipakai oleh Malaysia. Satuan Polisi Khusus Indonesia yaitu Gegana Brimob Polri juga menggunakan Steyr AUG.</p>
+</div>
+
+<div id="smg" class="w3-container w3-animate-bottom Weapon" style="display:none">
+<h1 class="w3-text-white">P90</h1>
+<img src="P90.jpg">
+<p class="w3-text-white">FN P90 adalah jenis senjata Personal Defense Weapon, senjata ini dibuat oleh perusahaan senjata asal Belgia yaitu FN Herstal.[3] Pembuatannya merupakan respon FN atas permintaan negara-negara NATO untuk penggantian senjata sebelumnya yang menggunakan peluru 9 x 19 mm Parabellum dan tidak mampu menembus rompi anti peluru.[4] Penggunaan senjata ini lebih condong untuk kepentingan defensive, biasanya dipakai oleh personel militer garis belakang seperti kru altileri, personel perbekalan, kru senjata berawak seperti tank, pesawat, maupun helikopter, operasi pengamanan VIP[8][9]
+
+FN P90 mempunyai desain bullpup dengan inovasi baru dari FN yaitu posisi magazen yang berada di bagian atas senjata dan penggunaan peluru 5,7 x 28 mm.[8] Senjata ini dikembangkan sekitar antara tahun 1986 dan 1990.[1][10] Pada akhir tahun 1999 varian dari senjata ini diperkenalkan dengan nama P90 TR (Triple Rail), varian ini dilengkapi dengan tiga rail untuk penempatan aksesoris.[11] Pada tahun 2005 versi untuk olahraga menembak dari senjata ini diperkenalkan dengan nama PS90, dengan kemampuan semi otomatis dan laras yang lebih panjang dari P90.[12]
+
+Senjata ini menggunakan sistem blowback, closed bolt,[2] dengan bahan polimer pada sebagian besar bagiannya,[12][13] kecuali pada sistem mekanisme, hal ini dilakukan agar senjata mempunyai bobot yang ringan dengan ongkos produksi yang lebih murah.[13]</p>
+</div>
+
+<div id="sniper" class="w3-container Animasi w3-animate-right Weapon" style="display:none">
+<h1 class="w3-text-white">Cheytac M200</h1>
+<img src="Cheytac.jpg">
+<p class="w3-text-white">CheyTac Intervention (M200 Intervention .408) adalah senapan runduk bolt-action buatan perusahaan produsen senapan CheyTac LLC asal Amerika Serikat, dibuat berdasarkan senapan runduk EDM Arms Windrunner. Senapan ini dibuat untuk melumpuhkan "sasaran empuk" (soft target, sasaran kendaraan, tempat tinggal, manusia) menggunakan amunisi peluru .408 Chey Tac atau .375 Chey Tac kedalam magazen kapasitas isi tujuh butir. Jangkauan maksimal adalah 2.300 meter atau setara dengan 2.500 yard.</p>
+</div>
+
+<div id="shotgun" class="w3-container Animasi w3-animate-left Weapon" style="display:none">
+<h1 class="w3-text-white">M1887</h1>
+<img src="M1887.jpg">
+<p class="w3-text-white">Winchester Model 1887 juga dikenal dengan nama M1887 adalah senapan patah (shotgun) lever-action hasil desain John Browning, seorang perancang senjata api asal Amerika Serikat dan diproduksi oleh Winchester Repeating Arms Company pada akhir abad ke-19 dan awal abad ke-20.
+
+Senjata ini dikenal karena Reloadnya yang bisa di putar. gaya reload putar ini pernah ditampilkan pertama kali oleh Arnold Schwarzenegger a.k.a Terminator T800 dalam film Terminator 2 Judgment day. hanya saja senjata yang digunakan oleh T800 ini ukurannnya lebih kecil sehingga lebih memudahkan untuk di putar.</p>
+</div>
+
+<div id="knife" class="w3-container Animasi w3-animate-top Weapon" style="display:none">
+<h1 class="w3-text-white">MINI AXE</h1>
+<img src="mini.jfif">
+<p class="w3-text-white">Mini Axe adalah jenis kapak satu tangan yang digunakan oleh banyak masyarakat adat dan bangsa Amerika Utara . Ini secara tradisional menyerupai kapak dengan poros lurus. [1] [2] Pada masa pra-kolonial kepala terbuat dari batu, tulang, atau tanduk, dan pemukim Eropa kemudian memperkenalkan kepala dari besi dan baja. Istilah ini masuk ke dalam bahasa Inggris pada abad ke-17 sebagai adaptasi dari kata Powhatan ( Virginia Algonquian ).
+
+Mini Axe adalah alat serba guna yang digunakan oleh penduduk asli Amerika dan kemudian kolonial Eropa yang berdagang dengan mereka, dan sering digunakan sebagai senjata jarak dekat. Kepala tomahawk logam awalnya didasarkan pada kapak kapal Angkatan Laut Kerajaan (kapak tangan ringan yang dirancang untuk memotong jaring kapal saat menaiki kapal musuh) dan digunakan sebagai barang dagangan dengan penduduk asli Amerika untuk makanan dan perbekalan lainnya.</p>
+</div>
+
+<div id="Bomb" class="w3-container w3-animate-zoom Weapon" style="display:none">
+<h1 class="w3-text-white">K-413</h1>
+<img src="1.jpg">
+<p class="w3-text-white">Granat adalah senjata peledak yang biasanya dilemparkan dengan tangan (disebut juga granat tangan ), tetapi juga dapat merujuk ke selongsong peluru ( proyektil peledak ) yang ditembakkan dari moncong senapan (sebagai granat senapan ) atau peluncur granat . Granat tangan modern umumnya terdiri dari bahan peledak ("pengisi"), mekanisme detonator , penyerang internal untuk memicu detonator, dan tuas pengaman yang diamankan dengan cotter pin .. Pengguna melepas peniti sebelum melempar, dan begitu granat meninggalkan tangan, tuas pengaman dilepaskan, memungkinkan penyerang untuk memicu primer yang menyalakan sumbu (terkadang disebut elemen penundaan), yang membakar ke detonator dan meledakkan granat. muatan utama.</p>
+</div>
+
+<div id="handgun" class="w3-container w3-animate-bottom Weapon" style="display:none">
+<h1 class="w3-text-white">COLT PYTHON</h1>
+<img src="c.jpg">
+<p class="w3-text-white">Colt Python adalah revolver kaliber .357 Magnum yang diproduksi oleh Colt's Manufacturing Company of Hartford , Connecticut. [1] Ini pertama kali diperkenalkan pada tahun 1955, tahun yang sama dengan Smith & Wesson's M29 .44 Magnum. Colt Python ditujukan untuk segmen pasar revolver premium. Beberapa kolektor dan penulis senjata api seperti Jeff Cooper , Ian V. Hogg , Chuck Hawks, Leroy Thompson, Scott Wolber, Renee Smeets dan Martin Dougherty menggambarkan Python sebagai "revolver produksi terbaik yang pernah dibuat". [1] [2] [3] [4] [5][6] [7]
+
+Pada tahun 2020, Colt memperkenalkan kembali Python dalam konfigurasi 4,25″ dan 6″ barel, diikuti dengan versi 3″ barel pada tahun 2022. [8] Python yang diperkenalkan kembali telah direvisi dan diperkuat secara teknis dibandingkan dengan revolver aslinya.</p>
+</div>
+
+<script>
+function openWeapon(namaWeapon) {
+var i;
+var x = document.getElementsByClassName("Weapon");
+for (i = 0; i < x.length; i++) {
+x[i].style.display = "none";
+}
+document.getElementById(namaWeapon).style.display = "block";
+}
+</script>
+
+</body>
+</html>
