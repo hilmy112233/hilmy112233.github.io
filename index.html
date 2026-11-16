@@ -1,109 +1,339 @@
-<html>
-<title>Weapons</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<body bgcolor="black">
+<!DOCTYPE html>
 
-<div class="w3-container w3-center">
-<img src="pb3.png" style="width: 100%">
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Hilmy Abdurrahman Darmawan — IoT Engineer · Mobile Developer · Certified System Analyst (CSA)</title>
+<meta content="Hilmy Abdurrahman Darmawan — IoT &amp; Embedded Systems Engineer, Mobile Developer (Flutter), and Certified System Analyst (BNSP) based in Bandung, Indonesia. Specializing in ESP32, FreeRTOS, MQTT TLS, and end-to-end telemetry systems." name="description"/>
+<meta content="Hilmy Abdurrahman Darmawan — IoT Engineer · Mobile Developer · Certified System Analyst (CSA)" property="og:title"/>
+<meta content="Hilmy Abdurrahman Darmawan — IoT &amp; Embedded Systems Engineer, Mobile Developer (Flutter), and Certified System Analyst (BNSP) based in Bandung, Indonesia. Specializing in ESP32, FreeRTOS, MQTT TLS, and end-to-end telemetry systems." property="og:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0;background:#F3F5F4}
+a{color:#1F4D3A}a:hover{color:#A65A1B}
+
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+img{max-width:100%;display:block}
+.photo{width:100%;height:100%;object-fit:cover}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #A65A1B;outline-offset:2px}
+
+/* sticky top navigation — at the top, but it follows you down the page */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(243,245,244,.92);
+        backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #DCE4DF}
+.topbar .in{max-width:1160px;margin:0 auto;padding:13px 24px;display:flex;flex-wrap:wrap;
+            align-items:center;gap:8px 24px}
+.topbar .brand{text-decoration:none;margin-right:auto;display:flex;align-items:baseline;gap:10px;min-width:0}
+.topbar .nm{font-family:'Fraunces',serif;font-weight:800;font-size:21px;color:#1F4D3A;white-space:nowrap}
+.topbar .role{font-size:13px;color:#4A5A52;white-space:nowrap}
+.topbar nav{display:flex;flex-wrap:wrap;gap:2px}
+.topbar nav a{display:block;padding:7px 12px;border-radius:7px;border-bottom:2px solid transparent;
+              font-size:15px;font-weight:500;color:#34423B;text-decoration:none}
+.topbar nav a:hover{background:#E9EEEB;color:#1F4D3A}
+.topbar nav a.on{background:#E9EEEB;color:#1F4D3A;font-weight:600;border-bottom-color:#A65A1B}
+.topbar .cv{background:#1F4D3A;color:#fff;text-decoration:none;font-weight:600;font-size:14px;
+            padding:9px 16px;border-radius:999px;white-space:nowrap}
+section{scroll-margin-top:78px}
+@media (max-width:860px){
+  .topbar .in{padding:10px 16px;gap:6px 12px}
+  .topbar .role{display:none}
+  .topbar nav{order:3;flex-basis:100%;margin-top:2px}
+  .topbar nav a{padding:6px 9px;font-size:14px}
+  section{scroll-margin-top:104px}
+}
+/* experience: summary visible, full detail on demand */
+#work details{margin-top:18px;border-top:1px solid #4F7A66}
+#work summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
+              padding:13px 0 0;font-size:16.5px;font-weight:600;color:#F2C48D}
+#work summary::-webkit-details-marker{display:none}
+#work summary .chev{display:inline-block;transition:transform .18s ease;font-size:13px}
+#work details[open] summary .chev{transform:rotate(90deg)}
+#work summary:hover{color:#fff}
+#work .detail{padding:6px 0 4px}
+#work .grp{margin-top:22px}
+#work .grp h4{margin:0 0 9px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+              color:#F2C48D}
+#work .grp ul{margin:0;padding-left:21px;font-size:17.5px;line-height:1.7;color:#E3EEE8;
+              display:flex;flex-direction:column;gap:7px}
+#work .grp b{color:#fff;font-weight:600}
+@media print{#work details{display:block}#work details>*{display:block}}
+</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hilmy112233.github.io/">
+<meta property="og:site_name" content="Hilmy Abdurrahman Darmawan">
+<meta property="og:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hilmy Abdurrahman Darmawan — IoT and embedded engineer, mobile developer, certified system analyst">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hilmy Abdurrahman Darmawan — IoT Engineer · Mobile Developer · Certified System Analyst (CSA)">
+<meta name="twitter:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/og-card.png">
+</head>
+<body>
+<div id="top" style="background: #F3F5F4; color: #18221D; font-family: 'Work Sans', sans-serif; min-height: 100vh">
+<header class="topbar"><div class="in">
+<a class="brand" href="#top"><span class="nm">Hilmy Abdurrahman Darmawan</span><span class="role">IoT Engineer · Mobile Dev · Certified System Analyst</span></a>
+<nav id="railnav">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#work">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+<a class="cv" href="assets/CV_Hilmy_Abdurrahman_Darmawan.pdf" download>Download CV</a>
+</div></header>
+<div class="page">
+<section style="max-width: 1160px; margin: 0 auto; padding: 80px 24px 96px">
+<p style="margin: 0 0 24px; font-size: 15px; font-weight: 600; color: #A65A1B; letter-spacing: 0.1em">IOT &amp; EMBEDDED ENGINEER · MOBILE DEVELOPER · CERTIFIED SYSTEM ANALYST (CSA) · BANDUNG</p>
+<h1 style="margin: 0; font-family: 'Fraunces', serif; font-size: clamp(48px, 7vw, 112px); line-height: 1; font-weight: 600; letter-spacing: -0.02em; color: #1F4D3A; max-width: 1080px">From edge firmware to mobile apps and cloud telemetry.</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 48px; align-items: center">
+<p style="flex: 999 1 480px; margin: 0; font-size: 20px; line-height: 1.6; color: #34423B">Computer Science graduate from Universitas Komputer Indonesia (UNIKOM, GPA 3.47) and Certified System Analyst (BNSP). I engineer integrated solutions: responsive ESP32 firmware and industrial control panels, secure MQTT TLS telemetry to Django/PostgreSQL, and cross-platform mobile apps with Flutter.</p>
+<div style="flex: 0 0 auto; display: flex; flex-wrap: wrap; gap: 12px"><a href="#projects" style="background: #1F4D3A; color: #FFFFFF; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">See the projects →</a><a href="#work" style="border: 1.5px solid #1F4D3A; color: #1F4D3A; padding: 15px 25px; border-radius: 999px; text-decoration: none; font-weight: 600">Read the journey ↓</a></div>
 </div>
-
-<div class="w3-bar w3-gray">
-<button class="w3-bar-item w3-button" onclick="openWeapon('home')">Home</button>
-<button class="w3-bar-item w3-button" onclick="openWeapon('assault')">Assault</button>
-<button class="w3-bar-item w3-button" onclick="openWeapon('smg')">Sub Machine Gun</button>
-<button class="w3-bar-item w3-button" onclick="openWeapon('sniper')">Sniper</button>
-<button class="w3-bar-item w3-button" onclick="openWeapon('shotgun')">shotgun</button>
-	<div class="w3-dropdown-hover">
-    <button class="w3-button">More</button>
-        <div class="w3-dropdown-content w3-bar-block w3-card-2">
-            <button class="w3-bar-item w3-button" onclick="openWeapon('knife')">Knife</button>
-            <button class="w3-bar-item w3-button" onclick="openWeapon('Bomb')">Bomb</button>
-            <button class="w3-bar-item w3-button" onclick="openWeapon('handgun')">Handgun</button>       
-		</div>
-	</div>
-<button class="w3-bar-item w3-button w3-right" onclick="openWeapon('profile')">My Profile</button>
+</section>
+<section id="about" style="background: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 300px; aspect-ratio: 4 / 5; max-width: 420px; background: #DCE4DF; border-radius: 4px; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; position: relative; min-width: 0"><img alt="Hilmy Abdurrahman Darmawan" loading="lazy" src="hilmy-portrait.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block"/></div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Fraunces', serif; font-size: 48px; font-weight: 600; color: #1F4D3A">Hello, I'm Hilmy.</h2>
+<p style="margin: 0; font-family: 'Fraunces', serif; font-size: 24px; line-height: 1.5; color: #18221D">I am an IoT &amp; Embedded Engineer, Mobile App Developer, and Certified System Analyst (CSA) based in Bandung, Indonesia.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #34423B">I build systems where physical hardware and software meet seamlessly. I've designed industrial electrical control panels and telemetries for the Ministry of Agriculture's Smart Greenhouse, engineered production-grade mobile applications with Flutter (Dart) during my internship at PT Lattice Teknologi Mandiri, and developed high-precision vehicle telemetry on ESP32 with multi-stage digital signal filtering.</p>
+<p style="margin: 0; font-size: 16px; color: #4A5A52">S.Kom in Informatics, Universitas Komputer Indonesia (UNIKOM) · GPA 3.47 / 4.00 · Certified System Analyst (CSA) — BNSP</p>
 </div>
-
-<center>
-
-<div id="home" class="w3-container w3-animate-fading Weapon" style="display:block">
-<br>
-<h1 class="w3-text-white">WELCOME</h1>
-<p class="w3-text-white">Have Fun :)</p>
 </div>
-
-<div id="profile" class="w3-container w3-animate-top Weapon" style="display:none">
-<h1 class="w3-text-white">My Profile</h1>
-<img src="12.jpg" style="width: 15%">
-<p class="w3-text-white">
-Nama :	Hilmy Abdurrahman Darmawan<br>
-NIM :	10122013<br>
-Kelas :	IF-1</p>
+</section>
+<section id="skills" style="max-width: 1160px; margin: 0 auto; padding: 88px 24px">
+<h2 style="margin: 0 0 12px; font-family: 'Fraunces', serif; font-size: 48px; font-weight: 600; color: #1F4D3A">Two toolkits, one engineer</h2>
+<p style="margin: 0 0 40px; font-size: 18px; color: #34423B; max-width: 640px">Bridging hardware, cloud communications, mobile interfaces, and structured software architecture.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 24px"><div style="flex: 1 1 420px; background: #FFFFFF; padding: 36px; border-top: 4px solid #A65A1B">
+<h3 style="margin: 0 0 6px; font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600">IoT, Embedded &amp; Hardware</h3>
+<p style="margin: 0 0 20px; font-size: 15px; color: #4A5A52">Firmware, sensors, filtering and cloud connectivity</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0; font-size: 16px">
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">C / C++ · ESP32 · ESP-IDF · FreeRTOS · PlatformIO &amp; Arduino IDE</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">Multi-stage filtering: Median Filter, EMA (&alpha;=0.1), Hysteresis</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">16-bit ADC ADS1115 · GPS NEO-6M · Haversine distance tracking</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">Edge Gateways: Raspberry Pi · Python data logging &amp; MQTT/FTP</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">Industrial electrical wiring, relay systems &amp; motor control (CW/CCW)</li>
+<li style="padding: 12px 0">MQTT / MQTT TLS · ThingsBoard · BLE / iBeacon · I&sup2;C · UART · SPI</li>
+</ul>
 </div>
-
-<div id="assault" class="w3-container w3-animate-zoom Weapon" style="display:none">
-<h1 class="w3-text-white">AUG-A3</h1>
-<img src="aug.jpg">
-<p class="w3-text-white">Steyr AUG adalah rangkaian senapan yang pertama kali diperkenalkan pada tahun 1977 oleh perusahaan senjata Austria Steyr Mannlicher. AUG adalah singkatan dari Armee Universal Gewehr, yang berarti "Senapan Tentara Universal". Nama Steyr AUG sendiri lebih sering digunakan untuk menyebut versi yang spesifik, yaitu varian senapan serbu bullpup kaliber 5.56 mm NATO, dengan warna hijau dan teleskop yang terintegrasi. Senapan ini sebenarnya telah memiliki banyak varian, mulai dari senapan submesin, senapan penembak jitu, sampai senapan mesin ringan. Senapan ini telah diadopsi menjadi senapan utama angkatan bersenjata Austria, Australia, Selandia Baru, Luxembourg, Irlandia, dan juga sempat dipakai oleh Malaysia. Satuan Polisi Khusus Indonesia yaitu Gegana Brimob Polri juga menggunakan Steyr AUG.</p>
+<div style="flex: 1 1 420px; background: #FFFFFF; padding: 36px; border-top: 4px solid #1F4D3A">
+<h3 style="margin: 0 0 6px; font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600">Software, Mobile &amp; Systems</h3>
+<p style="margin: 0 0 20px; font-size: 15px; color: #4A5A52">Application development, APIs and system analysis</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0; font-size: 16px">
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">Flutter (Dart) · Provider State Management · mobile_scanner</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">Certified System Analyst (CSA) — BNSP (SRS/SyRS, UML, ERD, DFD)</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">Python (Django, Flask, Pandas, Matplotlib) · PHP (Laravel)</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">M2M test tooling: OTA / SMS-PP · APDU · TLV parsing · LDAP · Docker &amp; Jenkins</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #E1E7E3">Data: PostgreSQL, MySQL, MongoDB · Redis · REST APIs · Dash dashboards</li>
+<li style="padding: 12px 0">Git &amp; GitHub · Linux / Raspberry Pi OS · Figma &amp; Design Systems · VS Code · Postman</li>
+</ul>
 </div>
-
-<div id="smg" class="w3-container w3-animate-bottom Weapon" style="display:none">
-<h1 class="w3-text-white">P90</h1>
-<img src="P90.jpg">
-<p class="w3-text-white">FN P90 adalah jenis senjata Personal Defense Weapon, senjata ini dibuat oleh perusahaan senjata asal Belgia yaitu FN Herstal.[3] Pembuatannya merupakan respon FN atas permintaan negara-negara NATO untuk penggantian senjata sebelumnya yang menggunakan peluru 9 x 19 mm Parabellum dan tidak mampu menembus rompi anti peluru.[4] Penggunaan senjata ini lebih condong untuk kepentingan defensive, biasanya dipakai oleh personel militer garis belakang seperti kru altileri, personel perbekalan, kru senjata berawak seperti tank, pesawat, maupun helikopter, operasi pengamanan VIP[8][9]
-
-FN P90 mempunyai desain bullpup dengan inovasi baru dari FN yaitu posisi magazen yang berada di bagian atas senjata dan penggunaan peluru 5,7 x 28 mm.[8] Senjata ini dikembangkan sekitar antara tahun 1986 dan 1990.[1][10] Pada akhir tahun 1999 varian dari senjata ini diperkenalkan dengan nama P90 TR (Triple Rail), varian ini dilengkapi dengan tiga rail untuk penempatan aksesoris.[11] Pada tahun 2005 versi untuk olahraga menembak dari senjata ini diperkenalkan dengan nama PS90, dengan kemampuan semi otomatis dan laras yang lebih panjang dari P90.[12]
-
-Senjata ini menggunakan sistem blowback, closed bolt,[2] dengan bahan polimer pada sebagian besar bagiannya,[12][13] kecuali pada sistem mekanisme, hal ini dilakukan agar senjata mempunyai bobot yang ringan dengan ongkos produksi yang lebih murah.[13]</p>
 </div>
-
-<div id="sniper" class="w3-container Animasi w3-animate-right Weapon" style="display:none">
-<h1 class="w3-text-white">Cheytac M200</h1>
-<img src="Cheytac.jpg">
-<p class="w3-text-white">CheyTac Intervention (M200 Intervention .408) adalah senapan runduk bolt-action buatan perusahaan produsen senapan CheyTac LLC asal Amerika Serikat, dibuat berdasarkan senapan runduk EDM Arms Windrunner. Senapan ini dibuat untuk melumpuhkan "sasaran empuk" (soft target, sasaran kendaraan, tempat tinggal, manusia) menggunakan amunisi peluru .408 Chey Tac atau .375 Chey Tac kedalam magazen kapasitas isi tujuh butir. Jangkauan maksimal adalah 2.300 meter atau setara dengan 2.500 yard.</p>
+</section>
+<section id="work" style="background: #1F4D3A; color: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 88px 24px">
+<h2 style="margin: 0 0 16px; font-family: 'Fraunces', serif; font-size: 48px; font-weight: 600">The journey so far</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin: 0 0 10px; font-size: 15px; color: #CFE0D7">
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border: 2px solid #CFE0D7; border-radius: 3px"></span>Employment</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; background: #F2C48D; border-radius: 3px"></span>Freelance, alongside the day job</span>
 </div>
-
-<div id="shotgun" class="w3-container Animasi w3-animate-left Weapon" style="display:none">
-<h1 class="w3-text-white">M1887</h1>
-<img src="M1887.jpg">
-<p class="w3-text-white">Winchester Model 1887 juga dikenal dengan nama M1887 adalah senapan patah (shotgun) lever-action hasil desain John Browning, seorang perancang senjata api asal Amerika Serikat dan diproduksi oleh Winchester Repeating Arms Company pada akhir abad ke-19 dan awal abad ke-20.
-
-Senjata ini dikenal karena Reloadnya yang bisa di putar. gaya reload putar ini pernah ditampilkan pertama kali oleh Arnold Schwarzenegger a.k.a Terminator T800 dalam film Terminator 2 Judgment day. hanya saja senjata yang digunakan oleh T800 ini ukurannnya lebih kecil sehingga lebih memudahkan untuk di putar.</p>
+<p style="margin: 0 0 36px; font-size: 15px; color: #9FBFAE">Each role opens into the full detail — the same depth as my LinkedIn, without the scroll.</p>
+<article style="display: flex; flex-wrap: wrap; gap: 24px 48px; padding: 40px 0; border-top: 1px solid #4F7A66">
+<div style="flex: 1 1 220px">
+<div style="font-family: 'Fraunces', serif; font-size: 64px; font-weight: 800; line-height: 1; color: #F2C48D">2025</div>
+<p style="margin: 8px 0 0; font-size: 15px; color: #CFE0D7">Aug 2025 – Jan 2026</p>
+<p style="margin: 12px 0 0; display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #CFE0D7; border: 2px solid #4F7A66; padding: 4px 11px; border-radius: 999px">INTERNSHIP</p>
 </div>
-
-<div id="knife" class="w3-container Animasi w3-animate-top Weapon" style="display:none">
-<h1 class="w3-text-white">MINI AXE</h1>
-<img src="mini.jfif">
-<p class="w3-text-white">Mini Axe adalah jenis kapak satu tangan yang digunakan oleh banyak masyarakat adat dan bangsa Amerika Utara . Ini secara tradisional menyerupai kapak dengan poros lurus. [1] [2] Pada masa pra-kolonial kepala terbuat dari batu, tulang, atau tanduk, dan pemukim Eropa kemudian memperkenalkan kepala dari besi dan baja. Istilah ini masuk ke dalam bahasa Inggris pada abad ke-17 sebagai adaptasi dari kata Powhatan ( Virginia Algonquian ).
-
-Mini Axe adalah alat serba guna yang digunakan oleh penduduk asli Amerika dan kemudian kolonial Eropa yang berdagang dengan mereka, dan sering digunakan sebagai senjata jarak dekat. Kepala tomahawk logam awalnya didasarkan pada kapak kapal Angkatan Laut Kerajaan (kapak tangan ringan yang dirancang untuk memotong jaring kapal saat menaiki kapal musuh) dan digunakan sebagai barang dagangan dengan penduduk asli Amerika untuk makanan dan perbekalan lainnya.</p>
+<div style="flex: 999 1 560px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #F2C48D">CHAPTER 3 · ENTERPRISE MOBILE DEVELOPMENT</p>
+<h3 style="margin: 8px 0 4px; font-family: 'Fraunces', serif; font-size: 34px; font-weight: 600">Leapfactor – PT Lattice Teknologi Mandiri</h3>
+<p style="margin: 0 0 20px; font-size: 17px; color: #E3EEE8">Frontend Mobile Developer (Kerja Praktek / Intern) · Bandung, Indonesia</p>
+<p style="margin: 0 0 18px; font-size: 18px; line-height: 1.65">Developed the enterprise application <b>Arjuna Mobile</b> using Flutter (Dart). Focused on building clean modular architecture, reactive state management, and field-ready inventory tracking.</p>
+<ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.7; display: flex; flex-direction: column; gap: 8px; color: #E3EEE8">
+<li>Built robust mobile interfaces and business flows following high-standard UI/UX guidelines and responsive layout principles.</li>
+<li>Implemented Provider state management architecture to handle authentication lifecycles, nested navigation, and item inventory mutations.</li>
+<li>Integrated real-time barcode and QR code scanning with the <code style="color:#F2C48D">mobile_scanner</code> library for fast on-site item verification.</li>
+<li>Connected the client application to backend servers via RESTful APIs for token-based authentication and live inventory data synchronization.</li>
+</ul>
+<details><summary><span class="chev">▶</span>Full detail — engineering stack &amp; workflow</summary><div class="detail"><div class="grp"><h4>Core Architecture &amp; State Management</h4><ul><li>Structured modular codebase adhering to Clean Architecture principles in Flutter/Dart, separating UI presentation, domain models, and data repositories.</li><li>Managed complex global and scoped state transitions (user session tokens, cached inventories, real-time status updates) using Provider.</li></ul></div><div class="grp"><h4>Hardware Integration &amp; REST APIs</h4><ul><li>Implemented native camera hardware integration for instantaneous optical barcode and QR recognition with autofocus optimization.</li><li>Handled asynchronous network payloads, HTTP interceptors, error handling strategies, and offline-resilient data flows.</li></ul></div><div class="grp"><h4>Development Process</h4><ul><li>Executed within the Waterfall software development lifecycle, conducting systematic requirement reviews, device compatibility tests across diverse Android screen densities, and rigorous bug fixes.</li></ul></div></div></details>
 </div>
-
-<div id="Bomb" class="w3-container w3-animate-zoom Weapon" style="display:none">
-<h1 class="w3-text-white">K-413</h1>
-<img src="1.jpg">
-<p class="w3-text-white">Granat adalah senjata peledak yang biasanya dilemparkan dengan tangan (disebut juga granat tangan ), tetapi juga dapat merujuk ke selongsong peluru ( proyektil peledak ) yang ditembakkan dari moncong senapan (sebagai granat senapan ) atau peluncur granat . Granat tangan modern umumnya terdiri dari bahan peledak ("pengisi"), mekanisme detonator , penyerang internal untuk memicu detonator, dan tuas pengaman yang diamankan dengan cotter pin .. Pengguna melepas peniti sebelum melempar, dan begitu granat meninggalkan tangan, tuas pengaman dilepaskan, memungkinkan penyerang untuk memicu primer yang menyalakan sumbu (terkadang disebut elemen penundaan), yang membakar ke detonator dan meledakkan granat. muatan utama.</p>
+</article>
+<article style="display: flex; flex-wrap: wrap; gap: 24px 48px; margin: 32px 0; padding: 36px 36px 40px; background: #1A4232; border-left: 6px solid #F2C48D; border-radius: 4px">
+<div style="flex: 1 1 200px">
+<div style="font-family: 'Fraunces', serif; font-size: 64px; font-weight: 800; line-height: 1; color: #F2C48D">2023</div>
+<p style="margin: 8px 0 0; font-size: 15px; color: #CFE0D7">Jan 2023 – Sep 2025</p>
+<p style="margin: 12px 0 0; display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #1F4D3A; background: #F2C48D; padding: 5px 12px; border-radius: 999px">CONTRACT</p>
 </div>
-
-<div id="handgun" class="w3-container w3-animate-bottom Weapon" style="display:none">
-<h1 class="w3-text-white">COLT PYTHON</h1>
-<img src="c.jpg">
-<p class="w3-text-white">Colt Python adalah revolver kaliber .357 Magnum yang diproduksi oleh Colt's Manufacturing Company of Hartford , Connecticut. [1] Ini pertama kali diperkenalkan pada tahun 1955, tahun yang sama dengan Smith & Wesson's M29 .44 Magnum. Colt Python ditujukan untuk segmen pasar revolver premium. Beberapa kolektor dan penulis senjata api seperti Jeff Cooper , Ian V. Hogg , Chuck Hawks, Leroy Thompson, Scott Wolber, Renee Smeets dan Martin Dougherty menggambarkan Python sebagai "revolver produksi terbaik yang pernah dibuat". [1] [2] [3] [4] [5][6] [7]
-
-Pada tahun 2020, Colt memperkenalkan kembali Python dalam konfigurasi 4,25″ dan 6″ barel, diikuti dengan versi 3″ barel pada tahun 2022. [8] Python yang diperkenalkan kembali telah direvisi dan diperkuat secara teknis dibandingkan dengan revolver aslinya.</p>
+<div style="flex: 999 1 560px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #F2C48D">CHAPTER 2 · INDUSTRIAL IOT &amp; SMART AGRICULTURE</p>
+<h3 style="margin: 8px 0 4px; font-family: 'Fraunces', serif; font-size: 34px; font-weight: 600">Smart Greenhouse Kementerian Pertanian (Team Aligness)</h3>
+<p style="margin: 0 0 20px; font-size: 17px; color: #E3EEE8">IoT &amp; Hardware Engineer (Contract / Project-Based) · Subang &amp; Sumedang</p>
+<p style="margin: 0 0 18px; font-size: 18px; line-height: 1.65">Architected and deployed precision agriculture IoT systems across multiple greenhouse locations. Engineered telemetry from electrical panel wiring up to edge gateways and cloud dashboards.</p>
+<ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.7; display: flex; flex-direction: column; gap: 8px; color: #E3EEE8">
+<li>Designed end-to-end telemetry topologies incorporating ESP32 sensor nodes, Raspberry Pi edge gateways, and ThingsBoard IoT Cloud.</li>
+<li>Engineered industrial electrical control panels: dual-direction motor wiring (CW/CCW), dual limit switches, relay matrices, PLN mains input, UPS fail-over, and 12V/5V DC regulation.</li>
+<li>Developed Python edge logging pipelines on Raspberry Pi for automated sensor acquisition, local storage, and reliable MQTT/FTP uplink.</li>
+<li>Programmed ESP32 sensor nodes in C++ (PlatformIO) for environmental monitoring (LTR390 UV intensity, temperature, humidity) and automated relay actuation.</li>
+</ul>
+<details><summary><span class="chev">▶</span>Full detail — hardware schematics &amp; edge topology</summary><div class="detail"><div class="grp"><h4>Panel Engineering &amp; Power Architecture</h4><ul><li>Drafted comprehensive wiring schematics for high-current motor starters and fail-safe interlocks to protect motorized ventilation and shading netting.</li><li>Configured redundant power distribution paths ensuring uninterrupted edge computing during rural power grid fluctuations.</li></ul></div><div class="grp"><h4>Sensor Firmware &amp; Telemetry</h4><ul><li>Implemented custom binary communication protocols between sensor nodes and master controllers over industrial serial links.</li><li>Calibrated optical sensor curves and integrated digital temperature/humidity arrays with dynamic polling intervals.</li></ul></div></div></details>
 </div>
-
+</article>
+<article style="display: flex; flex-wrap: wrap; gap: 24px 48px; padding: 40px 0; border-top: 1px solid #4F7A66">
+<div style="flex: 1 1 220px">
+<div style="font-family: 'Fraunces', serif; font-size: 64px; font-weight: 800; line-height: 1; color: #F2C48D">2024</div>
+<p style="margin: 8px 0 0; font-size: 15px; color: #CFE0D7">2024 – Present</p>
+<p style="margin: 12px 0 0; display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #CFE0D7; border: 2px solid #4F7A66; padding: 4px 11px; border-radius: 999px">CONTRACTOR</p>
+</div>
+<div style="flex: 999 1 560px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #F2C48D">CHAPTER 1 · PRODUCT INTERACTION &amp; UI/UX</p>
+<h3 style="margin: 8px 0 4px; font-family: 'Fraunces', serif; font-size: 34px; font-weight: 600">Projects.co.id</h3>
+<p style="margin: 0 0 20px; font-size: 17px; color: #E3EEE8">UI/UX Designer &amp; Independent Contractor · Bandung, Indonesia</p>
+<p style="margin: 0 0 18px; font-size: 18px; line-height: 1.65">Designed digital interfaces and design systems for web and mobile client projects, including multipurpose tour booking and e-commerce platforms.</p>
+<ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.7; display: flex; flex-direction: column; gap: 8px; color: #E3EEE8">
+<li>Crafted intuitive wireframes, user flow architectures, and interactive high-fidelity (Hi-Fi) prototypes in Figma.</li>
+<li>Built modular Design Systems featuring scalable UI components, design tokens, typography scales, and responsive auto-layouts to accelerate front-end development.</li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+<section id="projects" style="max-width: 1160px; margin: 0 auto; padding: 88px 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 40px">
+<h2 style="margin: 0; font-family: 'Fraunces', serif; font-size: 48px; font-weight: 600; color: #1F4D3A">Featured Projects</h2>
+<a href="projects.html" style="font-size: 16px; font-weight: 600">All projects &amp; research →</a>
+</div>
+<article style="display: flex; flex-wrap: wrap; gap: 32px; background: #FFFFFF; color: #18221D; margin-bottom: 24px; border-left: 6px solid #A65A1B">
+<div style="flex: 1 1 380px; padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 14px">
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #A65A1B">FLAGSHIP · CAPSTONE PROJECT (S1 UNIKOM)</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 34px; font-weight: 600; line-height: 1.15">IoT Real-Time Motorcycle Fuel Consumption &amp; Telemetry</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #34423B">Engineered an end-to-end IoT telemetry system replacing imprecise analog fuel gauges on carbureted motorcycles with high-precision digital metric tracking (Liters &amp; km/L).</p>
+<ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6; color: #34423B; display: flex; flex-direction: column; gap: 6px">
+<li><b>Multi-Stage Noise Filtering:</b> Solved engine vibration and liquid sloshing interference using a 3-tier digital filter: 7-sample Median Filter, Exponential Moving Average (&alpha; = 0.1), and 0.03 L Hysteresis.</li>
+<li><b>High-Resolution Sensing:</b> Interfaced OEM tank float sensor via 16-bit external ADC (ADS1115) with linear interpolation calibration, alongside NEO-6M GPS calculating Haversine distance.</li>
+<li><b>Secure Cloud Ingestion:</b> Published live telemetry at 1 Hz over MQTT TLS into a Django (Python) backend and PostgreSQL time-series database.</li>
+</ul>
+<span style="font-size: 14px; color: #4A5A52; margin-top: 4px">ESP32 · C++ PlatformIO · ADS1115 · Median Filter &amp; EMA · MQTT TLS · Django · PostgreSQL</span>
+<a href="projects/motorcycle-fuel-telemetry/" style="align-self:flex-start;margin-top:8px;font-weight:600;font-size:15px;color:#1F4D3A;border-bottom:2px solid #1F4D3A;padding-bottom:3px;text-decoration:none">Read the capstone write-up →</a>
+</div>
+<div style="flex: 1 1 340px; background: #E9EEEB; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 32px; border-left: 1px solid #DCE4DF">
+<figure style="margin: 0">
+<img alt="System architecture: resistive float arm feeding a 16-bit ADS1115 ADC to the ESP32, with NEO-6M GPS and a 5 V power frontend, then the three-stage filter, MQTT over TLS, and a Django plus PostgreSQL backend." loading="lazy" decoding="async" width="880" height="566" src="projects/motorcycle-fuel-telemetry/fuel-1-architecture.svg" style="display:block;width:100%;height:auto;border:1px solid #DCE4DF">
+<figcaption style="margin-top:8px;font-size:13px;line-height:1.5;color:#4A5A52">Sensing, filtering and payload assembly all run on the ESP32.</figcaption>
+</figure>
+<figure style="margin: 0">
+<img alt="Three plots of the same 240-sample fuel signal: raw with impulse spikes, after a 7-sample median filter, and after EMA plus hysteresis smoothing." loading="lazy" decoding="async" width="880" height="292" src="projects/motorcycle-fuel-telemetry/fuel-2-filter.svg" style="display:block;width:100%;height:auto;border:1px solid #DCE4DF">
+<figcaption style="margin-top:8px;font-size:13px;line-height:1.5;color:#4A5A52">The same window through each filter stage — the slope is real fuel burn, the rest is noise.</figcaption>
+</figure>
+</div>
+</article>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 24px">
+<a href="projects/smart-greenhouse/" style="background: #FFFFFF; padding: 28px; text-decoration: none; color: #18221D; display: flex; flex-direction: column; gap: 12px">
+<div style="aspect-ratio: 16 / 9; margin: -28px -28px 10px; background: #DCE4DF; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; position: relative; min-width: 0"><img alt="Greenhouse control panel installed on site" loading="lazy" src="projects/smart-greenhouse/image-8.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block"/></div>
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #A65A1B">IOT &amp; INDUSTRIAL HARDWARE</span>
+<span style="font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600">Smart Greenhouse Control Panel</span>
+<span style="font-size: 15px; line-height: 1.6; color: #34423B">ESP32/FreeRTOS control panel, motor CW/CCW wiring, Raspberry Pi edge gateway and ThingsBoard cloud for 5 government greenhouse sites.</span>
+<span style="font-size: 13px; color: #4A5A52">ESP32 · FreeRTOS · Raspberry Pi · ThingsBoard</span>
+<span style="align-self:flex-start;margin-top:auto;font-weight:600;font-size:15px;color:#1F4D3A;border-bottom:2px solid #1F4D3A;padding-bottom:3px">Read the write-up →</span></a>
+<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #1F4D3A">MOBILE APP · INTERNSHIP</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600">Arjuna Mobile — PT Lattice</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #34423B">Enterprise inventory tracking application built with Flutter &amp; Dart. Features Provider state architecture, live camera barcode/QR scanner (<code style="color:#A65A1B">mobile_scanner</code>), and RESTful API synchronization.</p>
+<p style="margin: 0; font-size: 13px; color: #4A5A52">Flutter · Dart · Provider · RESTful API · Android</p>
+<a href="projects/arjuna-mobile/" style="align-self:flex-start;margin-top:auto;font-weight:600;font-size:15px;color:#1F4D3A;border-bottom:2px solid #1F4D3A;padding-bottom:3px;text-decoration:none">Read the write-up →</a>
+</article>
+<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #1F4D3A">WEB PLATFORM · SYSTEM ANALYSIS</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600">CineStream — Video Streaming Platform</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #34423B">Led a 6-person team as Project Manager and System Analyst. Formulated comprehensive SRS/SKPL documentation, full UML diagrams, and built a PHP/Laravel web platform aggregating public movie catalog APIs.</p>
+<p style="margin: 0; font-size: 13px; color: #4A5A52">PHP / Laravel · UML Modeling · SRS · REST APIs · MySQL</p>
+</article>
+<a href="projects/flood-tank-monitor/" style="background: #FFFFFF; padding: 28px; text-decoration: none; color: #18221D; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #A65A1B">EMBEDDED UI/UX · TEAM PROJECT</span>
+<span style="font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600">Flood &amp; Water Tank Panel</span>
+<span style="font-size: 15px; line-height: 1.6; color: #34423B">The interface layer of a 7-inch wall panel: two oversized buttons instead of a nav bar, status as word + colour + icon, and a pump switch readable from across the room — designed for two operators who will never open an app.</span>
+<span style="font-size: 13px; color: #4A5A52">UI/UX Design · Information Architecture · LVGL · Figma</span>
+<span style="align-self:flex-start;margin-top:auto;font-weight:600;font-size:15px;color:#1F4D3A;border-bottom:2px solid #1F4D3A;padding-bottom:3px">Read the design case study →</span></a>
+</div>
+</section>
+<section id="contact" style="background: #1F4D3A; color: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 96px 24px 56px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px">
+<p style="margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 0.1em; color: #F2C48D">CONTACT</p>
+<h2 style="margin: 0; font-family: 'Fraunces', serif; font-size: clamp(40px, 5.5vw, 72px); line-height: 1.02; font-weight: 600">Could it be on <i style="font-weight: 400; color: #F2C48D">your</i> team?</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #E3EEE8">Open to IoT, firmware, embedded systems, mobile application (Flutter), and system analyst roles. Bandung-based, open to on-site, hybrid, or remote positions.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 16px">
+<a href="mailto:adhilmy159@gmail.com" style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #2A5D47; border: 1px solid #4F7A66; color: #FFFFFF; text-decoration: none; min-width: 0">
+<span style="width: 56px; height: 56px; border-radius: 28px; background: #F2C48D; color: #18221D; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="26"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 6-10 7L2 6"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px; min-width: 0"><span style="font-size: 14px; color: #CFE0D7">Email</span><span style="font-size: 18px; font-weight: 600; overflow-wrap: anywhere">adhilmy159@gmail.com</span></span>
+</a>
+<a href="https://www.linkedin.com/in/hilmy-abdurrahman-darmawan-69b170362" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #2A5D47; border: 1px solid #4F7A66; color: #FFFFFF; text-decoration: none">
+<span style="width: 56px; height: 56px; border-radius: 28px; background: #F2C48D; color: #18221D; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="26"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; color: #CFE0D7">LinkedIn</span><span style="font-size: 18px; font-weight: 600">Hilmy Abdurrahman Darmawan</span></span>
+</a>
+<div style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #2A5D47; border: 1px solid #4F7A66; color: #FFFFFF">
+<span style="width: 56px; height: 56px; border-radius: 28px; background: #F2C48D; color: #18221D; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="26"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" x2="12" y1="18" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; color: #CFE0D7">Curriculum Vitae</span><a href="assets/CV_Hilmy_Abdurrahman_Darmawan.pdf" download style="font-size: 18px; font-weight: 600; color: #FFFFFF; text-decoration: none">Download CV (EN)</a><a href="assets/CV_Hilmy_Abdurrahman_Darmawan_ID.pdf" download style="font-size: 13px; color: #A4D4BC">versi Indonesia (ID)</a></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #2A5D47; border: 1px solid #4F7A66; color: #FFFFFF">
+<span style="width: 56px; height: 56px; border-radius: 28px; background: #F2C48D; color: #18221D; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="26"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; color: #CFE0D7">BNSP Certified</span><span style="font-size: 17px; font-weight: 600">System Analyst (CSA)</span><span style="font-size: 12px; color: #A4D4BC">No: 62029 2511 6 0038769 2026</span></span>
+</div>
+<a href="tel:+6283891899401" style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #2A5D47; border: 1px solid #4F7A66; color: #FFFFFF; text-decoration: none">
+<span style="width: 56px; height: 56px; border-radius: 28px; background: #F2C48D; color: #18221D; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="26"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; color: #CFE0D7">Phone &amp; WhatsApp</span><span style="font-size: 18px; font-weight: 600">+62 838-9189-9401</span></span>
+</a>
+<a href="https://github.com/hilmy112233" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #2A5D47; border: 1px solid #4F7A66; color: #FFFFFF; text-decoration: none">
+<span style="width: 56px; height: 56px; border-radius: 28px; background: #F2C48D; color: #18221D; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="26"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px; color: #CFE0D7">GitHub</span><span style="font-size: 18px; font-weight: 600">github.com/hilmy112233</span></span>
+</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; border-top: 1px solid #4F7A66; font-size: 14px; color: #CFE0D7">
+<span>© 2026 Hilmy Abdurrahman Darmawan · Bandung, Indonesia</span>
+<a href="#top" style="color: #FFFFFF">Back to top ↑</a>
+</div>
+</div>
+</section>
+</div><!-- /.page -->
+</div>
 <script>
-function openWeapon(namaWeapon) {
-var i;
-var x = document.getElementsByClassName("Weapon");
-for (i = 0; i < x.length; i++) {
-x[i].style.display = "none";
-}
-document.getElementById(namaWeapon).style.display = "block";
-}
+(function () {
+  var links = [].slice.call(document.querySelectorAll('#railnav a'));
+  var map = {};
+  var targets = links.map(function (a) {
+    var el = document.querySelector(a.getAttribute('href'));
+    if (el) map[el.id] = a;
+    return el;
+  }).filter(Boolean);
+  if (!targets.length || !('IntersectionObserver' in window)) return;
+  var seen = {};
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { seen[e.target.id] = e.intersectionRatio; });
+    var best = null, top = 0;
+    Object.keys(seen).forEach(function (id) { if (seen[id] > top) { top = seen[id]; best = id; } });
+    links.forEach(function (a) { a.classList.remove('on'); });
+    if (best && map[best]) map[best].classList.add('on');
+  }, { threshold: [0, 0.15, 0.35, 0.6, 0.85], rootMargin: '-10% 0px -45% 0px' });
+  targets.forEach(function (t) { obs.observe(t); });
+})();
 </script>
-
 </body>
 </html>

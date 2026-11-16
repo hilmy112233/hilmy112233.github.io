@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filtering the Slosh: High-Precision Motorcycle Fuel Telemetry on ESP32 — Hilmy Abdurrahman Darmawan</title>
+<meta name="description" content="Engineering an end-to-end IoT telemetry system replacing imprecise analog fuel gauges on carbureted motorcycles with a 3-tier digital filtering pipeline, 16-bit ADC, GPS distance tracking, and MQTT TLS telemetry to Django & PostgreSQL.">
+<meta property="og:title" content="Filtering the Slosh: High-Precision Motorcycle Fuel Telemetry on ESP32 — Hilmy Abdurrahman Darmawan">
+<meta property="og:description" content="Engineering an end-to-end IoT telemetry system replacing imprecise analog fuel gauges on carbureted motorcycles with a 3-tier digital filtering pipeline, 16-bit ADC, GPS distance tracking, and MQTT TLS telemetry to Django & PostgreSQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"><style>
+:root{--green:#1F4D3A;--rust:#A65A1B;--cream:#F3F5F4;--ink:#18221D;--soft:#34423B;--line:#DCE4DF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;font-size:18px;line-height:1.75}
+img{max-width:100%;display:block}
+a{color:var(--green)} a:hover{color:var(--rust)}
+a:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.bar{position:sticky;top:0;z-index:50;background:rgba(243,245,244,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.site{max-width:1160px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header.site nav{display:flex;flex-wrap:wrap;gap:18px;font-size:15px;font-weight:500}
+header.site .nm{font-family:'Fraunces',serif;font-weight:800;font-size:22px;color:var(--green);text-decoration:none}
+header.site a.back{font-size:15px;font-weight:500;text-decoration:none}
+.masthead{max-width:820px;margin:0 auto;padding:40px 24px 8px}
+.eyebrow{margin:0 0 18px;font-size:14px;font-weight:600;color:var(--rust);letter-spacing:.1em;text-transform:uppercase}
+h1.title{margin:0;font-family:'Fraunces',serif;font-size:clamp(36px,5.4vw,64px);line-height:1.04;font-weight:600;letter-spacing:-.02em;color:var(--green)}
+.deck{margin:20px 0 0;font-size:21px;line-height:1.55;color:var(--soft)}
+.summary{max-width:820px;margin:34px auto 0;padding:0 24px}
+.summary .box{background:#fff;border-left:4px solid var(--rust);padding:22px 26px;display:grid;gap:14px}
+.summary b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--rust);margin-bottom:3px}
+.summary p{margin:0;font-size:17px;line-height:1.6}
+article{max-width:820px;margin:0 auto;padding:10px 24px 80px}
+article h2{font-family:'Fraunces',serif;font-size:clamp(26px,3.3vw,36px);line-height:1.2;font-weight:600;color:var(--green);margin:52px 0 14px;letter-spacing:-.01em}
+article h3{font-family:'Fraunces',serif;font-size:23px;font-weight:600;margin:34px 0 10px;color:var(--ink)}
+article p{margin:0 0 20px}
+article ul,article ol{margin:0 0 20px;padding-left:24px}
+article li{margin-bottom:9px}
+article blockquote{margin:28px 0;padding:4px 0 4px 22px;border-left:3px solid var(--line);color:var(--soft);font-family:'Fraunces',serif;font-size:21px;line-height:1.5}
+article code{background:#e9ede9;padding:2px 6px;border-radius:4px;font-size:.88em}
+article pre{background:#fff;border:1px solid var(--line);padding:16px;border-radius:4px;overflow:auto}
+article pre code{background:none;padding:0}
+article hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+article table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:16px;background:#fff}
+article th,article td{border:1px solid var(--line);padding:10px 13px;text-align:left;vertical-align:top}
+article th{background:#eef2ef;font-weight:600}
+figure{margin:34px 0}
+figure img{width:100%;height:auto;background:#fff;border:1px solid var(--line)}
+figcaption{margin-top:10px;font-size:15px;color:var(--soft)}
+.tags{max-width:820px;margin:0 auto;padding:0 24px 50px;color:var(--soft);font-size:15px}
+footer.site{background:var(--green);color:#fff;padding:54px 24px}
+footer.site .in{max-width:820px;margin:0 auto;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:center}
+footer.site a{color:#fff}
+footer.site .cta{background:#fff;color:var(--green);padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:600}
+@media(max-width:640px){body{font-size:17px}}
+</style><meta property="og:type" content="website">
+<meta property="og:url" content="https://hilmy112233.github.io/projects/motorcycle-fuel-telemetry/">
+<meta property="og:site_name" content="Hilmy Abdurrahman Darmawan">
+<meta property="og:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hilmy Abdurrahman Darmawan — IoT and embedded engineer, mobile developer, certified system analyst">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Filtering the Slosh: High-Precision Motorcycle Fuel Telemetry on ESP32 — Hilmy Abdurrahman Darmawan">
+<meta name="twitter:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/og-card.png">
+</head><body>
+<div class="bar"><header class="site"><a class="nm" href="../../index.html">Hilmy Abdurrahman Darmawan</a>
+<nav><a href="../../projects.html">← All projects</a><a href="../../index.html#work">Journey</a><a href="../../index.html#contact">Contact</a><a href="../../assets/CV_Hilmy_Abdurrahman_Darmawan.pdf" download>CV</a></nav></header></div>
+<div class="masthead">
+<p class="eyebrow">Capstone Project · S1 Teknik Informatika UNIKOM</p>
+<h1 class="title">Filtering the Slosh: High-Precision Motorcycle Fuel Telemetry on ESP32</h1>
+<p class="deck">Replacing imprecise analog float gauges on carbureted motorcycles with a multi-stage digital filtering pipeline, 16-bit external ADC, GPS distance tracking, and MQTT TLS cloud telemetry.</p>
+</div>
+<div class="summary"><div class="box">
+<div><b>Problem</b><p>Carbureted motorcycles rely on crude analog resistive float gauges. Engine vibrations and fluid sloshing during urban riding cause needle flutter and reading errors, making accurate consumption (km/L) and exact fuel volume impossible to know.</p></div>
+<div><b>What I built</b><p>An end-to-end telemetry system powered by an ESP32 microcontroller, 16-bit ADC (ADS1115), and NEO-6M GPS. Designed a 3-tier digital filtering pipeline (7-sample Median Filter + Exponential Moving Average + Hysteresis) streaming at 1 Hz via MQTT TLS to a Django & PostgreSQL analytics dashboard.</p></div>
+<div><b>Result</b><p>Stable, accurate fuel tracking down to decimal liters under real riding conditions. Completely eliminated sloshing noise spikes and produced verifiable fuel economy metrics (km/L) across urban commute test routes.</p></div>
+</div></div>
+<article>
+<hr />
+<h2>Background</h2>
+<p>Millions of daily commuters in Indonesia rely on carbureted motorcycles. Unlike modern electronic fuel injection (EFI) engines equipped with Engine Control Units (ECUs) and manifold pressure sensors, older motorcycles rely on a mechanical potentiometer connected to a copper float arm inside the petrol tank.</p>
+<p>This setup has two notorious flaws:</p>
+<ol>
+<li><strong>Analog Imprecision:</strong> The dashboard gauge only indicates fuel level with a coarse bimetallic needle or segmented LED bar, offering no quantitative volume in liters.</li>
+<li><strong>Fluid Dynamics & Sloshing:</strong> Every throttle twist, brake press, speed bump, and lean angle violently tosses fuel inside the tank. The float arm bobs erratically, and ignition vibration injects high-frequency electrical noise directly into the analog signal line.</li>
+</ol>
+<p>When I set out to build my undergraduate Capstone project at Universitas Komputer Indonesia (UNIKOM), my goal was clear: <strong>Can an affordable IoT system sit on a motorcycle, filter out mechanical and electrical disturbances, calculate real-time fuel efficiency (km/L), and publish authenticated telemetry securely to the cloud?</strong></p>
+
+<h2>My Role</h2>
+<ul>
+<li><strong>Hilmy Abdurrahman Darmawan</strong> — Full-Stack Hardware & Software Engineer (Solo Capstone Project)</li>
+<li><strong>Affiliation:</strong> Universitas Komputer Indonesia (UNIKOM), Program Studi Teknik Informatika (2025 – 2026)</li>
+</ul>
+<p>I engineered the entire pipeline from scratch: schematic design, voltage divider calibration, custom C++ firmware on PlatformIO, multi-stage signal processing algorithms, TLS cryptographic keys, Django backend architecture, and PostgreSQL time-series modeling.</p>
+
+<h2>Hardware Architecture & High-Resolution Sensing</h2>
+<p>The standard ESP32 integrated ADC is notoriously non-linear and suffers from significant internal electrical noise, especially when Wi-Fi and Bluetooth radios are transmitting. Relying on the ESP32's internal 12-bit ADC for a fluctuating 0–5V float arm sensor would yield unpredictable readings.</p>
+<p>To overcome this, I designed a dedicated signal acquisition frontend:</p>
+<figure>
+<img src="fuel-1-architecture.svg" alt="System architecture: resistive float arm feeding a 16-bit ADS1115 ADC over I2C to the ESP32, alongside a NEO-6M GPS and a 12.6-14.4 V to 5 V power frontend; then the three-stage filter, MQTT over TLS, and a Django plus PostgreSQL backend." width="880" height="566" loading="lazy" decoding="async">
+<figcaption>End-to-end signal path. Sensing, filtering and payload assembly all run on the ESP32 — only transport and storage leave the motorcycle.</figcaption>
+</figure>
+<ul>
+<li><strong>External 16-bit ADC (ADS1115):</strong> Communicates with the ESP32 over I²C. Configured with a programmable gain amplifier (PGA) to map the conditioned float voltage across 65,536 quantization steps, guaranteeing microvolt-level resolution.</li>
+<li><strong>NEO-6M GPS Module:</strong> Interfaced over hardware UART. Calculates real-time motorcycle velocity and computes accumulated geodesic distance using the <strong>Haversine Formula</strong> between successive GPS coordinate fixes.</li>
+<li><strong>Power Conditioning:</strong> Step-down DC-DC buck converter stepping motorcycle battery voltage (12.6V–14.4V charging state) down to a stable 5V rail with reverse polarity protection and filtering capacitors.</li>
+</ul>
+
+<h2>The 3-Tier Digital Filtering Algorithm</h2>
+<p>Raw float sensor data resembles chaotic waves. To extract the true liquid fuel volume without causing unacceptable lag, I formulated a sequential 3-tier software filter executing directly on the ESP32:</p>
+<figure>
+<img src="fuel-2-filter.svg" alt="Three line plots of the same 240-sample window: raw sensor output with impulse spikes over a slosh wave, then the same data after a 7-sample median filter with spikes removed, then after EMA and hysteresis smoothing showing a clean decline." width="880" height="292" loading="lazy" decoding="async">
+<figcaption>The same 240-sample window rendered through each stage. The downward slope is genuine fuel burn; everything riding on top of it is noise the filter has to remove without inventing lag.</figcaption>
+</figure>
+
+<h3>1. Median Filter (7-Sample Window)</h3>
+<p>Mechanical shock from potholes and ignition pulses produce high-amplitude, single-sample outlier spikes. A standard moving average would smear these spikes into the data. A 7-sample moving median filter effectively strips extreme statistical outliers while preserving true level transitions:</p>
+<pre><code>// Sort the window and select the middle value
+float median = sampleWindow[WINDOW_SIZE / 2];</code></pre>
+
+<h3>2. Exponential Moving Average (EMA, &alpha; = 0.1)</h3>
+<p>After impulsive spikes are removed, fluid sloshing produces periodic oscillatory waves as fuel sloshes back and forth inside the baffled tank. I implemented an EMA filter with a smoothing factor of &alpha; = 0.1:</p>
+<pre><code>filteredFuel = (&alpha; * currentSample) + ((1.0f - &alpha;) * previousFilteredFuel);</code></pre>
+<p>This provides heavy attenuation against sloshing waves while responding steadily when fuel is genuinely consumed over distance or rapidly added at a petrol station.</p>
+
+<h3>3. Hysteresis Band (&Delta; = 0.03 L)</h3>
+<p>To avoid "hunting" and phantom telemetry updates while idling at traffic lights, a deadband threshold of 0.03 Liters was enforced. Minor noise below this delta is suppressed from mutating the reported volume.</p>
+
+<h2>Secure Telemetry & Cloud Analytics</h2>
+<p>Telemetry packets are formatted as JSON payloads containing timestamp, latitude, longitude, speed, raw ADC voltage, filtered fuel level (L), trip distance (km), and real-time efficiency (km/L).</p>
+<ul>
+<li><strong>MQTT TLS (Port 8883):</strong> Security is paramount on connected vehicles. Telemetry packets are encrypted using TLS with X.509 certificate validation to ensure packets cannot be sniffed or spoofed over cellular networks.</li>
+<li><strong>Django & PostgreSQL Backend:</strong> A Python Django server acts as the central ingestion broker, storing historical time-series logs in PostgreSQL and rendering interactive journey metrics, fuel consumption charts, and refuel detection logs.</li>
+</ul>
+
+<h2>Results & Impact</h2>
+<p>The system was installed and road-tested across Bandung in dense traffic and highway conditions:</p>
+<ul>
+<li><strong>Zero Slosh Spikes:</strong> The 3-tier filter completely eliminated false drops during hard braking and acceleration.</li>
+<li><strong>Instant Refuel Detection:</strong> When the fuel cap was opened and petrol added, the filter recognized the rapid monotonic rise within 3 seconds and logged a verified refuel event.</li>
+<li><strong>Actionable Metrics:</strong> Successfully provided accurate km/L metrics, enabling the rider to observe immediate correlations between throttle aggressiveness and fuel expenditure.</li>
+</ul>
+</article>
+<div class="tags"><p>Tags: ESP32 · C++ PlatformIO · ADS1115 · Median Filter · EMA · MQTT TLS · Django · PostgreSQL · Capstone UNIKOM</p></div>
+<footer class="site"><div class="in">
+<div><b>Hilmy Abdurrahman Darmawan</b><p style="margin:4px 0 0;font-size:15px;color:#CFE0D7">IoT &amp; Embedded Engineer · Mobile Developer · Certified System Analyst</p></div>
+<a class="cta" href="mailto:adhilmy159@gmail.com">Contact me</a>
+</div></footer>
+</body></html>

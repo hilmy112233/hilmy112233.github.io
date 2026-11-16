@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Projects — Hilmy Abdurrahman Darmawan</title>
+<meta content="Hilmy Abdurrahman Darmawan — IoT Engineer, Mobile Developer (Flutter), and Certified System Analyst (BNSP). Five engineering builds: ESP32 fuel telemetry, a Smart Greenhouse control panel, a Flutter inventory app, a Laravel streaming platform, and an embedded UI/UX case study." name="description"/>
+<meta content="Projects — Hilmy Abdurrahman Darmawan" property="og:title"/>
+<meta content="Hilmy Abdurrahman Darmawan — IoT Engineer, Mobile Developer (Flutter), and Certified System Analyst (BNSP). Five engineering builds: ESP32 fuel telemetry, a Smart Greenhouse control panel, a Flutter inventory app, a Laravel streaming platform, and an embedded UI/UX case study." property="og:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0;background:#F3F5F4}
+a{color:#1F4D3A}a:hover{color:#A65A1B}
+
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+img{max-width:100%;display:block}
+.photo{width:100%;height:100%;object-fit:cover}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #A65A1B;outline-offset:2px}
+/* sticky top navigation — at the top, but it follows you down the page */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(243,245,244,.92);
+        backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #DCE4DF}
+.topbar .in{max-width:1160px;margin:0 auto;padding:13px 24px;display:flex;flex-wrap:wrap;
+            align-items:center;gap:8px 24px}
+.topbar .brand{text-decoration:none;margin-right:auto;display:flex;align-items:baseline;gap:10px;min-width:0}
+.topbar .nm{font-family:'Fraunces',serif;font-weight:800;font-size:21px;color:#1F4D3A;white-space:nowrap}
+.topbar .role{font-size:13px;color:#4A5A52;white-space:nowrap}
+.topbar nav{display:flex;flex-wrap:wrap;gap:2px}
+.topbar nav a{display:block;padding:7px 12px;border-radius:7px;border-bottom:2px solid transparent;
+              font-size:15px;font-weight:500;color:#34423B;text-decoration:none}
+.topbar nav a:hover{background:#E9EEEB;color:#1F4D3A}
+.topbar nav a.on{background:#E9EEEB;color:#1F4D3A;font-weight:600;border-bottom-color:#A65A1B}
+.topbar .cv{background:#1F4D3A;color:#fff;text-decoration:none;font-weight:600;font-size:14px;
+            padding:9px 16px;border-radius:999px;white-space:nowrap}
+section{scroll-margin-top:78px}
+@media (max-width:860px){
+  .topbar .in{padding:10px 16px;gap:6px 12px}
+  .topbar .role{display:none}
+  .topbar nav{order:3;flex-basis:100%;margin-top:2px}
+  .topbar nav a{padding:6px 9px;font-size:14px}
+  section{scroll-margin-top:104px}
+}
+/* card grid: keep the last card from sitting alone in a half-empty row */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));gap:24px}
+@media (min-width:1000px){
+  .cards>article:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 12px);justify-self:center}
+}</style>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hilmy112233.github.io/projects.html">
+<meta property="og:site_name" content="Hilmy Abdurrahman Darmawan">
+<meta property="og:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hilmy Abdurrahman Darmawan — IoT and embedded engineer, mobile developer, certified system analyst">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projects — Hilmy Abdurrahman Darmawan">
+<meta name="twitter:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/og-card.png">
+</head>
+<body>
+<div style="background: #F3F5F4; color: #18221D; font-family: 'Work Sans', sans-serif; min-height: 100vh">
+<header class="topbar"><div class="in">
+<a class="brand" href="index.html#top"><span class="nm">Hilmy Abdurrahman Darmawan</span><span class="role">IoT Engineer · Mobile Dev · Certified System Analyst</span></a>
+<nav id="railnav">
+<a href="index.html">← The story</a>
+<a href="#hardware">IoT &amp; Hardware · 2</a>
+<a href="#systems">Software, Mobile &amp; Systems · 3</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+<a class="cv" href="assets/CV_Hilmy_Abdurrahman_Darmawan.pdf" download>Download CV</a>
+</div></header>
+<div class="page">
+<section style="max-width: 1160px; margin: 0 auto; padding: 64px 24px 56px">
+<p style="margin: 0 0 20px; font-size: 15px; font-weight: 600; color: #A65A1B; letter-spacing: 0.1em">ALL PROJECTS</p>
+<h1 style="margin: 0; font-family: 'Fraunces', serif; font-size: clamp(48px, 6.5vw, 96px); line-height: 1; font-weight: 600; letter-spacing: -0.02em; color: #1F4D3A; max-width: 980px">Every project started with <i style="font-weight: 400; color: #A65A1B">something that didn't work.</i></h1>
+<p style="margin: 28px 0 0; font-size: 20px; line-height: 1.6; color: #34423B; max-width: 720px">Here are five engineering builds — the problem, what I built, and what changed. Four of them have a full write-up. Covering IoT &amp; industrial embedded systems, mobile application development with Flutter, system analysis, and an embedded interface design.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px">
+<a href="#hardware" style="background: #1F4D3A; color: #FFFFFF; padding: 13px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px">IoT &amp; Hardware · 2</a>
+<a href="#systems" style="border: 1.5px solid #A65A1B; color: #8A4A14; padding: 12px 21px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px">Software, Mobile &amp; Systems · 3</a>
+</div>
+</section>
+
+<!-- SECTION 1: IOT & HARDWARE -->
+<section id="hardware" style="background: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 80px 24px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #A65A1B">PART ONE</p>
+<h2 style="margin: 8px 0 40px; font-family: 'Fraunces', serif; font-size: 44px; font-weight: 600; color: #1F4D3A">In the field: IoT &amp; Embedded Hardware</h2>
+
+<!-- Smart Greenhouse Highlight -->
+<article style="display: flex; flex-wrap: wrap; background: #1F4D3A; color: #FFFFFF; margin-bottom: 24px">
+<div style="flex: 1 1 420px; min-height: 340px; background: #2E5E49; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; position: relative; min-width: 0"><img alt="The assembled greenhouse control panel" loading="lazy" src="projects/smart-greenhouse/image-6.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block"/></div>
+<div style="flex: 1 1 420px; padding: 40px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #F2C48D">FEATURED · CLIENT PROJECT · 2024</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 38px; font-weight: 600; line-height: 1.1">Smart Greenhouse Subang &amp; Sumedang</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6"><b style="color: #F2C48D">The problem.</b> Commercial fertigation controllers lacked APIs, manual mode switching required someone on-site to turn a knob, and fluctuating rural power caused system dropouts.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6"><b style="color: #F2C48D">What I built.</b> As project lead: an industrial electrical control panel with motor interlocks (CW/CCW), UPS fail-over, Raspberry Pi edge gateway with Python logging, and ESP32 sensor nodes (UV LTR390 &amp; CO2) streaming to ThingsBoard IoT Cloud.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6"><b style="color: #F2C48D">What changed.</b> Deployed across five sites. Four of them reverted to manual operation — the hardwired manual path is what kept them running, which is the lesson I'd carry into v2.</p>
+<p style="margin: 0; font-size: 14px; color: #CFE0D7">ESP32 · FreeRTOS · Raspberry Pi · ThingsBoard · Panel Kelistrikan Industri · Python</p>
+<a href="projects/smart-greenhouse/" style="align-self:flex-start;margin-top:6px;font-weight:600;font-size:15px;text-decoration:none;color:#FFFFFF;border-bottom:2px solid #F2C48D;padding-bottom:3px">Read the full write-up →</a>
+</div>
+</article>
+
+<!-- Motorcycle Fuel Telemetry Highlight -->
+<article style="display: flex; flex-wrap: wrap; background: #F3F5F4; border-left: 6px solid #A65A1B; padding: 36px; gap: 24px">
+<div style="flex: 999 1 500px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #A65A1B">FLAGSHIP · CAPSTONE S1 UNIKOM · 2025 – 2026</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 34px; font-weight: 600">IoT Motorcycle Fuel Consumption &amp; Telemetry</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #34423B"><b style="color: #A65A1B">The problem.</b> Carbureted motorcycles lacked precision fuel monitoring. Mechanical float sensors fluctuate wildly due to engine vibrations, potholes, and continuous fluid dynamic sloshing inside the tank.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #34423B"><b style="color: #1F4D3A">What I built.</b> ESP32 firmware with a 3-tier digital filter (7-sample Median Filter, Exponential Moving Average &alpha;=0.1, Hysteresis 0.03 L), 16-bit external ADC (ADS1115), NEO-6M GPS with Haversine distance tracking, and encrypted MQTT TLS uplink to Django &amp; PostgreSQL.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #34423B"><b style="color: #1F4D3A">What changed.</b> Extracted stable, accurate fuel volume (Liters) and real-time efficiency (km/L) without sloshing noise, validated across actual urban driving conditions in Bandung.</p>
+<p style="margin: 0; font-size: 14px; color: #4A5A52">ESP32 · C++ PlatformIO · ADS1115 · Median &amp; EMA Filter · MQTT TLS · Django · PostgreSQL</p>
+<a href="projects/motorcycle-fuel-telemetry/" style="align-self:flex-start;margin-top:6px;font-weight:600;font-size:15px;text-decoration:none;color:#1F4D3A;border-bottom:2px solid #1F4D3A;padding-bottom:3px">Read the capstone write-up →</a>
+</div>
+</article>
+
+</div>
+</section>
+
+<!-- SECTION 2: SOFTWARE, MOBILE & SYSTEMS -->
+<section id="systems" style="max-width: 1160px; margin: 0 auto; padding: 80px 24px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #1F4D3A">PART TWO</p>
+<h2 style="margin: 8px 0 12px; font-family: 'Fraunces', serif; font-size: 44px; font-weight: 600; color: #1F4D3A">Software, Mobile &amp; Systems</h2>
+<p style="margin: 0 0 40px; font-size: 16px; color: #4A5A52">A production mobile application, a system-analysis engagement, and an embedded interface design for a panel that lives on a wall.</p>
+<div class="cards">
+
+<article style="background: #FFFFFF; padding: 32px; display: flex; flex-direction: column; gap: 16px; border-left: 4px solid #1F4D3A">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #1F4D3A">MOBILE APP · INTERNSHIP</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600">Arjuna Mobile — PT Lattice</h3>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.6">
+<p style="margin: 0"><b style="color: #A65A1B">The problem.</b> Field warehouse personnel needed a fluid, responsive mobile client to track and verify physical items on-site, replacing manual paper records and slow manual lookups.</p>
+<p style="margin: 0"><b style="color: #1F4D3A">What I built.</b> Developed the frontend mobile app using Flutter (Dart) with Clean Architecture, Provider state management, high-speed camera barcode/QR scanning (<code style="color:#A65A1B">mobile_scanner</code>), and RESTful API token authentication.</p>
+<p style="margin: 0"><b style="color: #1F4D3A">What changed.</b> Sped up on-site inventory audit and mutation workflows with seamless performance across diverse Android screen densities.</p>
+</div>
+<p style="margin: 0; font-size: 14px; color: #4A5A52">Flutter · Dart · Provider · mobile_scanner · RESTful API · Android</p>
+<a href="projects/arjuna-mobile/" style="align-self:flex-start;margin-top:auto;font-weight:600;font-size:15px;color:#1F4D3A;border-bottom:2px solid #1F4D3A;padding-bottom:3px;text-decoration:none">Read the write-up →</a>
+</article>
+
+
+<article style="background: #FFFFFF; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #1F4D3A">WEB PLATFORM · SYSTEM ANALYSIS</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600">CineStream Video Platform</h3>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.6">
+<p style="margin: 0"><b style="color: #A65A1B">The problem.</b> Multi-member academic software projects frequently suffer from scope creep, ambiguous specifications, and inconsistent database schemas.</p>
+<p style="margin: 0"><b style="color: #1F4D3A">What I built.</b> Led a 6-member team as PM &amp; Certified System Analyst (BNSP), authoring formal SKPL/SRS documentation, complete UML models (Use Case, Activity, Sequence, Class), and building a PHP/Laravel web app consuming public movie catalog APIs.</p>
+<p style="margin: 0"><b style="color: #1F4D3A">What changed.</b> Structured requirements ensured zero architectural drift, on-time delivery, and modular REST API consumption.</p>
+</div>
+<p style="margin: 0; font-size: 14px; color: #4A5A52">PHP / Laravel · UML Modeling · System Requirements (SRS) · REST APIs · MySQL</p>
+</article>
+
+<article style="background: #FFFFFF; padding: 32px; display: flex; flex-direction: column; gap: 16px; border-left: 4px solid #A65A1B">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #A65A1B">EMBEDDED UI/UX · TEAM PROJECT</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600">Flood &amp; Water Tank Panel — Interface Design</h3>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.6">
+<p style="margin: 0"><b style="color: #A65A1B">The problem.</b> Two water tanks and a flooding porch needed someone present at the right moment — and the two people living with it were never going to install, remember, and open a phone app.</p>
+<p style="margin: 0"><b style="color: #1F4D3A">What I designed.</b> The interface layer of a 7-inch ESP32-P4 wall panel: a two-button home menu and a one-glance dashboard, with status as word + colour + icon, a pump switch that shows its own state, and Indonesian copy with an EN toggle for demos.</p>
+<p style="margin: 0"><b style="color: #1F4D3A">What changed.</b> Shipped on the mounted panel and in daily use at home. The firmware, sensor network, and enclosure were built by the rest of the Aligness team — the screens are mine.</p>
+</div>
+<p style="margin: 0; font-size: 14px; color: #4A5A52">UI/UX Design · Information Architecture · LVGL · ESP32-P4 · Figma</p>
+<a href="projects/flood-tank-monitor/" style="align-self:flex-start;margin-top:auto;font-weight:600;font-size:15px;color:#A65A1B;border-bottom:2px solid #A65A1B;padding-bottom:3px;text-decoration:none">Read the design case study →</a>
+</article>
+
+</div>
+</section>
+
+<section style="background: #FFFFFF">
+<div style="max-width: 860px; margin: 0 auto; padding: 80px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px">
+<h2 style="margin: 0; font-family: 'Fraunces', serif; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; font-weight: 600; color: #1F4D3A">What would we build next?</h2>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+<a href="mailto:adhilmy159@gmail.com" style="background: #1F4D3A; color: #FFFFFF; padding: 16px 26px; border-radius: 999px; text-decoration: none; font-weight: 600">Email me</a>
+<a href="index.html" style="border: 1.5px solid #1F4D3A; padding: 15px 25px; border-radius: 999px; text-decoration: none; font-weight: 600">Back to the story</a>
+</div>
+</div>
+</section>
+</div><!-- /.page -->
+</div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('#railnav a'));
+  var map = {};
+  var targets = links.map(function (a) {
+    var el = document.querySelector(a.getAttribute('href'));
+    if (el) map[el.id] = a;
+    return el;
+  }).filter(Boolean);
+  if (!targets.length || !('IntersectionObserver' in window)) return;
+  var seen = {};
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { seen[e.target.id] = e.intersectionRatio; });
+    var best = null, top = 0;
+    Object.keys(seen).forEach(function (id) { if (seen[id] > top) { top = seen[id]; best = id; } });
+    links.forEach(function (a) { a.classList.remove('on'); });
+    if (best && map[best]) map[best].classList.add('on');
+  }, { threshold: [0, 0.15, 0.35, 0.6, 0.85], rootMargin: '-10% 0px -45% 0px' });
+  targets.forEach(function (t) { obs.observe(t); });
+})();
+</script>
+</body>
+</html>

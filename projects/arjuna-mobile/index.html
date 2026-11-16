@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field-Ready Inventory Tracking with Flutter & Clean Architecture — Hilmy Abdurrahman Darmawan</title>
+<meta name="description" content="Developing Arjuna Mobile at PT Lattice Teknologi Mandiri: responsive cross-device layout, Provider state management, and real-time optical barcode scanning for enterprise operations.">
+<meta property="og:title" content="Field-Ready Inventory Tracking with Flutter & Clean Architecture — Hilmy Abdurrahman Darmawan">
+<meta property="og:description" content="Developing Arjuna Mobile at PT Lattice Teknologi Mandiri: responsive cross-device layout, Provider state management, and real-time optical barcode scanning for enterprise operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"><style>
+:root{--green:#1F4D3A;--rust:#A65A1B;--cream:#F3F5F4;--ink:#18221D;--soft:#34423B;--line:#DCE4DF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;font-size:18px;line-height:1.75}
+img{max-width:100%;display:block}
+a{color:var(--green)} a:hover{color:var(--rust)}
+a:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.bar{position:sticky;top:0;z-index:50;background:rgba(243,245,244,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.site{max-width:1160px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header.site nav{display:flex;flex-wrap:wrap;gap:18px;font-size:15px;font-weight:500}
+header.site .nm{font-family:'Fraunces',serif;font-weight:800;font-size:22px;color:var(--green);text-decoration:none}
+header.site a.back{font-size:15px;font-weight:500;text-decoration:none}
+.masthead{max-width:820px;margin:0 auto;padding:40px 24px 8px}
+.eyebrow{margin:0 0 18px;font-size:14px;font-weight:600;color:var(--rust);letter-spacing:.1em;text-transform:uppercase}
+h1.title{margin:0;font-family:'Fraunces',serif;font-size:clamp(36px,5.4vw,64px);line-height:1.04;font-weight:600;letter-spacing:-.02em;color:var(--green)}
+.deck{margin:20px 0 0;font-size:21px;line-height:1.55;color:var(--soft)}
+.summary{max-width:820px;margin:34px auto 0;padding:0 24px}
+.summary .box{background:#fff;border-left:4px solid var(--rust);padding:22px 26px;display:grid;gap:14px}
+.summary b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--rust);margin-bottom:3px}
+.summary p{margin:0;font-size:17px;line-height:1.6}
+article{max-width:820px;margin:0 auto;padding:10px 24px 80px}
+article h2{font-family:'Fraunces',serif;font-size:clamp(26px,3.3vw,36px);line-height:1.2;font-weight:600;color:var(--green);margin:52px 0 14px;letter-spacing:-.01em}
+article h3{font-family:'Fraunces',serif;font-size:23px;font-weight:600;margin:34px 0 10px;color:var(--ink)}
+article p{margin:0 0 20px}
+article ul,article ol{margin:0 0 20px;padding-left:24px}
+article li{margin-bottom:9px}
+article blockquote{margin:28px 0;padding:4px 0 4px 22px;border-left:3px solid var(--line);color:var(--soft);font-family:'Fraunces',serif;font-size:21px;line-height:1.5}
+article code{background:#e9ede9;padding:2px 6px;border-radius:4px;font-size:.88em}
+article pre{background:#fff;border:1px solid var(--line);padding:16px;border-radius:4px;overflow:auto}
+article pre code{background:none;padding:0}
+article hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+article table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:16px;background:#fff}
+article th,article td{border:1px solid var(--line);padding:10px 13px;text-align:left;vertical-align:top}
+article th{background:#eef2ef;font-weight:600}
+figure{margin:34px 0}
+figure img{width:100%;height:auto;background:#fff;border:1px solid var(--line)}
+figcaption{margin-top:10px;font-size:15px;color:var(--soft)}
+.tags{max-width:820px;margin:0 auto;padding:0 24px 50px;color:var(--soft);font-size:15px}
+footer.site{background:var(--green);color:#fff;padding:54px 24px}
+footer.site .in{max-width:820px;margin:0 auto;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:center}
+footer.site a{color:#fff}
+footer.site .cta{background:#fff;color:var(--green);padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:600}
+@media(max-width:640px){body{font-size:17px}}
+</style><meta property="og:type" content="website">
+<meta property="og:url" content="https://hilmy112233.github.io/projects/arjuna-mobile/">
+<meta property="og:site_name" content="Hilmy Abdurrahman Darmawan">
+<meta property="og:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hilmy Abdurrahman Darmawan — IoT and embedded engineer, mobile developer, certified system analyst">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Field-Ready Inventory Tracking with Flutter & Clean Architecture — Hilmy Abdurrahman Darmawan">
+<meta name="twitter:image" content="https://hilmy112233.github.io/assets/og-card.png">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/og-card.png">
+</head><body>
+<div class="bar"><header class="site"><a class="nm" href="../../index.html">Hilmy Abdurrahman Darmawan</a>
+<nav><a href="../../projects.html">← All projects</a><a href="../../index.html#work">Journey</a><a href="../../index.html#contact">Contact</a><a href="../../assets/CV_Hilmy_Abdurrahman_Darmawan.pdf" download>CV</a></nav></header></div>
+<div class="masthead">
+<p class="eyebrow">Enterprise Mobile Development · Internship</p>
+<h1 class="title">Field-Ready Inventory Tracking with Flutter & Clean Architecture</h1>
+<p class="deck">Engineering the Arjuna Mobile enterprise app at PT Lattice Teknologi Mandiri: modular state management with Provider, optical barcode scanning, and RESTful synchronizations.</p>
+</div>
+<div class="summary"><div class="box">
+<div><b>Problem</b><p>Field warehouse officers needed an intuitive, resilient mobile application to track and verify physical goods on-site across diverse Android devices, replacing cumbersome paper records and slow manual lookups.</p></div>
+<div><b>What I built</b><p>Frontend Mobile Developer for Arjuna Mobile using Flutter and Dart. Implemented clean modular architecture, Provider state management, high-speed optical barcode/QR scanning with mobile_scanner, and token-based RESTful API service integration.</p></div>
+<div><b>Result</b><p>Delivered a fluid, responsive client application tested across diverse Android screen densities, accelerating on-site item verification and ensuring zero state mutation conflicts.</p></div>
+</div></div>
+<article>
+<hr />
+<h2>Background</h2>
+<p>In logistics and enterprise asset management, efficiency depends on how fast on-site personnel can verify physical inventory against centralized databases. Manual data entry or sluggish interfaces cause backlogs, mismatch errors, and operator fatigue in busy warehouse environments.</p>
+<p>During my internship at <strong>Leapfactor – PT Lattice Teknologi Mandiri</strong> (Bandung, Indonesia), I joined the mobile development team to build <strong>Arjuna Mobile</strong>, an enterprise Android application engineered to make item tracking, asset verification, and inventory status mutations fast, intuitive, and error-proof.</p>
+
+<h2>My Role</h2>
+<ul>
+<li><strong>Hilmy Abdurrahman Darmawan</strong> — Frontend Mobile Developer (Kerja Praktek / Intern)</li>
+<li><strong>Company:</strong> Leapfactor – PT Lattice Teknologi Mandiri (Agustus 2025 – Januari 2026)</li>
+</ul>
+<p>I worked within an engineering team applying the Waterfall software development methodology. My primary responsibilities encompassed UI presentation implementation from Figma designs, reactive state management, camera hardware integration for scanning, and REST API consumption.</p>
+
+<h2>Architecture & State Management</h2>
+<p>To ensure long-term maintainability and prevent spaghetti code, the codebase adhered to modular Clean Architecture principles, clearly delineating layers:</p>
+<ul>
+<li><strong>Presentation Layer:</strong> Modular Flutter widgets, custom design system components, themes, and responsive layout wrappers.</li>
+<li><strong>State Management (Provider):</strong> Managed reactive state across the app lifecycle. Separated global state (authentication tokens, user session profile) from scoped feature state (item search filters, scanned cart items, paginated inventory lists).</li>
+<li><strong>Data & Service Layer:</strong> Encapsulated RESTful HTTP communication, request/response serialization, authorization interceptors, and error handling strategies.</li>
+</ul>
+<figure>
+<img src="arjuna-1-architecture.svg" alt="Layered architecture diagram: presentation widgets, Provider state management with AuthProvider and InventoryProvider, a data and service layer with ApiClient, JWT interceptor and DTO models, sitting above the enterprise REST backend." width="880" height="516" loading="lazy" decoding="async">
+<figcaption>Layer boundaries in Arjuna Mobile. Each layer only talks to its immediate neighbour — widgets never build URLs, providers never parse JSON.</figcaption>
+</figure>
+
+<h2>High-Speed Optical Barcode & QR Scanning</h2>
+<p>A central requirement for Arjuna Mobile was reliable barcode and QR code recognition in demanding conditions—dim lighting, dirty barcodes, and quick succession scans.</p>
+<p>I integrated and tuned the <code>mobile_scanner</code> library:</p>
+<ul>
+<li>Configured camera controller lifecycle hooks to release native camera hardware when navigating away, preventing memory leaks and battery drain.</li>
+<li>Added real-time feedback loops: audible sound confirm, haptic vibration, and visual bounding box overlays when a target asset code is detected.</li>
+<li>Implemented debouncing logic to prevent duplicate triggering when a worker hovers the camera over the same barcode.</li>
+</ul>
+<figure>
+<img src="arjuna-2-scan-flow.svg" alt="Scan loop diagram from idle to camera stream, decode frame, code matched, a highlighted 1.5 second debounce window, and haptic confirmation before the API mutation." width="880" height="316" loading="lazy" decoding="async">
+<figcaption>One scan-to-record round trip, including the two guardrails — debounce and controller disposal — that keep field operators from corrupting the cart.</figcaption>
+</figure>
+
+<h2>API Integration & Network Resilience</h2>
+<p>Arjuna Mobile communicates with enterprise backend servers through secure RESTful endpoints:</p>
+<ul>
+<li><strong>Token Authentication:</strong> Seamless storage of JWT tokens in secure storage, with automatic session expiration detection and login redirect.</li>
+<li><strong>Data Mutation & Validation:</strong> Real-time item status transitions (e.g. Received, In-Transit, Audited) with optimistic UI updates and clear error fallbacks if connection drops.</li>
+<li><strong>Responsive Android Testing:</strong> Conducted compatibility checks and layout refinements across multiple screen aspect ratios, densities (xhdpi, xxhdpi), and Android OS versions.</li>
+</ul>
+
+<h2>Outcomes & Lessons Learned</h2>
+<p>The project provided deep real-world experience in engineering enterprise mobile applications:</p>
+<ul>
+<li>Mastered Flutter's rendering tree and widget optimization to maintain 60 FPS scrolling even with long paginated lists.</li>
+<li>Gained direct experience navigating enterprise client requirements, formal code reviews, and software testing procedures.</li>
+<li>Proved the effectiveness of pairing clean UI design with robust state management in high-throughput operational software.</li>
+</ul>
+</article>
+<div class="tags"><p>Tags: Flutter · Dart · Provider · mobile_scanner · Clean Architecture · RESTful API · PT Lattice Teknologi Mandiri</p></div>
+<footer class="site"><div class="in">
+<div><b>Hilmy Abdurrahman Darmawan</b><p style="margin:4px 0 0;font-size:15px;color:#CFE0D7">IoT &amp; Embedded Engineer · Mobile Developer · Certified System Analyst</p></div>
+<a class="cta" href="mailto:adhilmy159@gmail.com">Contact me</a>
+</div></footer>
+</body></html>

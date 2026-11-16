@@ -1,0 +1,14 @@
+# Not part of the published site
+_preview/
+cv/_print.html
+cv/_tmp-shot.html
+_*.png
+_*.mjs
+_*.ps1
+_*.html
+shot.mjs
+shot2.mjs
+
+# Only the built CVs ship
+assets/*.zip
+assets/*.docx
