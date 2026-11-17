@@ -42,7 +42,8 @@ uses tabular numerals so the column stays straight.
 
 ## Room left
 
-English sits at 984 px of 1047; Indonesian at 1013. That is roughly five bullet lines of
-headroom — enough for one more project entry or a second bullet on two existing ones.
+English sits at 1014 px of 1047; Indonesian at 1028. That is one bullet line of headroom,
+and the Indonesian is the tighter of the two. Add a line here and you will need to cut one
+somewhere else.
 Past that, cut something first, or accept two pages deliberately and drop the page check
 in `build.mjs`.
