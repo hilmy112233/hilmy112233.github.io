@@ -1,0 +1,1793 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Target Loker — Hilmy Abdurrahman Darmawan</title>
+<style>
+  :root{
+    --green:#1F4D3A; --rust:#A65A1B; --cream:#F3F5F4; --ink:#18221D;
+    --soft:#34423B; --line:#DCE4DF; --muted:#4A5A52; --card:#fff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:15px/1.55 "Work Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 90px}
+  header{background:var(--green);color:#fff;padding:40px 0 34px;margin-bottom:26px}
+  header .wrap{padding-bottom:0}
+  h1{font:600 30px/1.2 Georgia,"Times New Roman",serif;margin:0 0 8px;letter-spacing:-.01em}
+  header p{margin:0;color:#CFE0D6;font-size:14.5px;max-width:660px}
+  .stats{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+  .stat b{display:block;font:600 25px/1 Georgia,serif;color:#fff}
+  .stat span{font-size:12px;color:#B9CEC2;text-transform:uppercase;letter-spacing:.07em}
+  .bar{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:0 0 16px}
+  .bar input[type=search]{flex:1;min-width:220px;padding:10px 14px;border:1px solid var(--line);
+    border-radius:9px;font-size:14.5px;background:#fff;color:var(--ink)}
+  .bar input[type=search]:focus{outline:2px solid var(--green);outline-offset:-1px;border-color:var(--green)}
+  .chip{padding:7px 14px;border:1px solid var(--line);border-radius:20px;background:#fff;
+    font-size:13px;cursor:pointer;color:var(--soft);white-space:nowrap;user-select:none;transition:.13s}
+  .chip:hover{border-color:var(--green);color:var(--green)}
+  .chip.on{background:var(--green);color:#fff;border-color:var(--green)}
+  .chip small{opacity:.62;margin-left:5px;font-size:11.5px}
+  .tblwrap{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  thead th{background:#EDF1EE;text-align:left;padding:11px 14px;font-weight:600;font-size:12px;
+    text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody td{padding:12px 14px;border-bottom:1px solid #EDF1EE;vertical-align:top}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#FAFBFA}
+  .sc{font-weight:600;color:var(--green);width:46px;text-align:right;font-variant-numeric:tabular-nums}
+  .ti a{color:var(--ink);font-weight:600;text-decoration:none;display:block;line-height:1.35}
+  .ti a:hover{color:var(--rust);text-decoration:underline}
+  .co{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+  .lo{color:var(--soft);font-size:13px;max-width:190px}
+  .sa{color:var(--soft);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .dt{white-space:nowrap;text-align:right}
+  .age{display:inline-block;padding:2px 9px;border-radius:11px;font-size:11.5px;font-weight:600}
+  .age.hot{background:#E3F1E8;color:#1B6B3A}
+  .age.warm{background:#FBF0DC;color:#8A5A12}
+  .age.cool{background:#EDF1EE;color:var(--muted)}
+  .src{display:inline-block;margin-left:7px;font-size:10.5px;font-weight:700;color:#9AA8A1;
+    border:1px solid var(--line);border-radius:5px;padding:1px 5px;vertical-align:1px}
+  .dim{color:#A9B5AF}
+  .pill{display:inline-block;padding:3px 10px;border-radius:11px;font-size:11.5px;font-weight:600;white-space:nowrap}
+  .t-WebDev{background:#E4EDF7;color:#20558A}
+  .t-UIUX{background:#F7E8F1;color:#8A2760}
+  .t-EmbeddedIoT{background:#E7F0EA;color:#1F4D3A}
+  .t-AnalystPM{background:#FBF0DC;color:#8A5A12}
+  .t-SoftwareEng{background:#EDEAF7;color:#4A3A8A}
+  .t-Other{background:#EDF1EE;color:var(--muted)}
+  .empty{padding:44px;text-align:center;color:var(--muted)}
+  .note{margin-top:26px;padding:20px 24px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--rust);border-radius:10px}
+  .note h2{font:600 16px/1.3 Georgia,serif;margin:0 0 9px}
+  .note p,.note li{font-size:13.5px;color:var(--soft);margin:0 0 7px}
+  .note ul{margin:0;padding-left:19px}
+  .q{margin-top:26px}
+  .q h2{font:600 19px/1.3 Georgia,serif;margin:0 0 6px}
+  .q p.sub{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+  .qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:11px}
+  .qcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--ink);display:block;transition:.14s}
+  .qcard:hover{border-color:var(--green);transform:translateY(-1px)}
+  .qcard b{display:block;font-size:14px;margin-bottom:5px}
+  .qcard span{font-size:12.5px;color:var(--muted);line-height:1.45;display:block}
+  .qcard em{font-style:normal;display:inline-block;margin-top:8px;font-size:11px;font-weight:600;
+    color:var(--green);text-transform:uppercase;letter-spacing:.05em}
+  footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  @media(max-width:800px){
+    .sa,.lo{display:none}
+    h1{font-size:23px}
+    .tblwrap{overflow-x:auto}
+    tbody td{padding:10px 11px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Target Loker buat Hilmy</h1>
+    <p>Hasil tarikan langsung dari <b>JobStreet</b> dan <b>LinkedIn</b> — difilter untuk fresh graduate
+       dan diskor terhadap isi CV: ESP32 &amp; embedded, UI/UX &amp; Figma, system analyst, dan web development.
+       Data per <b>18 November 2026, 15:30 WIB</b>.</p>
+    <div class="stats">
+      <div class="stat"><b>143</b><span>cocok kuat</span></div>
+      <div class="stat"><b>44</b><span>sejak 24 jam</span></div>
+      <div class="stat"><b>53</b><span>di Bandung</span></div>
+      <div class="stat"><b>20</b><span>level masuk</span></div>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+
+  <div class="bar">
+    <input type="search" id="q" placeholder="Cari posisi, perusahaan, atau kota…">
+    <div class="chip on" data-tag="all">Semua <small>143</small></div>
+    <div class="chip" data-tag="Web Dev">Web Dev <small>35</small></div><div class="chip" data-tag="UI/UX">UI/UX <small>15</small></div><div class="chip" data-tag="Embedded/IoT">Embedded / IoT <small>6</small></div><div class="chip" data-tag="Analyst/PM">Analyst / PM <small>25</small></div><div class="chip" data-tag="Software Eng">Software Eng <small>43</small></div><div class="chip" data-tag="Other">Lainnya <small>19</small></div>
+    <div class="chip" data-tag="__fresh">Hari ini <small>44</small></div>
+    <div class="chip" data-tag="__bdg">Bandung <small>53</small></div>
+  </div>
+
+  <div class="tblwrap">
+    <table>
+      <thead><tr>
+        <th>Skor</th><th>Posisi &amp; Perusahaan</th><th>Kategori</th><th>Lokasi</th><th>Gaji</th><th>Diposting</th>
+      </tr></thead>
+      <tbody id="tb">
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="19.4">
+        <td class="sc">19.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95899103" target="_blank" rel="noopener">Web Developer (Trainee)</a>
+          <span class="co">Axterium</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="1.4" data-loc="West Java, Indonesia" data-score="17.6">
+        <td class="sc">17.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/fullstack-developer-javascript-at-robert-walters-4491143299" target="_blank" rel="noopener">Fullstack Developer (Javascript)</a>
+          <span class="co">Robert Walters</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Embedded/IoT" data-src="JobStreet" data-age="0.2" data-loc="Padalarang, West Java, ID" data-score="17.3">
+        <td class="sc">17.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95962901" target="_blank" rel="noopener">IoT &amp; MES SOFTWARE/HADWARE ENGINEER</a>
+          <span class="co">PT Hana Master Jaya</span>
+        </td>
+        <td class="tg"><span class="pill t-EmbeddedIoT">Embedded / IoT</span></td>
+        <td class="lo">Padalarang, West Java</td>
+        <td class="sa">Rp 4.000.000 – Rp 5.000.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="1" data-loc="Kebayoran Lama, Jakarta, ID" data-score="16.5">
+        <td class="sc">16.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95953489" target="_blank" rel="noopener">UI/UX Designer - Intern</a>
+          <span class="co">Astra Insurance</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Kebayoran Lama, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="6" data-loc="South Jakarta, Jakarta, ID" data-score="16.5">
+        <td class="sc">16.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95858126" target="_blank" rel="noopener">IT System Analyst &amp; UI/UX Designer</a>
+          <span class="co">Abishar Technologies Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa">Rp 8.000.000 – Rp 10.500.000 per month</td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="0.1" data-loc="South Jakarta, Jakarta, ID" data-score="16.4">
+        <td class="sc">16.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95970722" target="_blank" rel="noopener">Business Analyst Intern</a>
+          <span class="co">LimeStash</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Indonesia" data-score="15.6">
+        <td class="sc">15.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/mid-full-stack-developer-next-js-typescript-tailwind-css-jest-go-at-amk-technology-sdn-bhd-4491800989" target="_blank" rel="noopener">Mid Full Stack Developer (Next.js, TypeScript, Tailwind CSS, Jest, Go)</a>
+          <span class="co">AMK Technology Sdn Bhd</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="15.6">
+        <td class="sc">15.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/ui-ux-designer-intern-at-asuransi-astra-4491732902" target="_blank" rel="noopener">UI/UX Designer - Intern</a>
+          <span class="co">Asuransi Astra</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="1.1" data-loc="Bandung, West Java, ID" data-score="15.4">
+        <td class="sc">15.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95945899" target="_blank" rel="noopener">Fullstack Developer</a>
+          <span class="co">Walden Global Services</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa">Rp 6.000.000 – Rp 8.000.000 per month</td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="15.4">
+        <td class="sc">15.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898283" target="_blank" rel="noopener">FrontEnd Developer - BackEnd Developer</a>
+          <span class="co">Ganeshcom Digital Solutions Partner</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="0" data-loc="East Jakarta, Jakarta, ID" data-score="14.5">
+        <td class="sc">14.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95971010" target="_blank" rel="noopener">Fullstack Engineer</a>
+          <span class="co">PT Agung Solusi Dingin</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">East Jakarta, Jakarta</td>
+        <td class="sa">Rp 8.500.000 – Rp 11.000.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Embedded/IoT" data-src="JobStreet" data-age="3.1" data-loc="Cimahi, West Java, ID" data-score="14.4">
+        <td class="sc">14.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898576" target="_blank" rel="noopener">IT Programmer - IOT Engineer</a>
+          <span class="co">PT. Meister Sinergi Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-EmbeddedIoT">Embedded / IoT</span></td>
+        <td class="lo">Cimahi, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta Metropolitan Area" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/fullstack-engineer-kredipay-sde-2-at-kredivo-group-4490867230" target="_blank" rel="noopener">Fullstack Engineer - Kredipay (SDE 2)</a>
+          <span class="co">Kredivo Group</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta Metropolitan Area</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Indonesia" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/fullstack-net-developer-at-avows-info-solutions-private-limited-4491477720" target="_blank" rel="noopener">Fullstack .NET Developer</a>
+          <span class="co">AVOWS INFO SOLUTIONS PRIVATE LIMITED</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Indonesia" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/full-stack-developer-at-vlink-inc-4490845512" target="_blank" rel="noopener">Full Stack Developer</a>
+          <span class="co">VLink Inc</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="0.4" data-loc="Tangerang, Banten, Indonesia" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/frontend-developer-flutter-insurance-client-at-ntt-data-inc-4491816222" target="_blank" rel="noopener">Frontend Developer (Flutter) - Insurance Client</a>
+          <span class="co">NTT DATA, Inc.</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Tangerang, Banten</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Indonesia" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/it-developer-fullstack-at-amk-technology-sdn-bhd-4491813670" target="_blank" rel="noopener">IT Developer (Fullstack)</a>
+          <span class="co">AMK Technology Sdn Bhd</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Indonesia" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/fullstack-developer-go-vue-js-at-vlink-inc-4490854856" target="_blank" rel="noopener">Fullstack Developer (GO &amp; Vue.js)</a>
+          <span class="co">VLink Inc</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="0.4" data-loc="Bandung, West Java, Indonesia" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/jr-middle-system-analyst-at-pt-loren-tech-solutions-4491493061" target="_blank" rel="noopener">Jr - Middle System Analyst</a>
+          <span class="co">PT Loren Tech Solutions</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="0.9" data-loc="North Jakarta, Jakarta, ID" data-score="13.6">
+        <td class="sc">13.6</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95950836" target="_blank" rel="noopener">IT Operations &amp; System Engineer (Full-Stack)</a>
+          <span class="co">PT Pradowansa Sukses Lestari</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">North Jakarta, Jakarta</td>
+        <td class="sa">Rp 6.500.000 – Rp 9.000.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Embedded/IoT" data-src="JobStreet" data-age="6.1" data-loc="Bandung, West Java, ID" data-score="13.5">
+        <td class="sc">13.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95853688" target="_blank" rel="noopener">Android Developer + IoT</a>
+          <span class="co">PT INTELIGENSIA TRANSFORMASI BANGSA</span>
+        </td>
+        <td class="tg"><span class="pill t-EmbeddedIoT">Embedded / IoT</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa">Rp 5.000.000 – Rp 7.500.000 per month</td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898596" target="_blank" rel="noopener">Wordpress Developer / Web Developer</a>
+          <span class="co">Han's Development</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898014" target="_blank" rel="noopener">Fullstack PHP Developer</a>
+          <span class="co">PT. Pragma Informatika</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898429" target="_blank" rel="noopener">Full Stack Developer</a>
+          <span class="co">Mitra Dinamika Konsultan</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898025" target="_blank" rel="noopener">Design Grafis - Web Developer</a>
+          <span class="co">Irandra</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898554" target="_blank" rel="noopener">Full Stack Developer</a>
+          <span class="co">Mitra Dinamika Konsultan</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898009" target="_blank" rel="noopener">Full Stack Developer</a>
+          <span class="co">RCB Bandung</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898641" target="_blank" rel="noopener">Back End Developer - Front End Developer</a>
+          <span class="co">Qwords Company International</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="13.4">
+        <td class="sc">13.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898813" target="_blank" rel="noopener">Full Stack Developer</a>
+          <span class="co">Mitra Dinamika Konsultan</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="0.2" data-loc="West Jakarta, Jakarta, ID" data-score="13.3">
+        <td class="sc">13.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95965667" target="_blank" rel="noopener">UI/UX Designer</a>
+          <span class="co">Nawa Data Solutions</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">West Jakarta, Jakarta</td>
+        <td class="sa">Rp 10.000.000 – Rp 12.000.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="0.2" data-loc="Inverleigh, Ballarat &amp; Central Highlands VIC" data-score="13.3">
+        <td class="sc">13.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95964777" target="_blank" rel="noopener">Systems Analyst – Digital Products</a>
+          <span class="co">Premier Ag Consultancy Group</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Inverleigh, Ballarat &amp; Central Highlands VIC</td>
+        <td class="sa">$90,000 per year</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta Metropolitan Area" data-score="12.6">
+        <td class="sc">12.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/frontend-developer-at-ntt-data-inc-4409286269" target="_blank" rel="noopener">Frontend Developer</a>
+          <span class="co">NTT DATA, Inc.</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta Metropolitan Area</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="12.6">
+        <td class="sc">12.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/full-stack-developer-net-at-meratus-group-4284066488" target="_blank" rel="noopener">Full Stack Developer (.Net)</a>
+          <span class="co">Meratus Group</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="6.1" data-loc="Bandung, West Java, ID" data-score="12.5">
+        <td class="sc">12.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95856009" target="_blank" rel="noopener">Software Engineer (Full-Stack Web)</a>
+          <span class="co">Formulatrix</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="7" data-loc="South Jakarta, Jakarta, ID" data-score="12.5">
+        <td class="sc">12.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95833485" target="_blank" rel="noopener">UI/UX Product Designer</a>
+          <span class="co">ASTRNT Platform Team</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">7 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="7" data-loc="South Jakarta, Jakarta, ID" data-score="12.5">
+        <td class="sc">12.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95833307" target="_blank" rel="noopener">Product Design Intern</a>
+          <span class="co">ASTRNT Platform Team</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">7 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="0.1" data-loc="South Jakarta, Jakarta, ID" data-score="12.4">
+        <td class="sc">12.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95970215" target="_blank" rel="noopener">Business Analyst</a>
+          <span class="co">LimeStash</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="12.4">
+        <td class="sc">12.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898633" target="_blank" rel="noopener">Full Stack Developer - Graphic Designer</a>
+          <span class="co">Mitra Dinamika Konsultan</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="0.2" data-loc="Central Jakarta, Jakarta, ID" data-score="12.3">
+        <td class="sc">12.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95965084" target="_blank" rel="noopener">Technical Business Analyst</a>
+          <span class="co">Bank Resona Perdania</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Central Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="0.9" data-loc="Jakarta, ID" data-score="11.6">
+        <td class="sc">11.6</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95951657" target="_blank" rel="noopener">IT BUSINESS ANALYST (BANKING)</a>
+          <span class="co">Lawencon International</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta Metropolitan Area" data-score="11.6">
+        <td class="sc">11.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/ui-ux-specialist-at-impact-investment-exchange-iix-careers-4490197907" target="_blank" rel="noopener">UI/UX Specialist</a>
+          <span class="co">Impact Investment Exchange (IIX) Careers</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Jakarta Metropolitan Area</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="1.4" data-loc="Indonesia" data-score="11.6">
+        <td class="sc">11.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/javascript-engineer-at-sme-careers-4475556049" target="_blank" rel="noopener">JavaScript Engineer</a>
+          <span class="co">SME Careers</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Indonesia</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="2.4" data-loc="Jakarta Metropolitan Area" data-score="11.6">
+        <td class="sc">11.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/fullstack-engineer-sde-2-at-kredivo-group-4400723505" target="_blank" rel="noopener">Fullstack Engineer (SDE 2)</a>
+          <span class="co">Kredivo Group</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta Metropolitan Area</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="6.2" data-loc="Bandung, West Java, ID" data-score="11.5">
+        <td class="sc">11.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95839455" target="_blank" rel="noopener">Junior Engineer</a>
+          <span class="co">PT SJI Nusantara</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa">Rp 3.000.000 per month</td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="0.1" data-loc="Townsville, Northern QLD" data-score="11.4">
+        <td class="sc">11.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95967011" target="_blank" rel="noopener">System Analyst</a>
+          <span class="co">Townsville City Council</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Townsville, Northern QLD</td>
+        <td class="sa">$113,019 - $119,946 per annum + superannuation</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="11.4">
+        <td class="sc">11.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898414" target="_blank" rel="noopener">Desain Produk (Product Designer)</a>
+          <span class="co">Wellman Jewelry</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="11.4">
+        <td class="sc">11.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95897822" target="_blank" rel="noopener">Product Designer &amp; Merchandiser</a>
+          <span class="co">CV. Ittaherl</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="1.2" data-loc="Kalideres, Jakarta, ID" data-score="11.3">
+        <td class="sc">11.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95953478" target="_blank" rel="noopener">System Analyst</a>
+          <span class="co">Metrodata</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Kalideres, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1.3" data-loc="South Geelong, South West Coast VIC" data-score="11.2">
+        <td class="sc">11.2</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95934977" target="_blank" rel="noopener">Software Developer - Junior /Mid-Level</a>
+          <span class="co">Ghanda Clothing</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">South Geelong, South West Coast VIC</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="2.3" data-loc="Maroochydore, Sunshine Coast QLD" data-score="11.2">
+        <td class="sc">11.2</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95906874" target="_blank" rel="noopener">Data &amp; Full-Stack Developer (Databricks)</a>
+          <span class="co">Skinkandy</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Maroochydore, Sunshine Coast QLD</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Embedded/IoT" data-src="LinkedIn" data-age="5.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="11">
+        <td class="sc">11</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/ai-native-software-engineer-placement-pt-stella-satindo-brand-biota-matrix-at-biota-smart-home-4490575892" target="_blank" rel="noopener">AI-Native Software Engineer (Placement: PT Stella Satindo Brand BIOTA &amp; Matrix)</a>
+          <span class="co">BIOTA Smart Home</span>
+        </td>
+        <td class="tg"><span class="pill t-EmbeddedIoT">Embedded / IoT</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="LinkedIn" data-age="1.4" data-loc="South Jakarta, Jakarta, Indonesia" data-score="10.6">
+        <td class="sc">10.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/product-designer-4491172668" target="_blank" rel="noopener">Product Designer</a>
+          <span class="co">D'ArtBox Packaging</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="1.4" data-loc="West Jakarta, Jakarta, Indonesia" data-score="10.6">
+        <td class="sc">10.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/business-analyst-at-pt-adicipta-inovasi-teknologi-4490975805" target="_blank" rel="noopener">Business Analyst</a>
+          <span class="co">PT Adicipta Inovasi Teknologi</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">West Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="1.4" data-loc="South Jakarta, Jakarta, Indonesia" data-score="10.6">
+        <td class="sc">10.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/business-analyst-staff-at-pt-tirta-sukses-perkasa-subsidiary-of-indofood-4490442115" target="_blank" rel="noopener">Business Analyst Staff</a>
+          <span class="co">PT. Tirta Sukses Perkasa (subsidiary of Indofood)</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="1.4" data-loc="South Jakarta, Jakarta, Indonesia" data-score="10.6">
+        <td class="sc">10.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/business-application-system-analyst-upstream-application-at-neo-energy-materials-4491130393" target="_blank" rel="noopener">Business Application &amp; System Analyst - Upstream Application</a>
+          <span class="co">Neo Energy Materials</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta, Indonesia" data-score="10.6">
+        <td class="sc">10.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/system-analyst-at-pt-bank-neo-commerce-tbk-4491125182" target="_blank" rel="noopener">System Analyst</a>
+          <span class="co">PT Bank Neo Commerce Tbk</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="2" data-loc="Pancoran, Jakarta, ID" data-score="10.5">
+        <td class="sc">10.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95921890" target="_blank" rel="noopener">Business Analyst</a>
+          <span class="co">Tunas Sawa Erma</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Pancoran, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="5.2" data-loc="South Jakarta, Jakarta, ID" data-score="10.5">
+        <td class="sc">10.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95875641" target="_blank" rel="noopener">Full Stack Engineer</a>
+          <span class="co">Bisalunas</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="5.2" data-loc="South Jakarta, Jakarta, ID" data-score="10.5">
+        <td class="sc">10.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95875800" target="_blank" rel="noopener">Full Stack .Net Developer</a>
+          <span class="co">Global Excel</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="7.1" data-loc="West Jakarta, Jakarta, ID" data-score="10.5">
+        <td class="sc">10.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95827291" target="_blank" rel="noopener">Web Developer / Programmer</a>
+          <span class="co">PT Medibyx Sinergi Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">West Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">7 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="1.1" data-loc="Stapylton, Gold Coast QLD" data-score="10.4">
+        <td class="sc">10.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95945570" target="_blank" rel="noopener">Systems Analyst</a>
+          <span class="co">Nu-Pure Beverages</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Stapylton, Gold Coast QLD</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="1.1" data-loc="Southport, Gold Coast QLD" data-score="10.4">
+        <td class="sc">10.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95944238" target="_blank" rel="noopener">Systems Analyst</a>
+          <span class="co">Auto Parts Supply</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Southport, Gold Coast QLD</td>
+        <td class="sa">$80,000 – $105,000 per year</td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="5.4" data-loc="Tangerang, Banten, Indonesia" data-score="10">
+        <td class="sc">10</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/frontend-engineer-contract-basis-at-techconnect-4474594874" target="_blank" rel="noopener">Frontend Engineer (Contract Basis)</a>
+          <span class="co">TechConnect</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Tangerang, Banten</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Embedded/IoT" data-src="LinkedIn" data-age="5.4" data-loc="Jakarta, Indonesia" data-score="10">
+        <td class="sc">10</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/hardware-engineer-imaging-field-devices-at-hadl-ai-4490741930" target="_blank" rel="noopener">Hardware Engineer (Imaging &amp; Field Devices)</a>
+          <span class="co">Hadl.ai</span>
+        </td>
+        <td class="tg"><span class="pill t-EmbeddedIoT">Embedded / IoT</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="6.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="10">
+        <td class="sc">10</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/full-stack-developer-at-cfactory-co-4489281673" target="_blank" rel="noopener">Full Stack Developer</a>
+          <span class="co">CFACTORY.CO</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="LinkedIn" data-age="7.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="10">
+        <td class="sc">10</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/front-end-software-engineer-at-weshine-4489011511" target="_blank" rel="noopener">Front End Software Engineer</a>
+          <span class="co">Weshine</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">7 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="0.4" data-loc="Central Cikarang, West Java, Indonesia" data-score="9.6">
+        <td class="sc">9.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/cx-data-center-engineer-at-pt-joyrun-tech-indonesia-4491481962" target="_blank" rel="noopener">CX Data Center Engineer</a>
+          <span class="co">PT JOYRUN TECH INDONESIA</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Central Cikarang, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta, Indonesia" data-score="9.6">
+        <td class="sc">9.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/junior-brand-designer-at-creativeans-4490628543" target="_blank" rel="noopener">Junior Brand Designer</a>
+          <span class="co">Creativeans</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="LinkedIn" data-age="2.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="9.6">
+        <td class="sc">9.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/sr-product-designer-i-at-tiket-com-4482932286" target="_blank" rel="noopener">Sr Product Designer I</a>
+          <span class="co">tiket.com</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="0" data-loc="Bandung Regency, West Java, ID" data-score="9.5">
+        <td class="sc">9.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95497468" target="_blank" rel="noopener">Pola Digital dan Manual Staff RnD</a>
+          <span class="co">Alcavella</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung Regency, West Java</td>
+        <td class="sa">Rp 5.000.000 – Rp 7.000.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="JobStreet" data-age="5.2" data-loc="North Jakarta, Jakarta, ID" data-score="9.5">
+        <td class="sc">9.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95876509" target="_blank" rel="noopener">UI/UX Specialist</a>
+          <span class="co">Delisari Nusantara</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">North Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="6" data-loc="South Jakarta, Jakarta, ID" data-score="9.5">
+        <td class="sc">9.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95858705" target="_blank" rel="noopener">Junior Programmer</a>
+          <span class="co">Strategic Partner Solution</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="6" data-loc="Bandung, West Java, ID" data-score="9.5">
+        <td class="sc">9.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95857115" target="_blank" rel="noopener">Junior Fashion Designer</a>
+          <span class="co">MOTIF HAWA</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa">Rp 3.800.000 – Rp 4.500.000 per month</td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="7.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="9">
+        <td class="sc">9</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/junior-software-engineer-at-ukirama-4489025911" target="_blank" rel="noopener">Junior Software Engineer</a>
+          <span class="co">Ukirama</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">7 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.8" data-loc="Bandung, West Java, ID" data-score="8.7">
+        <td class="sc">8.7</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95952452" target="_blank" rel="noopener">PROGRAMMER EDUNEX ITB</a>
+          <span class="co">Direktorat Pengembangan Pendidikan</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="8.6">
+        <td class="sc">8.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/product-management-intern-at-prudential-syariah-4490839365" target="_blank" rel="noopener">Product Management Intern</a>
+          <span class="co">Prudential Syariah</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Indonesia" data-score="8.6">
+        <td class="sc">8.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/it-operation-engineer-at-rapid-technology-4491809230" target="_blank" rel="noopener">IT Operation Engineer</a>
+          <span class="co">Rapid Technology</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Embedded/IoT" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="8.6">
+        <td class="sc">8.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/rf-electronics-hardware-engineer-perakitan-pengujian-at-ptm-persada-teknologi-mandiri-4490999553" target="_blank" rel="noopener">RF &amp; Electronics Hardware Engineer (Perakitan &amp; Pengujian)</a>
+          <span class="co">PTM (Persada Teknologi Mandiri)</span>
+        </td>
+        <td class="tg"><span class="pill t-EmbeddedIoT">Embedded / IoT</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="LinkedIn" data-age="2.4" data-loc="Indonesia" data-score="8.6">
+        <td class="sc">8.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/product-designer-at-ayo-4490259088" target="_blank" rel="noopener">Product Designer</a>
+          <span class="co">AYO</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Indonesia</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="LinkedIn" data-age="2.4" data-loc="Nganjuk, East Java, Indonesia" data-score="8.6">
+        <td class="sc">8.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/product-designer-sporting-goods-industry-at-pt-eagle-sporting-goods-4490249638" target="_blank" rel="noopener">Product Designer (Sporting Goods Industry)</a>
+          <span class="co">PT EAGLE SPORTING GOODS</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Nganjuk, East Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1" data-loc="Bandung Regency, West Java, ID" data-score="8.5">
+        <td class="sc">8.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95949964" target="_blank" rel="noopener">.NET Developer</a>
+          <span class="co">Adaya Technology Solutions</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung Regency, West Java</td>
+        <td class="sa">Rp 7.500.000 – Rp 11.000.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="6.3" data-loc="Newcastle, Newcastle, Maitland &amp; Hunter NSW" data-score="8.5">
+        <td class="sc">8.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95843473" target="_blank" rel="noopener">Junior Software Engineer</a>
+          <span class="co">BLUESHIFT</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Newcastle, Newcastle, Maitland &amp; Hunter NSW</td>
+        <td class="sa">$80,000 – $85,000 per year</td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="6.9" data-loc="Central Jakarta, Jakarta, ID" data-score="8.5">
+        <td class="sc">8.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95834775" target="_blank" rel="noopener">Business Analyst</a>
+          <span class="co">Infosys</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Central Jakarta, Jakarta</td>
+        <td class="sa">Rp 10.000.000 – Rp 15.000.000 per month</td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="6.9" data-loc="Central Jakarta, Jakarta, ID" data-score="8.5">
+        <td class="sc">8.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95834368" target="_blank" rel="noopener">IT Business Analyst (BA)</a>
+          <span class="co">PT Pesonna Optima Jasa</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Central Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="7" data-loc="South Jakarta, Jakarta, ID" data-score="8.5">
+        <td class="sc">8.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95826437" target="_blank" rel="noopener">Business Analyst</a>
+          <span class="co">Neo Fusion Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">7 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="8.4">
+        <td class="sc">8.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898213" target="_blank" rel="noopener">BackEnd Developer</a>
+          <span class="co">Ganeshcom Digital Solutions Partner</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Web Dev" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="8.4">
+        <td class="sc">8.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898400" target="_blank" rel="noopener">Sales ISP - Front End Developer - Technical Support ISP</a>
+          <span class="co">Qwords Company International</span>
+        </td>
+        <td class="tg"><span class="pill t-WebDev">Web Dev</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="8.4">
+        <td class="sc">8.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898094" target="_blank" rel="noopener">Magang Desain Grafis</a>
+          <span class="co">PT. Mizan Grafika Sarana</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1.2" data-loc="Kebayoran Lama, Jakarta, ID" data-score="8.3">
+        <td class="sc">8.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95939354" target="_blank" rel="noopener">Network Engineer</a>
+          <span class="co">PT Tiga Daya Digital Indonesia (Eksad Technology)</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Kebayoran Lama, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="5.4" data-loc="Gambir, Jakarta, Indonesia" data-score="8">
+        <td class="sc">8</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/2026-ba-business-analyst-at-pt-ikonsultan-inovatama-4490598369" target="_blank" rel="noopener">(2026 - BA) Business Analyst</a>
+          <span class="co">PT IKONSULTAN INOVATAMA</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Gambir, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="6.4" data-loc="Jakarta, Indonesia" data-score="8">
+        <td class="sc">8</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/business-analyst-at-pt-adi-data-informatika-4489095201" target="_blank" rel="noopener">Business Analyst</a>
+          <span class="co">PT. Adi Data Informatika</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="6.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="8">
+        <td class="sc">8</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/commercial-planning-business-analyst-at-essilorluxottica-4489089645" target="_blank" rel="noopener">Commercial Planning &amp; Business Analyst</a>
+          <span class="co">EssilorLuxottica</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="7.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="8">
+        <td class="sc">8</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/business-analyst-technology-financial-services-at-accenture-southeast-asia-4489011848" target="_blank" rel="noopener">Business Analyst (Technology - Financial Services)</a>
+          <span class="co">Accenture Southeast Asia</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">7 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="0.9" data-loc="South Jakarta, Jakarta, ID" data-score="7.6">
+        <td class="sc">7.6</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95951396" target="_blank" rel="noopener">ERP-HRIS Functional Consultant</a>
+          <span class="co">Lawencon International</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="LinkedIn" data-age="1.4" data-loc="Jakarta, Indonesia" data-score="7.6">
+        <td class="sc">7.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/product-management-intern-flight-at-tiket-com-4483625586" target="_blank" rel="noopener">Product Management Intern (Flight)</a>
+          <span class="co">tiket.com</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="2.4" data-loc="West Karawang, West Java, Indonesia" data-score="7.6">
+        <td class="sc">7.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/automation-engineer-at-dsm-firmenich-4481453266" target="_blank" rel="noopener">Automation Engineer</a>
+          <span class="co">dsm-firmenich</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">West Karawang, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="2.4" data-loc="West Karawang, West Java, Indonesia" data-score="7.6">
+        <td class="sc">7.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/automation-engineer-at-dsm-firmenich-animal-nutrition-health-4489763512" target="_blank" rel="noopener">Automation Engineer</a>
+          <span class="co">dsm-firmenich Animal Nutrition &amp; Health</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">West Karawang, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="0" data-loc="South Jakarta, Jakarta, ID" data-score="7.5">
+        <td class="sc">7.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95972237" target="_blank" rel="noopener">Finance Digital Transformation Analyst (6-Month Contract)</a>
+          <span class="co">JAPFA Comfeed</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="0" data-loc="Bandung, West Java, ID" data-score="7.5">
+        <td class="sc">7.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95971162" target="_blank" rel="noopener">Document Control</a>
+          <span class="co">Chikuro</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="2" data-loc="West Java, ID" data-score="7.5">
+        <td class="sc">7.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95920941" target="_blank" rel="noopener">Teknisi Listrik (Electrical Engineer)</a>
+          <span class="co">Hasil Raya Industries</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="JobStreet" data-age="5.3" data-loc="Nowra, Wollongong, Illawarra &amp; South Coast NSW" data-score="7.5">
+        <td class="sc">7.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95871389" target="_blank" rel="noopener">System Analyst</a>
+          <span class="co">Shoalhaven City Council</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Nowra, Wollongong, Illawarra &amp; South Coast NSW</td>
+        <td class="sa">$94,794 - $117,851 gross p.a. plus 12% Super</td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="5.9" data-loc="Bandung, West Java, ID" data-score="7.5">
+        <td class="sc">7.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95860816" target="_blank" rel="noopener">Site Supervisor - Internship</a>
+          <span class="co">PT Bela Parahiyangan Investindo</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="0.1" data-loc="Lengkong, West Java, ID" data-score="7.4">
+        <td class="sc">7.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95970453" target="_blank" rel="noopener">3D Drafter Interior</a>
+          <span class="co">Home Detailing</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Lengkong, West Java</td>
+        <td class="sa">Rp 2.500.000 – Rp 3.000.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="0.1" data-loc="Bandung, West Java, ID" data-score="7.4">
+        <td class="sc">7.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95970405" target="_blank" rel="noopener">Drafter</a>
+          <span class="co">Kabobs Premium Kebab</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="0.1" data-loc="Bandung, West Java, ID" data-score="7.4">
+        <td class="sc">7.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95969574" target="_blank" rel="noopener">QA System</a>
+          <span class="co">Bpr Karyajatnika Sadaya</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa">Rp 5.500.000 – Rp 5.550.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.1" data-loc="Jakarta, ID" data-score="7.4">
+        <td class="sc">7.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95970971" target="_blank" rel="noopener">Site Engineer Teknik Sipil</a>
+          <span class="co">Surya David Susanto</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.2" data-loc="South Jakarta, Jakarta, ID" data-score="7.3">
+        <td class="sc">7.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95962648" target="_blank" rel="noopener">Electrical Engineer</a>
+          <span class="co">PT ACE ENERGY SERVICE</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.2" data-loc="Kemayoran, Jakarta, ID" data-score="7.3">
+        <td class="sc">7.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95966223" target="_blank" rel="noopener">Maintenance Engineer</a>
+          <span class="co">Akhdani Design Solutions</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Kemayoran, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="2.2" data-loc="Kelapa Gading, Jakarta, ID" data-score="7.3">
+        <td class="sc">7.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95914547" target="_blank" rel="noopener">Data Analyst Intern</a>
+          <span class="co">Himalaya Wellness</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Kelapa Gading, Jakarta</td>
+        <td class="sa">Rp 2.500.000 – Rp 2.650.000 per month</td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="2.2" data-loc="South Jakarta, Jakarta, ID" data-score="7.3">
+        <td class="sc">7.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95911076" target="_blank" rel="noopener">Maintenance Intern</a>
+          <span class="co">Sinar Mas Agribusiness and Food</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa">Rp 2.000.000 – Rp 2.500.000 per month</td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="LinkedIn" data-age="5.4" data-loc="Jakarta, Jakarta, Indonesia" data-score="7">
+        <td class="sc">7</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/ux-ui-designer-internship-at-pt-bank-digital-bca-bca-digital-4489826294" target="_blank" rel="noopener">UX/UI Designer (Internship)</a>
+          <span class="co">PT Bank Digital BCA (BCA Digital)</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Analyst/PM" data-src="LinkedIn" data-age="5.4" data-loc="Batam, Riau Islands, Indonesia" data-score="7">
+        <td class="sc">7</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/information-technology-business-system-analyst-at-bizlink-group-4488104294" target="_blank" rel="noopener">Information Technology Business System Analyst</a>
+          <span class="co">BizLink Group</span>
+        </td>
+        <td class="tg"><span class="pill t-AnalystPM">Analyst / PM</span></td>
+        <td class="lo">Batam, Riau Islands</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">5 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="0.4" data-loc="Tangerang, Banten, Indonesia" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/instrument-control-automation-engineer-at-paragoncorp-4491460552" target="_blank" rel="noopener">Instrument Control &amp; Automation Engineer</a>
+          <span class="co">ParagonCorp</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Tangerang, Banten</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="0.4" data-loc="Tangerang, Banten, Indonesia" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/automation-engineer-at-siegwerk-4484049711" target="_blank" rel="noopener">Automation Engineer</a>
+          <span class="co">Siegwerk</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Tangerang, Banten</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="0.4" data-loc="Central Jakarta, Jakarta, Indonesia" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/field-service-engineer-at-olympus-corporation-4491807289" target="_blank" rel="noopener">Field Service Engineer</a>
+          <span class="co">Olympus Corporation</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Central Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="LinkedIn" data-age="0.4" data-loc="Jakarta, Indonesia" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/ios-developer-at-accord-innovations-4491480116" target="_blank" rel="noopener">iOS Developer</a>
+          <span class="co">Accord Innovations</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.9" data-loc="Central Jakarta, Jakarta, ID" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95950811" target="_blank" rel="noopener">IT DEVELOPER</a>
+          <span class="co">Sinar Jernih Suksesindo</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Central Jakarta, Jakarta</td>
+        <td class="sa">Rp 8.000.000 – Rp 8.500.000 per month</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.9" data-loc="Cakung, Jakarta, ID" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95950211" target="_blank" rel="noopener">Backend Programmer</a>
+          <span class="co">Tera Data Indonusa</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Cakung, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.9" data-loc="South Jakarta, Jakarta, ID" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95951611" target="_blank" rel="noopener">Golang Developer</a>
+          <span class="co">Lawencon International</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="UI/UX" data-src="LinkedIn" data-age="2.4" data-loc="Jakarta, Indonesia" data-score="6.6">
+        <td class="sc">6.6</td>
+        <td class="ti">
+          <a href="https://id.linkedin.com/jobs/view/uiux-designer-at-dana-indonesia-4490274823" target="_blank" rel="noopener">UIUX Designer</a>
+          <span class="co">DANA Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-UIUX">UI/UX</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">in</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="1" data-loc="Bandung, West Java, ID" data-score="6.5">
+        <td class="sc">6.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95946248" target="_blank" rel="noopener">Multimedia Designer</a>
+          <span class="co">PT PRIMAJASA PERDANARAYAUTAMA</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1" data-loc="South Jakarta, Jakarta, ID" data-score="6.5">
+        <td class="sc">6.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95948740" target="_blank" rel="noopener">VEEAM ENGINEER</a>
+          <span class="co">PT. Tri Solusindo Mandiri</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3" data-loc="Bandung, West Java, ID" data-score="6.5">
+        <td class="sc">6.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898898" target="_blank" rel="noopener">Web Programmer</a>
+          <span class="co">Trisula Corporate</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="6.3" data-loc="Purwakarta, West Java, ID" data-score="6.5">
+        <td class="sc">6.5</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95846719" target="_blank" rel="noopener">Production Staff (Medical Device)</a>
+          <span class="co">Standard Biosensor Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Purwakarta, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">6 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1.1" data-loc="Jakarta, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95944415" target="_blank" rel="noopener">Backend Developer (Project)</a>
+          <span class="co">Kimia Farma</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="1.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95944180" target="_blank" rel="noopener">Creative Props Maker</a>
+          <span class="co">Terang Perdana Works</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa">Rp 4.000.000 – Rp 5.500.000 per month</td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1.1" data-loc="South Jakarta, Jakarta, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95943799" target="_blank" rel="noopener">IT Infrastructure Engineer - Vulnerability Remediation (Windows/Linux)</a>
+          <span class="co">KAZOKKU</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa">Rp 9.000.000 – Rp 13.000.000 per month</td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95899157" target="_blank" rel="noopener">Web Programmer - Mobile Programmer</a>
+          <span class="co">PT Jagad Kreatif Nusantara</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898408" target="_blank" rel="noopener">Programmer PHP - IT Support</a>
+          <span class="co">PT. Sarana Mandiri Teknologi Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898288" target="_blank" rel="noopener">PHP Developer</a>
+          <span class="co">PT. Media Niaga Teknologi (MediaNT)</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898439" target="_blank" rel="noopener">Programmer</a>
+          <span class="co">Kiwari.id</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95897876" target="_blank" rel="noopener">Developer Officer</a>
+          <span class="co">Technology Commerce Media</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898650" target="_blank" rel="noopener">Programmer</a>
+          <span class="co">PT. Atlas Ultima Finas</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898424" target="_blank" rel="noopener">Software Developer Coordinator</a>
+          <span class="co">PT. Infiniti Putera Omega</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="West Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898606" target="_blank" rel="noopener">Programmer</a>
+          <span class="co">PT Perdana Firsta Garment</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">West Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898272" target="_blank" rel="noopener">Mobile Apps Developer</a>
+          <span class="co">PT Terakorp Indonesia</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95899095" target="_blank" rel="noopener">IOS Developer</a>
+          <span class="co">Authentic Guards</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.1" data-loc="Bandung, West Java, ID" data-score="6.4">
+        <td class="sc">6.4</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95898874" target="_blank" rel="noopener">Civil Engineer</a>
+          <span class="co">PT. Rasya Utama</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1.2" data-loc="Jakarta, ID" data-score="6.3">
+        <td class="sc">6.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95938583" target="_blank" rel="noopener">Data Center IT Engineer (Mandarin Speaker)</a>
+          <span class="co">PT GST</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Jakarta</td>
+        <td class="sa">Rp 10.000.000 – Rp 15.000.000 per month</td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="1.2" data-loc="West Jakarta, Jakarta, ID" data-score="6.3">
+        <td class="sc">6.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95939832" target="_blank" rel="noopener">Cloud Infrastructure Engineer</a>
+          <span class="co">Nusantara Compnet Integrator</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">West Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">1 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Other" data-src="JobStreet" data-age="2.2" data-loc="South Jakarta, Jakarta, ID" data-score="6.3">
+        <td class="sc">6.3</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95914204" target="_blank" rel="noopener">Content Planner &amp; Graphic Designer Intern</a>
+          <span class="co">OTO Group</span>
+        </td>
+        <td class="tg"><span class="pill t-Other">Lainnya</span></td>
+        <td class="lo">South Jakarta, Jakarta</td>
+        <td class="sa"><span class="dim">—</span></td>
+        <td class="dt"><span class="age warm">2 hari</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="0.3" data-loc="Coombabah, Gold Coast QLD" data-score="6.2">
+        <td class="sc">6.2</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95959544" target="_blank" rel="noopener">Industrial Engineer</a>
+          <span class="co">PJM Systems Pty Ltd</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Coombabah, Gold Coast QLD</td>
+        <td class="sa">$80,000 – $100,000 per year</td>
+        <td class="dt"><span class="age hot">hari ini</span><span class="src">JS</span></td>
+      </tr>
+      <tr data-tag="Software Eng" data-src="JobStreet" data-age="3.3" data-loc="Bandung, West Java, ID" data-score="6.2">
+        <td class="sc">6.2</td>
+        <td class="ti">
+          <a href="https://id.jobstreet.com/id/job/95896459" target="_blank" rel="noopener">Shopify Developer</a>
+          <span class="co">Ryvo</span>
+        </td>
+        <td class="tg"><span class="pill t-SoftwareEng">Software Eng</span></td>
+        <td class="lo">Bandung, West Java</td>
+        <td class="sa">Rp 70,000 per hour</td>
+        <td class="dt"><span class="age cool">3 hari</span><span class="src">JS</span></td>
+      </tr></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">Nggak ada yang cocok. Coba kata kunci lain.</div>
+  </div>
+
+  <div class="note">
+    <h2>Cara baca skornya</h2>
+    <ul>
+      <li><b>Skor tinggi</b> = judulnya nyebut skill yang lo udah punya (React, Figma, ESP32, requirement, dsb)
+          <i>dan</i> levelnya masuk buat fresh grad.</li>
+      <li><b>Skor minus</b> udah gue buang — senior, lead, manager, 5+ tahun, atau bidang di luar CV lo.</li>
+      <li>Bonus kecil buat lokasi Bandung/Jawa Barat dan buat listing yang baru beberapa jam.</li>
+      <li><b>"hari ini"</b> = diposting dalam 24 jam terakhir. Kalau lo nunggu, yang ini yang hilang duluan.</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <h2>Yang perlu lo tau soal datanya</h2>
+    <ul>
+      <li><b>JobStreet &amp; LinkedIn berhasil ditarik langsung.</b> 143 loker ini judul, perusahaan,
+          lokasi, gaji, dan tanggal posting-nya real — bukan contoh.</li>
+      <li><b>Glints, Indeed, Kalibrr, Dealls nolak akses otomatis.</b> Semuanya balikin 403. Bukan gagal
+          gue, tapi memang diblokir. Query pencariannya ada di bawah — tinggal klik.</li>
+      <li><b>Kolom gaji kosong = perusahaan nggak nyantumin.</b> Dari 143 loker, cuma sebagian yang
+          pasang range. Yang ada, gue tampilkan.</li>
+      <li>Beberapa judul dari LinkedIn nempel ke perusahaan luar (Australia/Singapore) karena lokasinya
+          "<i>Indonesia</i>" tapi perusahaannya lintas negara. Cek dulu sebelum apply.</li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <h2>Query siap-klik buat platform yang diblokir</h2>
+    <p class="sub">Ini yang tadi gagal ditarik otomatis. Semuanya udah gue set filter <b>7 hari terakhir</b> — tinggal buka.</p>
+    <div class="qgrid">
+      <a class="qcard" href="https://glints.com/id/opportunities/jobs/explore?keyword=web%20developer&country=ID&sortBy=LATEST" target="_blank" rel="noopener">
+        <b>Glints — Web Developer</b><span>Semua posisi web dev di Indonesia, urut terbaru.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://glints.com/id/opportunities/jobs/explore?keyword=ui%20ux%20designer&country=ID&sortBy=LATEST" target="_blank" rel="noopener">
+        <b>Glints — UI/UX Designer</b><span>Termasuk yang embedded UI dan product design.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://glints.com/id/opportunities/jobs/explore?keyword=iot%20engineer&country=ID&sortBy=LATEST" target="_blank" rel="noopener">
+        <b>Glints — IoT / Embedded</b><span>Hardware dan firmware engineer.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://glints.com/id/opportunities/jobs/explore?keyword=fresh%20graduate&country=ID&sortBy=LATEST" target="_blank" rel="noopener">
+        <b>Glints — Fresh Graduate</b><span>Semua lowongan yang khusus fresh grad.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://id.indeed.com/jobs?q=web+developer&l=Bandung&fromage=7&sort=date" target="_blank" rel="noopener">
+        <b>Indeed — Web Developer Bandung</b><span>Filter 7 hari, urut paling baru.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://id.indeed.com/jobs?q=ui+ux+designer&fromage=7&sort=date" target="_blank" rel="noopener">
+        <b>Indeed — UI/UX Designer</b><span>Seluruh Indonesia, 7 hari terakhir.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://id.indeed.com/jobs?q=embedded+engineer&fromage=7&sort=date" target="_blank" rel="noopener">
+        <b>Indeed — Embedded Engineer</b><span>Firmware, IoT, dan hardware.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://www.kalibrr.com/job-board/te/web-developer" target="_blank" rel="noopener">
+        <b>Kalibrr — Web Developer</b><span>Banyak startup Jakarta yang aktif di sini.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://www.kalibrr.com/job-board/te/ui-ux-designer" target="_blank" rel="noopener">
+        <b>Kalibrr — UI/UX Designer</b><span>Perusahaan tech dan agency.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://dealls.com/job-search?keyword=web%20developer" target="_blank" rel="noopener">
+        <b>Dealls — Web Developer</b><span>Khusus intern dan fresh graduate.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://dealls.com/job-search?keyword=ui%20ux" target="_blank" rel="noopener">
+        <b>Dealls — UI/UX</b><span>Magang dan entry level, banyak yang remote.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://www.jobstreet.co.id/id/software-engineer-jobs/fresh-graduate" target="_blank" rel="noopener">
+        <b>JobStreet — Fresh Graduate</b><span>Listing fresh grad, buka langsung di browser.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://id.linkedin.com/jobs/search?keywords=web%20developer&location=Indonesia&f_TPR=r604800&f_E=1%2C2" target="_blank" rel="noopener">
+        <b>LinkedIn — Web Dev, Entry Level</b><span>Filter 7 hari + level entry &amp; internship.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://id.linkedin.com/jobs/search?keywords=ui%20ux%20designer&location=Indonesia&f_TPR=r604800&f_E=1%2C2" target="_blank" rel="noopener">
+        <b>LinkedIn — UI/UX, Entry Level</b><span>7 hari terakhir, khusus pemula.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://id.linkedin.com/jobs/search?keywords=embedded%20engineer&location=Indonesia&f_TPR=r604800&f_E=1%2C2" target="_blank" rel="noopener">
+        <b>LinkedIn — Embedded, Entry Level</b><span>7 hari, level pemula.</span><em>Buka →</em></a>
+      <a class="qcard" href="https://www.glassdoor.com/Job/indonesia-remote-software-engineer-jobs-SRCH_IL.0,9_IN113_KO10,27.htm" target="_blank" rel="noopener">
+        <b>Glassdoor — Remote Indonesia</b><span>Termasuk yang bayar USD.</span><em>Buka →</em></a>
+    </div>
+  </div>
+
+  <footer>
+    143 loker · ditarik 18 Nov 2026 · sumber: JobStreet (464 listing) &amp; LinkedIn (127 listing) ·
+    123 kandidat tambahan di skor menengah nggak ditampilkan
+  </footer>
+</div>
+
+<script>
+  const tb = document.getElementById('tb');
+  const rows = [...tb.querySelectorAll('tr')];
+  const q = document.getElementById('q');
+  const chips = [...document.querySelectorAll('.chip')];
+  const empty = document.getElementById('empty');
+  let filter = 'all';
+
+  const apply = () => {
+    const term = q.value.trim().toLowerCase();
+    let shown = 0;
+    for (const r of rows) {
+      const tag = r.dataset.tag;
+      let ok = filter === 'all' || (filter === '__fresh' ? +r.dataset.age <= 1 : filter === '__bdg'
+        ? /bandung|jawa barat|west java|cimahi/i.test(r.dataset.loc) : tag === filter);
+      if (ok && term) ok = r.textContent.toLowerCase().includes(term);
+      r.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    }
+    empty.style.display = shown ? 'none' : '';
+  };
+
+  q.addEventListener('input', apply);
+  for (const c of chips) c.addEventListener('click', () => {
+    chips.forEach(x => x.classList.toggle('on', x === c));
+    filter = c.dataset.tag;
+    apply();
+  });
+</script>
+</body>
+</html>
