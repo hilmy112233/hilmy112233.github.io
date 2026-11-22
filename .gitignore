@@ -12,3 +12,12 @@ shot2.mjs
 # Only the built CVs ship
 assets/*.zip
 assets/*.docx
+
+# Raw media dumps — never publish. A single .mkv here is 3.5 GB and would
+# blow past GitHub's 100 MB per-file limit.
+*.mkv
+*.mp4
+*.mov
+*.avi
+projects/**/WhatsApp Video*.mp4
+projects/**/WhatsApp Image*.jpeg
