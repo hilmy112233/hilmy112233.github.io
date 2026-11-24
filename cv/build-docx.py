@@ -37,8 +37,8 @@ SZ_SKILL = 8.6
 LINE = 0.98
 
 # vertical rhythm
-GAP_SECTION = 6
-GAP_JOB = 3.5
+GAP_SECTION = 4
+GAP_JOB = 3.2
 GAP_BULLET = 0.8
 
 
@@ -176,9 +176,9 @@ def build(lang, out_path):
     set_font(r, SZ_NAME, bold=True, color=GREEN)
 
     p = para(doc, space_after=1)
-    role = ("Mobile Developer · Analis Sistem Bersertifikat (CSA) · Perakitan & Pengkabelan Panel"
+    role = ("Teknisi Panel & Instrumentasi IoT · Perakitan, Pengkabelan & Pengujian"
             if not en else
-            "Mobile Developer · Certified System Analyst (CSA) · Control Panel Assembly & Wiring")
+            "Control Panel & IoT Instrumentation Technician · Assembly, Wiring & Testing")
     r = p.add_run(role)
     set_font(r, SZ_ROLE, bold=True, color=RUST)
 
@@ -195,15 +195,21 @@ def build(lang, out_path):
     # ---- summary ------------------------------------------------------
     section_heading(doc, "Summary" if en else "Ringkasan")
     summary = (
-        "Informatics graduate (GPA 3.47/4.00) and BNSP-certified System Analyst: Flutter mobile, "
-        "systems analysis, and interface design — a field-used Flutter inventory app, SRS and UML "
-        "for a streaming platform, and the interface of a wall-mounted monitoring panel. Hands-on "
-        "IoT work building and wiring greenhouse control panels, then testing them."
+        "Panel technician with two years of field work on the Ministry of Agriculture Smart "
+        "Greenhouse project: assembled, wired and tested seven control panels across seven sites "
+        "— plate cutting and drilling, measuring then cutting every cable run, soldering, crimping "
+        "and clamping the full harness, then testing mode switching and fault behaviour down to the "
+        "CO2/light sensor nodes. Reported that two of the seven sites reverted to manual, the "
+        "finding that shaped the project's conclusion. Informatics graduate (GPA 3.47/4.00) with "
+        "hands-on ESP32/MQTT instrumentation."
         if en else
-        "Lulusan Teknik Informatika (IPK 3.47/4.00) dan Certified System Analyst (BNSP): mobile "
-        "Flutter, analisis sistem, dan desain antarmuka — aplikasi inventaris Flutter yang dipakai "
-        "di lapangan, SRS dan UML untuk platform streaming, serta antarmuka panel monitoring dinding. "
-        "Pengalaman lapangan IoT dari merakit dan mengkabel panel kontrol greenhouse, lalu mengujinya."
+        "Teknisi panel dengan dua tahun kerja lapangan di proyek Smart Greenhouse Kementerian "
+        "Pertanian: merakit, mengkabel, dan menguji tujuh panel kontrol di tujuh lokasi — potong "
+        "dan lubang pelat, ukur lalu potong panjang kabel, solder, crimp, dan klem seluruh harness, "
+        "dan klem seluruh harness, lalu uji peralihan mode serta perilaku fault sampai ke node "
+        "sensor CO2/cahaya. Melaporkan bahwa dua dari tujuh situs kembali ke mode manual, temuan "
+        "yang membentuk kesimpulan proyek. Lulusan Teknik Informatika (IPK 3.47/4.00) dengan kerja "
+        "instrumentasi ESP32/MQTT."
     )
     p = para(doc, space_after=0, line=1.02)
     r = p.add_run(summary)
@@ -213,6 +219,29 @@ def build(lang, out_path):
     section_heading(doc, "Experience" if en else "Pengalaman Kerja")
 
     EXP = [
+        {
+            # Job titles stay in English in both languages -- they are the
+            # terms an ATS keyword-matches on, and the PDF does the same.
+            "title": "Panel Assembler, Wirer & Tester/Support (Contract)" if en else "Panel Assembler, Wirer & Tester/Support (Kontrak)",
+            "dates": "Jan 2023 – Sep 2025",
+            "sub": ("Team Aligness · Smart Greenhouse Project, Ministry of Agriculture — Subang & Sumedang"
+                    if en else
+                    "Team Aligness · Proyek Smart Greenhouse, Kementerian Pertanian — Subang & Sumedang"),
+            "bullets": [
+                "Assembled seven control panels for seven 18 × 18 m greenhouse sites — cutting and drilling the mounting plate, then fitting every component each panel needs."
+                if en else
+                "Merakit tujuh panel kontrol untuk tujuh greenhouse 18 × 18 m — potong dan lubang pelat dudukan, lalu memasangkan seluruh komponen yang dibutuhkan tiap panel.",
+                "Wired every panel end to end — measuring each cable run before cutting it, then soldering, crimping and clamping the full harness so the runs fit inside the enclosure."
+                if en else
+                "Mengkabel tiap panel dari awal sampai akhir — mengukur panjang tiap jalur kabel sebelum memotong, lalu solder, crimp, dan klem seluruh harness agar jalur pas di dalam box panel.",
+                "Tested mode switching and fault behaviour across all seven panels and their CO2/light sensor nodes, reading every 10 seconds — no relay chatter, no uncommanded actuation."
+                if en else
+                "Menguji peralihan mode dan perilaku fault pada tujuh panel serta node sensor CO2/cahaya yang membaca tiap 10 detik — tanpa relay chatter atau aktuasi tak terkendali.",
+                "Reported that two of the seven sites reverted to manual — the finding that shaped the project's conclusion, and why the manual fail-safe is what still runs daily."
+                if en else
+                "Melaporkan bahwa dua dari tujuh situs kembali ke manual — temuan yang membentuk kesimpulan proyek, dan alasan jalur fail-safe manual masih dipakai tiap hari.",
+            ],
+        },
         {
             "title": "Frontend Mobile Developer (Intern)" if en else "Frontend Mobile Developer (Magang)",
             "dates": "Aug 2025 – Jan 2026",
@@ -224,26 +253,6 @@ def build(lang, out_path):
                 "Built Arjuna Mobile inventory flows in Flutter/Dart on a modular architecture, using Provider for auth state, navigation, and item mutation cycles."
                 if en else
                 "Membangun alur inventaris Arjuna Mobile dengan Flutter/Dart di atas arsitektur modular, memakai Provider untuk siklus state autentikasi, navigasi, dan mutasi item.",
-            ],
-        },
-        {
-            # Job titles stay in English in both languages -- they are the
-            # terms an ATS keyword-matches on, and the PDF does the same.
-            "title": "Panel Assembler, Wirer & Tester/Support (Contract)" if en else "Panel Assembler, Wirer & Tester/Support (Kontrak)",
-            "dates": "Jan 2023 – Sep 2025",
-            "sub": ("Team Aligness · Smart Greenhouse Project, Ministry of Agriculture — Subang & Sumedang"
-                    if en else
-                    "Team Aligness · Proyek Smart Greenhouse, Kementerian Pertanian — Subang & Sumedang"),
-            "bullets": [
-                "Assembled and wired seven control panels for seven 18 × 18 m greenhouse sites — plate cutting and drilling, then soldering, crimping and clamping every harness, and fitting the components each panel needs."
-                if en else
-                "Merakit dan mengkabel tujuh panel kontrol untuk tujuh greenhouse 18 × 18 m — potong dan lubang pelat, lalu solder, crimp, klem seluruh harness dan memasangkan komponen yang dibutuhkan ke panel.",
-                "Tested mode switching and fault behaviour across all seven panels and their CO2/light sensor nodes, reading every 10 seconds — no relay chatter, no uncommanded actuation."
-                if en else
-                "Menguji peralihan mode dan perilaku fault pada tujuh panel serta node sensor CO2/cahaya yang membaca tiap 10 detik — tanpa relay chatter atau aktuasi tak terkendali.",
-                "Reported that two of the seven sites reverted to manual — the finding that shaped the project's conclusion, and why the manual fail-safe is what still runs daily."
-                if en else
-                "Melaporkan bahwa dua dari tujuh situs kembali ke manual — temuan yang membentuk kesimpulan proyek, dan alasan jalur fail-safe manual masih dipakai tiap hari.",
             ],
         },
     ]
@@ -268,12 +277,12 @@ def build(lang, out_path):
             "sub": ("S1 Capstone Thesis · UNIKOM — Hardware & Software Developer" if en
                     else "Tugas Akhir S1 · UNIKOM — Hardware & Software Developer"),
             "bullets": [
-                "Replaced an imprecise analog bar indicator with real-time ESP32 telemetry, after cutting engine-vibration and fuel-slosh noise with a three-stage filter: 7-sample median > EMA (alpha = 0.1) > 0.03 L hysteresis."
-                if en else
-                "Menggantikan indikator analog yang tidak presisi dengan telemetri digital real-time ESP32, setelah meredam noise getaran mesin dan fuel sloshing lewat filter tiga lapis: median 7 sampel > EMA (alpha = 0.1) > histeresis 0.03 L.",
                 "Read the tank float via a 16-bit ADS1115 ADC, accumulated distance from NEO-6M GPS with the Haversine formula, and pushed per-second telemetry over MQTT/TLS to a Django + PostgreSQL dashboard."
                 if en else
                 "Membaca pelampung tangki via ADC 16-bit ADS1115, mengakumulasi jarak dari GPS NEO-6M dengan formula Haversine, lalu mengirim telemetri per detik lewat MQTT/TLS ke dashboard Django + PostgreSQL.",
+                "Replaced an imprecise analog bar indicator with real-time ESP32 telemetry, after cutting engine-vibration and fuel-slosh noise with a three-stage filter: 7-sample median > EMA (alpha = 0.1) > 0.03 L hysteresis."
+                if en else
+                "Menggantikan indikator analog yang tidak presisi dengan telemetri digital real-time ESP32, setelah meredam noise getaran mesin dan fuel sloshing lewat filter tiga lapis: median 7 sampel > EMA (alpha = 0.1) > histeresis 0.03 L.",
             ],
         },
         {
@@ -312,20 +321,24 @@ def build(lang, out_path):
     # ---- skills -------------------------------------------------------
     section_heading(doc, "Technical Skills" if en else "Keahlian Teknis")
     SKILLS = [
+        ("Panel Assembly & Wiring" if en else "Perakitan & Pengkabelan Panel",
+         ("plate assembly (cut/drill), cable measuring & cutting, soldering, crimping, harness clamping, component fitting, panel & fault testing, relays, manual fail-safe; tools drill, solder, crimp tool, clamps"
+          if en else
+          "perakitan panel & pelat (potong/lubang), ukur & potong kabel, solder, crimp, klem harness, pemasangan komponen, uji panel & fault, relay, fail-safe manual; perkakas bor, solder, tang crimp, klem")),
+        ("Instrumentation & IoT" if en else "Instrumentasi & IoT",
+         ("ESP32, Raspberry Pi (test & support level), CO2/light sensor nodes, ADS1115 ADC, NEO-6M GPS, MQTT/TLS, ThingsBoard, PlatformIO"
+          if en else
+          "ESP32, Raspberry Pi (level uji & dukung), node sensor CO2/cahaya, ADC ADS1115, GPS NEO-6M, MQTT/TLS, ThingsBoard, PlatformIO")),
         ("Programming" if en else "Bahasa Pemrograman",
          "C/C++, Python, Dart, PHP, SQL, JavaScript, HTML/CSS"),
         ("Mobile & Web",
          "Flutter (Dart), Provider, mobile_scanner, REST APIs, Laravel, Django"),
-        ("Hardware & IoT" if en else "Perangkat Keras & IoT",
-         ("panel assembly & plate work (cut/drill), wiring & soldering/crimping/clamping, panel testing, relays, ESP32 / Raspberry Pi (test & support level), ThingsBoard, MQTT"
-          if en else
-          "perakitan panel & pelat (potong/lubang), pengkabelan & solder/crimp/klem, uji panel, relay, ESP32 / Raspberry Pi (level uji & dukung), ThingsBoard, MQTT")),
         ("Analysis & Design" if en else "Analisis & Desain",
          ("SRS/SyRS, UML, ERD, DFD, requirement gathering, Waterfall & Agile, Figma, interface design"
           if en else
           "SRS/SyRS, UML, ERD, DFD, requirement gathering, Waterfall & Agile, Figma, desain antarmuka")),
         ("Data & Tools" if en else "Data & Alat",
-         "PostgreSQL, MySQL, Docker, Git & GitHub, VS Code, PlatformIO, Linux / Raspberry Pi OS, Postman, Pentaho"),
+         "PostgreSQL, MySQL, Docker, Git & GitHub, VS Code, Linux / Raspberry Pi OS, Postman, Pentaho"),
         ("Languages" if en else "Bahasa",
          ("Indonesian (native) · English (professional — technical, documentation, work communication)"
           if en else
@@ -350,7 +363,7 @@ def build(lang, out_path):
     cp.author = "Hilmy Abdurrahman Darmawan"
     cp.title = "Hilmy Abdurrahman Darmawan — CV"
     cp.subject = "Curriculum Vitae"
-    cp.keywords = "Flutter, System Analyst, IoT, ESP32, UI/UX, Figma, SRS, UML"
+    cp.keywords = "Teknisi Panel, Control Panel Assembly, Wiring, Soldering, Crimping, Panel Testing, IoT, ESP32, MQTT"
 
     doc.save(out_path)
     print(f"wrote {out_path}")
