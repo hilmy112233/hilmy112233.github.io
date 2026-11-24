@@ -218,41 +218,33 @@ def build(lang, out_path):
             "dates": "Aug 2025 – Jan 2026",
             "sub": "Leapfactor · PT Lattice Teknologi Mandiri — Bandung, Indonesia",
             "bullets": [
-                "Built Arjuna Mobile inventory flows in Flutter/Dart on a modular architecture, using Provider for auth state, navigation, and item mutation cycles."
-                if en else
-                "Membangun alur inventaris Arjuna Mobile dengan Flutter/Dart di atas arsitektur modular, memakai Provider untuk siklus state autentikasi, navigasi, dan mutasi item.",
                 "Integrated real-time barcode/QR scanning with mobile_scanner — releasing the camera on route exit and debouncing duplicate scans — then wired the UI to REST endpoints for token auth and item mutation sync."
                 if en else
                 "Mengintegrasikan pemindaian barcode/QR lewat mobile_scanner — kamera dilepas saat keluar route, debounce anti scan-ganda — lalu menyambungkan UI ke REST API untuk autentikasi token dan sinkronisasi mutasi barang.",
+                "Built Arjuna Mobile inventory flows in Flutter/Dart on a modular architecture, using Provider for auth state, navigation, and item mutation cycles."
+                if en else
+                "Membangun alur inventaris Arjuna Mobile dengan Flutter/Dart di atas arsitektur modular, memakai Provider untuk siklus state autentikasi, navigasi, dan mutasi item.",
             ],
         },
         {
             # Job titles stay in English in both languages -- they are the
             # terms an ATS keyword-matches on, and the PDF does the same.
-            "title": "Panel Assembler, Wirer & Tester (Contract)" if en else "Panel Assembler, Wirer & Tester (Kontrak)",
+            "title": "Panel Assembler, Wirer & Tester/Support (Contract)" if en else "Panel Assembler, Wirer & Tester/Support (Kontrak)",
             "dates": "Jan 2023 – Sep 2025",
-            "sub": ("Smart Greenhouse Project, Ministry of Agriculture · Team Aligness — Subang & Sumedang"
+            "sub": ("Team Aligness · Smart Greenhouse Project, Ministry of Agriculture — Subang & Sumedang"
                     if en else
-                    "Proyek Smart Greenhouse, Kementerian Pertanian · Team Aligness — Subang & Sumedang"),
+                    "Team Aligness · Proyek Smart Greenhouse, Kementerian Pertanian — Subang & Sumedang"),
             "bullets": [
-                "Assembled and wired five control panels for five 18 × 18 m greenhouse sites — plate cutting and drilling, then soldering, crimping and clamping every harness."
+                "Assembled and wired seven control panels for seven 18 × 18 m greenhouse sites — plate cutting and drilling, then soldering, crimping and clamping every harness, and fitting the components each panel needs."
                 if en else
-                "Merakit dan mengkabel lima panel kontrol untuk lima greenhouse 18 × 18 m — potong dan lubang pelat, lalu solder, crimp, dan klem seluruh harness.",
-                "Tested mode switching and fault behaviour across all five panels and their CO2/light sensor nodes, reading every 10 seconds — no relay chatter, no uncommanded actuation."
+                "Merakit dan mengkabel tujuh panel kontrol untuk tujuh greenhouse 18 × 18 m — potong dan lubang pelat, lalu solder, crimp, klem seluruh harness dan memasangkan komponen yang dibutuhkan ke panel.",
+                "Tested mode switching and fault behaviour across all seven panels and their CO2/light sensor nodes, reading every 10 seconds — no relay chatter, no uncommanded actuation."
                 if en else
-                "Menguji peralihan mode dan perilaku fault pada lima panel serta node sensor CO2/cahaya yang membaca tiap 10 detik — tanpa relay chatter atau aktuasi tak terkendali.",
-                "Reported that four of the five sites reverted to manual — the finding that shaped the project's conclusion, and why the manual fail-safe is what still runs daily."
+                "Menguji peralihan mode dan perilaku fault pada tujuh panel serta node sensor CO2/cahaya yang membaca tiap 10 detik — tanpa relay chatter atau aktuasi tak terkendali.",
+                "Reported that two of the seven sites reverted to manual — the finding that shaped the project's conclusion, and why the manual fail-safe is what still runs daily."
                 if en else
-                "Melaporkan bahwa empat dari lima situs kembali ke manual — temuan yang membentuk kesimpulan proyek, dan alasan jalur fail-safe manual masih dipakai tiap hari.",
+                "Melaporkan bahwa dua dari tujuh situs kembali ke manual — temuan yang membentuk kesimpulan proyek, dan alasan jalur fail-safe manual masih dipakai tiap hari.",
             ],
-        },
-        {
-            "title": "UI/UX Designer & Independent Contractor",
-            "dates": ("2024 – Present" if en else "2024 – Sekarang"),
-            "sub": None,
-            "note": ("Projects.co.id — wireframes, user flows and high-fidelity UI in Figma for tour booking and e-commerce, plus a design system (reusable components, colour tokens, type hierarchy)."
-                     if en else
-                     "Projects.co.id — wireframe, user flow, dan UI high-fidelity di Figma untuk pemesanan tur dan e-commerce, plus design system (komponen reusable, token warna, hierarki tipografi)."),
         },
     ]
 
@@ -285,16 +277,11 @@ def build(lang, out_path):
             ],
         },
         {
-            "title": ("Flood & Water Tank — Panel & App Interface Design" if en
-                      else "Panel Banjir & Tangki Air — Desain Antarmuka Panel & Aplikasi"),
-            "dates": "2026 · " + ("team" if en else "tim"),
-            "sub": ("Aligness — UI/UX Designer for both surfaces; firmware, sensor network and enclosure built by other team members"
-                    if en else
-                    "Aligness — UI/UX Designer untuk kedua antarmuka; firmware, jaringan sensor, dan enclosure dikerjakan anggota tim lain"),
+            "title": ("Flood & Water-Tank Monitoring — Panel & App Interface Design" if en
+                      else "Flood & Water-Tank Monitoring — Desain Antarmuka Panel & Aplikasi"),
+            "dates": ("2026 – Present" if en else "2026 – Sekarang"),
+            "sub": "Team Aligness — UI/UX Designer",
             "bullets": [
-                "Designed a 7-inch ESP32-P4 wall panel for two non-technical on-site operators: an always-visible dashboard and two oversized menu buttons, because they would never open an app while standing at the tank."
-                if en else
-                "Merancang panel dinding ESP32-P4 7 inci untuk dua pengguna non-teknis di lokasi: dashboard yang selalu terlihat dan dua tombol menu besar, karena mereka tidak akan membuka aplikasi saat berdiri di depan tangki.",
                 "Designed the companion mobile app in full — 25 Figma frames across authentication, home status, device pairing and settings — reusing the panel's status vocabulary so the same condition reads the same on both screens."
                 if en else
                 "Merancang aplikasi pendamping seluler secara utuh: 25 layar Figma untuk autentikasi, status rumah, pemasangan perangkat, dan pengaturan, dengan kosakata status yang sama seperti panel.",
@@ -305,7 +292,7 @@ def build(lang, out_path):
         },
         {
             "title": "CineStream — Video Streaming Platform" if en else "CineStream — Platform Streaming Video",
-            "dates": "2025 · " + ("team of 6" if en else "tim 6 orang"),
+            "dates": "2025",
             "sub": "Project Manager & System Analyst — " + ("SRS, UML, Laravel" if en else "SKPL/SRS, UML, Laravel"),
             "bullets": [
                 "Led a six-person team as PM and System Analyst: wrote the SRS, the full UML set (use case, activity, sequence, class) and the ERD before any code was written, then built the PHP/Laravel app consuming public movie-catalogue APIs."
@@ -352,8 +339,8 @@ def build(lang, out_path):
     role_line(doc, ("S.Kom — Informatics, Universitas Komputer Indonesia (UNIKOM)" if en
                     else "S.Kom — Teknik Informatika, Universitas Komputer Indonesia (UNIKOM)"),
               "2022 – 2026")
-    note_line(doc, ("Bandung, Indonesia — GPA 3.47 / 4.00 — Bachelor of Computer Science" if en
-                    else "Bandung, Indonesia — IPK 3.47 / 4.00 — setara Bachelor of Computer Science"))
+    note_line(doc, "Bandung, Indonesia — GPA 3.47 / 4.00" if en
+              else "Bandung, Indonesia — IPK 3.47 / 4.00")
 
     role_line(doc, "Certified System Analyst (CSA)", "2026 – 2029")
     note_line(doc, ("BNSP · LSP Informatika — SRS/SyRS, UML/ERD/DFD, system feasibility verification." if en
