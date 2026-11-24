@@ -44,9 +44,12 @@ li::marker{color:#A65A1B}
 li:last-child{margin-bottom:0}
 
 /* skills */
-dl{margin:0;display:grid;grid-template-columns:35mm 1fr;gap:.5mm 3mm;font-size:8.4pt}
-dt{font-weight:600;color:#1F4D3A}
-dd{margin:0;color:#34423B}
+/* ATS-safe: one label-value pair per line in DOM order. A two-column grid made
+   pdfminer-style parsers read every label first and every value second, which
+   destroys the pairing an ATS needs. */
+.skills{display:flex;flex-direction:column;gap:1.1mm;font-size:8.4pt;line-height:1.42;break-inside:avoid}
+.skills p{margin:0;color:#34423B}
+.skills b{font-weight:600;color:#1F4D3A}
 
 /* education / cert */
 .line{margin:0 0 .5mm;font-size:8.8pt}
@@ -55,7 +58,7 @@ dd{margin:0;color:#34423B}
 
 @media print{
   a{color:#1F4D3A}
-  .job,dl{break-inside:avoid}
+  .job,.skills{break-inside:avoid}
 }
 </style>
 </head>
@@ -102,12 +105,12 @@ dd{margin:0;color:#34423B}
     </div>
     <p class="sub"><span data-id="Proyek Smart Greenhouse, Kementerian Pertanian &middot; Team Aligness" data-en="Smart Greenhouse Project, Ministry of Agriculture &middot; Team Aligness">Smart Greenhouse Project, Ministry of Agriculture &middot; Team Aligness</span> &mdash; Subang &amp; Sumedang</p>
     <ul>
-      <li><span data-id="Melubangi dan memotong pelat panel untuk tiap komponen, lalu merakit lima panel kontrol dan memasangnya di lokasi Subang dan Sumedang."
-        data-en="Cut and drilled the panel plates for every component, then assembled five control panels and installed them at the Subang and Sumedang sites.">Cut and drilled the panel plates for every component, then assembled five control panels and installed them at the Subang and Sumedang sites.</span></li>
-      <li><span data-id="Mengukur, memotong, dan menyambung kabel panel &mdash; solder, crimp, dan klem &mdash; mengikuti skematik yang digambar tim."
-        data-en="Measured, cut and terminated the panel wiring &mdash; soldering, crimping and clamping &mdash; working from the team's schematics.">Measured, cut and terminated the panel wiring &mdash; soldering, crimping and clamping &mdash; working from the team's schematics.</span></li>
-      <li><span data-id="Menguji peralihan manual/otomatis pada panel rakitan sendiri, lalu melaporkan bahwa empat dari lima situs berakhir beroperasi manual."
-        data-en="Tested manual/automatic mode switching on panels I had built, and reported that four of the five sites ended up running on manual.">Tested manual/automatic mode switching on panels I had built, and reported that four of the five sites ended up running on manual.</span></li>
+      <li><span data-id="Merakit dan mengkabel lima panel kontrol untuk lima greenhouse 18 &times; 18 m &mdash; potong dan lubang pelat, lalu solder, crimp, dan klem seluruh harness."
+        data-en="Assembled and wired five control panels for five 18 &times; 18 m greenhouse sites &mdash; plate cutting and drilling, then soldering, crimping and clamping every harness.">Assembled and wired five control panels for five 18 &times; 18 m greenhouse sites &mdash; plate cutting and drilling, then soldering, crimping and clamping every harness.</span></li>
+      <li><span data-id="Menguji peralihan mode dan perilaku fault pada lima panel serta node sensor CO2/cahaya yang membaca tiap 10 detik &mdash; tanpa relay chatter atau aktuasi tak terkendali."
+        data-en="Tested mode switching and fault behaviour across all five panels and their CO2/light sensor nodes, reading every 10 seconds &mdash; no relay chatter, no uncommanded actuation.">Tested mode switching and fault behaviour across all five panels and their CO2/light sensor nodes, reading every 10 seconds &mdash; no relay chatter, no uncommanded actuation.</span></li>
+      <li><span data-id="Melaporkan bahwa empat dari lima situs kembali ke manual &mdash; temuan yang membentuk kesimpulan proyek, dan alasan jalur fail-safe manual masih dipakai tiap hari."
+        data-en="Reported that four of the five sites reverted to manual &mdash; the finding that shaped the project's conclusion, and why the manual fail-safe is what still runs daily.">Reported that four of the five sites reverted to manual &mdash; the finding that shaped the project's conclusion, and why the manual fail-safe is what still runs daily.</span></li>
     </ul>
   </div>
 
@@ -169,20 +172,14 @@ dd{margin:0;color:#34423B}
 
 <section>
   <h2><span data-id="Keahlian Teknis" data-en="Technical Skills">Technical Skills</span></h2>
-  <dl>
-    <dt><span data-id="Bahasa Pemrograman" data-en="Programming">Programming</span></dt>
-    <dd>C/C++, Python, Dart, PHP, SQL, JavaScript, HTML/CSS</dd>
-    <dt><span data-id="Mobile &amp; Web" data-en="Mobile &amp; Web">Mobile &amp; Web</span></dt>
-    <dd>Flutter (Dart), Provider, mobile_scanner, REST APIs, Laravel, Django</dd>
-    <dt><span data-id="IoT &amp; Perangkat Keras" data-en="IoT &amp; Hardware">IoT &amp; Hardware</span></dt>
-    <dd><span data-id="Perakitan panel &amp; panel pelat (potong/lubang), pengkabelan dan solder/crimp/klem, uji panel, relay, ESP32 / Raspberry Pi (level uji &amp; dukung), ThingsBoard" data-en="Panel assembly &amp; plate work (cut/drill), wiring with soldering, crimping &amp; clamping, panel testing, relays, ESP32 / Raspberry Pi (test &amp; support level), ThingsBoard">Panel assembly &amp; plate work (cut/drill), wiring with soldering, crimping &amp; clamping, panel testing, relays, ESP32 / Raspberry Pi (test &amp; support level), ThingsBoard</span></dd>
-    <dt><span data-id="Analisis &amp; Desain" data-en="Analysis &amp; Design">Analysis &amp; Design</span></dt>
-    <dd><span data-id="SRS/SyRS, UML, ERD, DFD, Waterfall &amp; Agile, Figma, desain antarmuka" data-en="SRS/SyRS, UML, ERD, DFD, Waterfall &amp; Agile, Figma, interface design">SRS/SyRS, UML, ERD, DFD, Waterfall &amp; Agile, Figma, interface design</span></dd>
-    <dt><span data-id="Data &amp; Alat" data-en="Data &amp; Tools">Data &amp; Tools</span></dt>
-    <dd>PostgreSQL, MySQL, Docker, Git &amp; GitHub, VS Code, PlatformIO, Linux / Raspberry Pi OS, Postman, Pentaho</dd>
-    <dt><span data-id="Bahasa Lisan" data-en="Spoken">Spoken</span></dt>
-    <dd><span data-id="Indonesia (asli) &middot; Inggris (profesional &mdash; teknis, dokumentasi, komunikasi kerja)" data-en="Indonesian (native) &middot; English (professional &mdash; technical, documentation, work communication)">Indonesian (native) &middot; English (professional &mdash; technical, documentation, work communication)</span></dd>
-  </dl>
+  <div class="skills">
+    <p><b><span data-id="Bahasa Pemrograman" data-en="Programming">Programming</span>:</b> C/C++, Python, Dart, PHP, SQL, JavaScript, HTML/CSS</p>
+    <p><b><span data-id="Mobile &amp; Web" data-en="Mobile &amp; Web">Mobile &amp; Web</span>:</b> Flutter (Dart), Provider, mobile_scanner, REST APIs, Laravel, Django</p>
+    <p><b><span data-id="Perangkat Keras &amp; IoT" data-en="Hardware &amp; IoT">Hardware &amp; IoT</span>:</b> <span data-id="perakitan panel &amp; pelat (potong/lubang), pengkabelan &amp; solder/crimp/klem, uji panel, relay, ESP32 / Raspberry Pi (level uji &amp; dukung), ThingsBoard, MQTT" data-en="panel assembly &amp; plate work (cut/drill), wiring &amp; soldering/crimping/clamping, panel testing, relays, ESP32 / Raspberry Pi (test &amp; support level), ThingsBoard, MQTT">panel assembly &amp; plate work (cut/drill), wiring &amp; soldering/crimping/clamping, panel testing, relays, ESP32 / Raspberry Pi (test &amp; support level), ThingsBoard, MQTT</span></p>
+    <p><b><span data-id="Analisis &amp; Desain" data-en="Analysis &amp; Design">Analysis &amp; Design</span>:</b> <span data-id="SRS/SyRS, UML, ERD, DFD, requirement gathering, Waterfall &amp; Agile, Figma, desain antarmuka" data-en="SRS/SyRS, UML, ERD, DFD, requirement gathering, Waterfall &amp; Agile, Figma, interface design">SRS/SyRS, UML, ERD, DFD, requirement gathering, Waterfall &amp; Agile, Figma, interface design</span></p>
+    <p><b><span data-id="Data &amp; Alat" data-en="Data &amp; Tools">Data &amp; Tools</span>:</b> PostgreSQL, MySQL, Docker, Git &amp; GitHub, VS Code, PlatformIO, Linux / Raspberry Pi OS, Postman, Pentaho</p>
+    <p><b><span data-id="Bahasa" data-en="Languages">Languages</span>:</b> <span data-id="Indonesia (asli) &middot; Inggris (profesional &mdash; teknis, dokumentasi, komunikasi kerja)" data-en="Indonesian (native) &middot; English (professional &mdash; technical, documentation, work communication)">Indonesian (native) &middot; English (professional &mdash; technical, documentation, work communication)</span></p>
+  </div>
 </section>
 
 <section>
@@ -192,7 +189,7 @@ dd{margin:0;color:#34423B}
       <span class="t">S.Kom &mdash; <span data-id="Teknik Informatika" data-en="Informatics">Informatics</span>, Universitas Komputer Indonesia (UNIKOM)</span>
       <span class="d">2022 &ndash; 2026</span>
     </div>
-    <p class="note"><span data-id="Bandung, Indonesia &mdash; IPK 3.47 / 4.00" data-en="Bandung, Indonesia &mdash; GPA 3.47 / 4.00">Bandung, Indonesia &mdash; GPA 3.47 / 4.00</span></p>
+    <p class="note"><span data-id="Bandung, Indonesia &mdash; IPK 3.47 / 4.00 &mdash; setara Bachelor of Computer Science" data-en="Bandung, Indonesia &mdash; GPA 3.47 / 4.00 &mdash; Bachelor of Computer Science">Bandung, Indonesia &mdash; GPA 3.47 / 4.00 &mdash; Bachelor of Computer Science</span></p>
   </div>
   <div class="job">
     <div class="row">
