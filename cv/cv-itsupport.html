@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hilmy Abdurrahman Darmawan — CV (IT Support Engineer)</title>
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:block;
+  src:url('fonts/fraunces-800.woff2') format('woff2')}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400 700;font-display:block;
+  src:url('fonts/worksans.woff2') format('woff2')}
+</style>
+<style>
+@page{size:A4;margin:10mm 12mm}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#fff;color:#18221D;font-family:'Work Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+     font-size:8.5pt;line-height:1.26;-webkit-font-smoothing:antialiased}
+a{color:#1F4D3A;text-decoration:none}
+#cv{max-width:184mm;margin:0 auto;padding:0}
+
+/* header */
+header{border-bottom:2px solid #1F4D3A;padding-bottom:2.6mm;margin-bottom:2.6mm}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:800;font-size:17pt;line-height:1.05;
+   margin:0 0 1.2mm;letter-spacing:-.2px;color:#1F4D3A}
+.role{font-size:9pt;color:#A65A1B;font-weight:600;letter-spacing:.2px;margin:0 0 2.2mm}
+.contact{font-size:8.4pt;color:#34423B;line-height:1.55}
+.contact .sep{color:#B6C4BC;padding:0 1.2mm}
+
+/* sections */
+section{margin-bottom:0.62mm;break-inside:auto}
+section+section h2{margin-top:1.8mm}
+h2{font-size:7.9pt;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#1F4D3A;margin:0 0 1.3mm;padding-bottom:.7mm;border-bottom:1px solid #DCE4DF}
+
+/* entries */
+.job{margin-bottom:1.05mm;break-inside:avoid}
+.job:last-child{margin-bottom:0}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
+.t{font-weight:600;font-size:8.8pt;color:#18221D}
+.d{font-size:8.3pt;color:#4A5A52;white-space:nowrap;font-variant-numeric:tabular-nums}
+.sub{font-size:8.3pt;color:#34423B;font-style:italic;margin:.2mm 0 1.1mm}
+
+ul{margin:0;padding-left:4mm}
+li{margin:0 0 .2mm;padding-left:.4mm}
+li::marker{color:#A65A1B}
+li:last-child{margin-bottom:0}
+
+/* skills */
+/* ATS-safe: one label-value pair per line in DOM order. A two-column grid made
+   pdfminer-style parsers read every label first and every value second, which
+   destroys the pairing an ATS needs. */
+.skills{display:flex;flex-direction:column;gap:.9mm;font-size:8.4pt;line-height:1.42;break-inside:avoid}
+.skills p{margin:0;color:#34423B}
+.skills b{font-weight:600;color:#1F4D3A}
+
+/* education / cert */
+.line{margin:0 0 .5mm;font-size:8.8pt}
+.line:last-child{margin-bottom:0}
+.note{font-size:8.2pt;color:#4A5A52;margin:.4mm 0 0}
+
+@media print{
+  a{color:#1F4D3A}
+  .job,.skills{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<article id="cv">
+
+<header>
+  <h1>Hilmy Abdurrahman Darmawan</h1>
+  <p class="role"><span data-id="IT Support Engineer &middot; Perangkat Keras, Perangkat &amp; Dukungan Lapangan" data-en="IT Support Engineer &middot; Hardware, Devices &amp; Field Support">IT Support Engineer &middot; Hardware, Devices &amp; Field Support</span></p>
+  <div class="contact">
+    Bandung, <span data-id="Jawa Barat" data-en="West Java">West Java</span>, Indonesia<span class="sep">|</span>+62 838-9189-9401<span class="sep">|</span>adhilmy159@gmail.com<br>
+    <a href="https://linkedin.com/in/hilmy-abdurrahman-darmawan">linkedin.com/in/hilmy-abdurrahman-darmawan</a><span class="sep">|</span><a href="https://github.com/hilmy112233">github.com/hilmy112233</a><span class="sep">|</span><a href="https://hilmy112233.github.io">hilmy112233.github.io</a>
+  </div>
+</header>
+
+<section>
+  <h2><span data-id="Ringkasan" data-en="Summary">Summary</span></h2>
+  <p style="margin:0"><span
+    data-id="Lulusan Teknik Informatika (IPK 3.47/4.00) dengan dua tahun dukungan perangkat keras di lapangan: memasang, mengkabel, dan menguji tujuh panel kontrol di tujuh lokasi, lalu mendiagnosis gangguannya &mdash; peralihan mode tidak mengunci, relay chatter, node sensor putus &mdash; dan memulihkan jalur fail-safe manual saat otomasi gagal. Mengonfigurasi perangkat ESP32 dan Raspberry Pi, menjalankan telemetri MQTT/TLS, membangun tools internal yang dipakai staf lapangan. Terbiasa Linux, Docker, PostgreSQL/MySQL, dan serah terima tertulis."
+    data-en="Informatics graduate (GPA 3.47/4.00) with two years of hands-on device and field support: installed, wired and tested seven control panels across seven sites, then diagnosed the faults that took them down &mdash; mode switching that would not latch, relay chatter, sensor nodes dropping off &mdash; and restored the manual fail-safe where automation failed. Configures and supports ESP32 and Raspberry Pi devices, runs MQTT/TLS telemetry, and builds the internal tools field staff actually use. Comfortable on Linux, Docker and PostgreSQL/MySQL, with clear written handover.">Informatics graduate (GPA 3.47/4.00) with two years of hands-on device and field support: installed, wired and tested seven control panels across seven sites, then diagnosed the faults that took them down &mdash; mode switching that would not latch, relay chatter, sensor nodes dropping off &mdash; and restored the manual fail-safe where automation failed. Configures and supports ESP32 and Raspberry Pi devices, runs MQTT/TLS telemetry, and builds the internal tools field staff actually use. Comfortable on Linux, Docker and PostgreSQL/MySQL, with clear written handover.</span></p>
+</section>
+
+<section>
+  <h2><span data-id="Pengalaman Kerja" data-en="Experience">Experience</span></h2>
+
+  <div class="job">
+    <div class="row">
+      <span class="t">Panel Assembler, Wirer &amp; Tester/Support <span data-id="(Kontrak)" data-en="(Contract)">(Contract)</span></span>
+      <span class="d">Jan 2023 &ndash; Sep 2025</span>
+    </div>
+    <p class="sub"><span data-id="Team Aligness &middot; Proyek Smart Greenhouse, Kementerian Pertanian" data-en="Team Aligness &middot; Smart Greenhouse Project, Ministry of Agriculture">Team Aligness &middot; Smart Greenhouse Project, Ministry of Agriculture</span> &mdash; Subang &amp; Sumedang</p>
+    <ul>
+      <li><span data-id="Memasang, mengkabel, dan mengomisioning tujuh panel kontrol di tujuh lokasi greenhouse 18 &times; 18 m &mdash; potong dan lubang pelat dudukan, pasang komponen, lalu solder, crimp, dan klem seluruh harness."
+        data-en="Installed, wired and commissioned seven control panels across seven 18 &times; 18 m greenhouse sites &mdash; cutting and drilling the mounting plate, fitting every component, then soldering, crimping and clamping the full harness.">Installed, wired and commissioned seven control panels across seven 18 &times; 18 m greenhouse sites &mdash; cutting and drilling the mounting plate, fitting every component, then soldering, crimping and clamping the full harness.</span></li>
+      <li><span data-id="Mendiagnosis gangguan di lokasi sampai akar masalahnya: peralihan mode tidak mengunci, relay chatter, node sensor lepas koneksi &mdash; lalu perbaiki jalur kabel atau ganti komponen dan uji ulang sampai stabil."
+        data-en="Diagnosed on-site faults down to root cause: mode switching that would not latch, relay chatter, and sensor nodes dropping their connection &mdash; then fixed the wiring or replaced the part and re-tested until the panel held.">Diagnosed on-site faults down to root cause: mode switching that would not latch, relay chatter, and sensor nodes dropping their connection &mdash; then fixed the wiring or replaced the part and re-tested until the panel held.</span></li>
+      <li><span data-id="Mengonfigurasi dan menguji node sensor CO2/cahaya yang melapor tiap 10 detik, beserta jalur relay dan fail-safe di belakangnya, memastikan tidak ada aktuasi tak terkendali setelah tiap perubahan."
+        data-en="Configured and tested the CO2/light sensor nodes reporting every 10 seconds, plus the relay and fail-safe paths behind them, verifying no uncommanded actuation after every change.">Configured and tested the CO2/light sensor nodes reporting every 10 seconds, plus the relay and fail-safe paths behind them, verifying no uncommanded actuation after every change.</span></li>
+      <li><span data-id="Mendokumentasikan dan melaporkan bahwa dua dari tujuh situs tidak mampu bertahan di mode otomatis, lalu merekomendasikan jalur fail-safe manual &mdash; yang sampai sekarang masih dipakai harian."
+        data-en="Documented and escalated that two of the seven sites could not hold automated mode, then recommended the manual fail-safe &mdash; which is what still runs daily.">Documented and escalated that two of the seven sites could not hold automated mode, then recommended the manual fail-safe &mdash; which is what still runs daily.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="row">
+      <span class="t">Frontend Mobile Developer <span data-id="(Magang)" data-en="(Intern)">(Intern)</span></span>
+      <span class="d">Aug 2025 &ndash; Jan 2026</span>
+    </div>
+    <p class="sub">Leapfactor &middot; PT Lattice Teknologi Mandiri &mdash; Bandung, Indonesia</p>
+    <ul>
+      <li><span data-id="Mendukung dan mengembangkan Arjuna Mobile, aplikasi inventaris yang dipakai staf lapangan di ponselnya &mdash; membenahi bug siklus kamera, menambah debounce anti scan-ganda, dan menjaga sinkronisasi REST dengan backend."
+        data-en="Supported and extended Arjuna Mobile, the inventory app field staff run on their phones &mdash; fixed camera-lifecycle bugs, added debounce against duplicate scans, and kept REST sync consistent with the backend.">Supported and extended Arjuna Mobile, the inventory app field staff run on their phones &mdash; fixed camera-lifecycle bugs, added debounce against duplicate scans, and kept REST sync consistent with the backend.</span></li>
+      <li><span data-id="Mengintegrasikan pemindai barcode/QR lewat mobile_scanner, termasuk melepas kamera saat keluar route supaya perangkat tidak menggantung."
+        data-en="Integrated barcode/QR scanner hardware through mobile_scanner, including releasing the camera on route exit so the device did not hang.">Integrated barcode/QR scanner hardware through mobile_scanner, including releasing the camera on route exit so the device did not hang.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span data-id="Proyek Pilihan" data-en="Selected Projects">Selected Projects</span></h2>
+
+  <div class="job">
+    <div class="row">
+      <span class="t"><span data-id="Monitoring Konsumsi BBM Motor Karburator Berbasis IoT" data-en="IoT Fuel Consumption Monitoring for Carburettor Motorcycles">IoT Fuel Consumption Monitoring for Carburettor Motorcycles</span></span>
+      <span class="d">2025 &ndash; 2026</span>
+    </div>
+    <p class="sub"><span data-id="Tugas Akhir S1 &middot; UNIKOM &mdash; Hardware &amp; Software Developer" data-en="S1 Capstone Thesis &middot; UNIKOM &mdash; Hardware &amp; Software Developer">S1 Capstone Thesis &middot; UNIKOM &mdash; Hardware &amp; Software Developer</span></p>
+    <ul>
+      <li><span data-id="Merangkai jalur sensor dari ujung ke ujung &mdash; ADC 16-bit ADS1115 pada pelampung tangki, GPS NEO-6M lewat serial, ESP32 mengirim MQTT/TLS &mdash; lalu menelusuri noise pembacaan ke getaran mesin dan fuel slosh."
+        data-en="Integrated the sensor chain end to end &mdash; a 16-bit ADS1115 ADC on the tank float, NEO-6M GPS over serial, an ESP32 pushing MQTT/TLS &mdash; then traced the noise that made readings unusable to engine vibration and fuel slosh.">Integrated the sensor chain end to end &mdash; a 16-bit ADS1115 ADC on the tank float, NEO-6M GPS over serial, an ESP32 pushing MQTT/TLS &mdash; then traced the noise that made readings unusable to engine vibration and fuel slosh.</span></li>
+      <li><span data-id="Memperbaikinya di firmware dengan filter tiga lapis (median 7 sampel &gt; EMA alpha 0.1 &gt; histeresis 0.03 L) dan mengalirkan telemetri per detik ke dashboard Django + PostgreSQL."
+        data-en="Fixed it in firmware with a three-stage filter (7-sample median &gt; EMA alpha 0.1 &gt; 0.03 L hysteresis) and streamed telemetry every second to a Django + PostgreSQL dashboard.">Fixed it in firmware with a three-stage filter (7-sample median &gt; EMA alpha 0.1 &gt; 0.03 L hysteresis) and streamed per-second telemetry to a Django + PostgreSQL dashboard.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="row">
+      <span class="t"><span data-id="Flood &amp; Water-Tank Monitoring &mdash; Antarmuka Panel &amp; Aplikasi" data-en="Flood &amp; Water-Tank Monitoring &mdash; Panel &amp; App Interface">Flood &amp; Water-Tank Monitoring &mdash; Panel &amp; App Interface</span></span>
+      <span class="d">2026 &ndash; <span data-id="Sekarang" data-en="Present">Present</span></span>
+    </div>
+    <p class="sub"><span data-id="Team Aligness &mdash; UI/UX Designer" data-en="Team Aligness &mdash; UI/UX Designer">Team Aligness &mdash; UI/UX Designer</span></p>
+    <ul>
+      <li><span data-id="Merancang aplikasi pendamping seluler (25 layar Figma) memakai kosakata status yang sama dengan panel, supaya satu gangguan terbaca sama di dinding maupun di ponsel pengguna."
+        data-en="Designed the companion mobile app (25 Figma frames) on the same status vocabulary as the panel, so a fault reads the same on the wall as on the user&rsquo;s phone.">Designed the companion mobile app (25 Figma frames) on the same status vocabulary as the panel, so a fault reads the same on the wall as on the user&rsquo;s phone.</span></li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="row">
+      <span class="t"><span data-id="CineStream &mdash; Platform Streaming Video" data-en="CineStream &mdash; Video Streaming Platform">CineStream &mdash; Video Streaming Platform</span></span>
+      <span class="d">2025</span>
+    </div>
+    <p class="sub"><span data-id="Project Manager &amp; System Analyst &mdash; SKPL/SRS, UML, Laravel" data-en="Project Manager &amp; System Analyst &mdash; SRS, UML, Laravel">Project Manager &amp; System Analyst &mdash; SRS, UML, Laravel</span></p>
+    <ul>
+      <li><span data-id="Menulis SKPL/SRS, seluruh diagram UML, dan ERD sebelum satu baris kode ditulis, lalu membangun aplikasi PHP/Laravel-nya bersama tim enam orang &mdash; kebiasaan dokumentasi yang sama dipakai untuk catatan serah terima dan laporan gangguan."
+        data-en="Wrote the SRS, the full UML set and the ERD before any code was written, then built the PHP/Laravel app with a team of six &mdash; the same documentation habit used for handover notes and fault reports.">Wrote the SRS, the full UML set and the ERD before any code was written, then built the PHP/Laravel app with a six-person team &mdash; the same documentation habit used for handover notes and fault reports.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span data-id="Keahlian Teknis" data-en="Technical Skills">Technical Skills</span></h2>
+  <div class="skills">
+    <p><b><span data-id="Dukungan Perangkat Keras" data-en="Hardware &amp; Device Support">Hardware &amp; Device Support</span>:</b> <span data-id="instalasi &amp; komisioning panel, pengkabelan (solder/crimp/klem), pemasangan komponen, diagnosis gangguan &amp; pelacakan akar masalah, perawatan korektif &amp; perbaikan, uji fungsi, konfigurasi perangkat, relay, jalur fail-safe" data-en="panel installation &amp; commissioning, wiring (solder/crimp/clamp), component fitting, fault diagnosis &amp; root-cause tracing, corrective maintenance &amp; repair, functional testing, device configuration, relays, fail-safe paths">panel installation &amp; commissioning, wiring (solder/crimp/clamp), component fitting, fault diagnosis &amp; root-cause tracing, functional testing, device configuration, relays, fail-safe paths</span></p>
+    <p><b><span data-id="Sistem &amp; Perkakas" data-en="Systems &amp; Tools">Systems &amp; Tools</span>:</b> <span data-id="Linux / Raspberry Pi OS, Windows, Docker, Git &amp; GitHub, VS Code, PlatformIO, Postman, remote troubleshooting" data-en="Linux / Raspberry Pi OS, Windows, Docker, Git &amp; GitHub, VS Code, PlatformIO, Postman, remote troubleshooting">Linux / Raspberry Pi OS, Windows, Docker, Git &amp; GitHub, VS Code, PlatformIO, Postman, remote troubleshooting</span></p>
+    <p><b><span data-id="Instrumentasi &amp; IoT" data-en="Instrumentation &amp; IoT">Instrumentation &amp; IoT</span>:</b> <span data-id="ESP32, Raspberry Pi, node sensor CO2/cahaya, ADC ADS1115, GPS NEO-6M, MQTT/TLS, ThingsBoard" data-en="ESP32, Raspberry Pi, CO2/light sensor nodes, ADS1115 ADC, NEO-6M GPS, MQTT/TLS, ThingsBoard">ESP32, Raspberry Pi, CO2/light sensor nodes, ADS1115 ADC, NEO-6M GPS, MQTT/TLS, ThingsBoard</span></p>
+    <p><b><span data-id="Data &amp; Backend" data-en="Data &amp; Backend">Data &amp; Backend</span>:</b> PostgreSQL, MySQL, Django, REST APIs, Laravel</p>
+    <p><b><span data-id="Pemrograman &amp; Mobile" data-en="Programming &amp; Mobile">Programming &amp; Mobile</span>:</b> Python, C/C++, SQL, Dart, PHP, JavaScript, HTML/CSS, Flutter, Provider, mobile_scanner</p>
+    <p><b><span data-id="Dokumentasi &amp; Analisis" data-en="Documentation &amp; Analysis">Documentation &amp; Analysis</span>:</b> <span data-id="SRS/SyRS, UML, ERD, DFD, requirement gathering, Agile &amp; Waterfall, Figma" data-en="SRS/SyRS, UML, ERD, DFD, requirement gathering, Agile &amp; Waterfall, Figma">SRS/SyRS, UML, ERD, DFD, requirement gathering, Agile &amp; Waterfall, Figma</span></p>
+    <p><b><span data-id="Bahasa" data-en="Languages">Languages</span>:</b> <span data-id="Indonesia (asli) &middot; Inggris (profesional &mdash; teknis, dokumentasi, komunikasi kerja)" data-en="Indonesian (native) &middot; English (professional &mdash; technical, documentation, work communication)">Indonesian (native) &middot; English (professional &mdash; technical, documentation, work communication)</span></p>
+  </div>
+</section>
+
+<section>
+  <h2><span data-id="Pendidikan &amp; Sertifikasi" data-en="Education &amp; Certification">Education &amp; Certification</span></h2>
+  <div class="job">
+    <div class="row">
+      <span class="t">S.Kom &mdash; <span data-id="Teknik Informatika" data-en="Informatics">Informatics</span>, Universitas Komputer Indonesia (UNIKOM)</span>
+      <span class="d">2022 &ndash; 2026</span>
+    </div>
+    <p class="note"><span data-id="Bandung, Indonesia &mdash; IPK 3.47 / 4.00" data-en="Bandung, Indonesia &mdash; GPA 3.47 / 4.00">Bandung, Indonesia &mdash; GPA 3.47 / 4.00</span></p>
+  </div>
+  <div class="job">
+    <div class="row">
+      <span class="t">Certified System Analyst (CSA)</span>
+      <span class="d">2026 &ndash; 2029</span>
+    </div>
+    <p class="note"><span data-id="BNSP &middot; LSP Informatika &mdash; SRS/SyRS, UML/ERD/DFD, verifikasi kelayakan sistem."
+      data-en="BNSP &middot; LSP Informatika &mdash; SRS/SyRS, UML/ERD/DFD, system feasibility verification.">BNSP &middot; LSP Informatika &mdash; SRS/SyRS, UML/ERD/DFD, system feasibility verification.</span></p>
+  </div>
+</section>
+
+</article>
+<script>
+(function(){
+  var lang = new URLSearchParams(location.search).get('lang') === 'id' ? 'id' : 'en';
+  document.documentElement.lang = lang;
+  if (lang === 'id') document.title = 'Hilmy Abdurrahman Darmawan — CV';
+  document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+  // ?measure=1 reports the laid-out height so the build can assert a one-page fit
+  if (new URLSearchParams(location.search).get('measure') === '1') {
+    document.fonts.ready.then(function(){
+      document.body.setAttribute('data-h', document.body.scrollHeight);
+      document.body.setAttribute('data-fonts',
+        [document.fonts.check('12px "Fraunces"'), document.fonts.check('12px "Work Sans"'),
+         document.fonts.status].join('|'));
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -53,38 +53,47 @@ function measure(html, lang) {
   return Number(h[1]);
 }
 
-const inlined = readFileSync(join(cvDir, 'cv.html'), 'utf8').replace(
+const inlined = (file) => readFileSync(join(cvDir, file), 'utf8').replace(
   /url\('fonts\/([\w-]+\.woff2)'\)/g,
-  (_, file) => `url(data:font/woff2;base64,${readFileSync(join(cvDir, 'fonts', file)).toString('base64')})`,
+  (_, f) => `url(data:font/woff2;base64,${readFileSync(join(cvDir, 'fonts', f)).toString('base64')})`,
 );
-const tmpHtml = join(cvDir, '_print.html');
-writeFileSync(tmpHtml, inlined);
+
+// Each source page gets an EN and an ID PDF. The IT-support page is a separate
+// application variant kept alongside the generalist one.
+const JOBS = [
+  ['cv.html', 'assets/CV_Hilmy_Abdurrahman_Darmawan'],
+  ['cv-itsupport.html', 'assets/CV_Hilmy_Abdurrahman_Darmawan_ITSupport'],
+];
 
 let bad = 0;
-try {
-  for (const [lang, out] of [
-    ['en', 'assets/CV_Hilmy_Abdurrahman_Darmawan.pdf'],
-    ['id', 'assets/CV_Hilmy_Abdurrahman_Darmawan_ID.pdf'],
-  ]) {
-    const dest = join(root, out);
-    headless(['--no-pdf-header-footer', '--virtual-time-budget=8000', '--print-to-pdf=' + dest,
-      'file:///' + tmpHtml.replace(/\\/g, '/') + '?lang=' + lang]);
-    if (!existsSync(dest)) throw new Error('not produced: ' + out);
+for (const [src, stem] of JOBS) {
+  const tmpHtml = join(cvDir, '_print-' + src);
+  writeFileSync(tmpHtml, inlined(src));
+  try {
+    for (const [lang, out] of [
+      ['en', stem + '.pdf'],
+      ['id', stem + '_ID.pdf'],
+    ]) {
+      const dest = join(root, out);
+      headless(['--no-pdf-header-footer', '--virtual-time-budget=8000', '--print-to-pdf=' + dest,
+        'file:///' + tmpHtml.replace(/\\/g, '/') + '?lang=' + lang]);
+      if (!existsSync(dest)) throw new Error('not produced: ' + out);
 
-    const pages = pageCount(dest);
-    const fonts = embeddedFonts(dest);
-    // Work Sans covers no arrows or Greek, so any fallback face means a glyph
-    // silently rendered in Segoe UI instead of the intended font.
-    const fallback = fonts.filter((f) => !/Fraunces|WorkSans/.test(f));
-    const ok = pages === 1 && fonts.some((f) => /Fraunces|WorkSans/.test(f)) && !fallback.length;
-    if (!ok) bad++;
-    const kb = (statSync(dest).size / 1024).toFixed(0);
-    const fit = measure(tmpHtml, lang);
-    if (fit > AVAILABLE) bad++;
-    console.log(`${ok && fit <= AVAILABLE ? 'OK  ' : 'FAIL'} ${out}  ${pages} page(s), ${kb} KB, ${fit}/${AVAILABLE} px` +
-      (fallback.length ? `, FALLBACK FONT: ${fallback.join(', ')}` : ''));
+      const pages = pageCount(dest);
+      const fonts = embeddedFonts(dest);
+      // Work Sans covers no arrows or Greek, so any fallback face means a glyph
+      // silently rendered in Segoe UI instead of the intended font.
+      const fallback = fonts.filter((f) => !/Fraunces|WorkSans/.test(f));
+      const ok = pages === 1 && fonts.some((f) => /Fraunces|WorkSans/.test(f)) && !fallback.length;
+      if (!ok) bad++;
+      const kb = (statSync(dest).size / 1024).toFixed(0);
+      const fit = measure(tmpHtml, lang);
+      if (fit > AVAILABLE) bad++;
+      console.log(`${ok && fit <= AVAILABLE ? 'OK  ' : 'FAIL'} ${out}  ${pages} page(s), ${kb} KB, ${fit}/${AVAILABLE} px` +
+        (fallback.length ? `, FALLBACK FONT: ${fallback.join(', ')}` : ''));
+    }
+  } finally {
+    rmSync(tmpHtml, { force: true });
   }
-} finally {
-  rmSync(tmpHtml, { force: true });
 }
 process.exit(bad ? 1 : 0);

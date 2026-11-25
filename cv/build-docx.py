@@ -206,10 +206,9 @@ def build(lang, out_path):
         "Teknisi panel dengan dua tahun kerja lapangan di proyek Smart Greenhouse Kementerian "
         "Pertanian: merakit, mengkabel, dan menguji tujuh panel kontrol di tujuh lokasi — potong "
         "dan lubang pelat, ukur lalu potong panjang kabel, solder, crimp, dan klem seluruh harness, "
-        "dan klem seluruh harness, lalu uji peralihan mode serta perilaku fault sampai ke node "
-        "sensor CO2/cahaya. Melaporkan bahwa dua dari tujuh situs kembali ke mode manual, temuan "
-        "yang membentuk kesimpulan proyek. Lulusan Teknik Informatika (IPK 3.47/4.00) dengan kerja "
-        "instrumentasi ESP32/MQTT."
+        "lalu uji peralihan mode serta perilaku fault sampai ke node sensor CO2/cahaya. Melaporkan "
+        "bahwa dua dari tujuh situs kembali ke mode manual, temuan yang membentuk kesimpulan "
+        "proyek. Lulusan Teknik Informatika (IPK 3.47/4.00) dengan kerja instrumentasi ESP32/MQTT."
     )
     p = para(doc, space_after=0, line=1.02)
     r = p.add_run(summary)
