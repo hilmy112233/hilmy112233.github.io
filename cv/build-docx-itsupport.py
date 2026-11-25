@@ -1,11 +1,13 @@
 """Generate the IT Support Engineer variant of the CV as editable .docx files.
 
-Same ATS rules as build-docx.py: no text boxes, no layout tables, no
+Tuned to the Stanley Marthin IT Support Engineer posting: hardware and software
+troubleshooting, user accounts, spreadsheets, data security, workshop staff
+support. Same ATS rules as build-docx.py: no text boxes, no layout tables, no
 header/footer content, real List Bullet style, one column, contact in the body.
 
 Content is kept token-for-token identical to cv/cv-itsupport.html so the PDF and
 the Word file extract the same text. Run cv/build-docx-itsupport.py, then check
-with _docxcheck.py and a Word page count.
+with _docxcheck.py, _drift.py and a Word page count.
 """
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
@@ -167,9 +169,9 @@ def build(lang, out_path):
     set_font(r, SZ_NAME, bold=True, color=GREEN)
 
     p = para(doc, space_after=1)
-    role = ("IT Support Engineer · Perangkat Keras, Perangkat & Dukungan Lapangan"
+    role = ("IT Support Engineer · Perangkat Keras, Perangkat Lunak & Dukungan Pengguna"
             if not en else
-            "IT Support Engineer · Hardware, Devices & Field Support")
+            "IT Support Engineer · Hardware, Software & User Support")
     r = p.add_run(role)
     set_font(r, SZ_ROLE, bold=True, color=RUST)
 
@@ -186,21 +188,21 @@ def build(lang, out_path):
     # ---- summary ------------------------------------------------------
     section_heading(doc, "Summary" if en else "Ringkasan")
     summary = (
-        "Informatics graduate (GPA 3.47/4.00) with two years of hands-on device and field "
-        "support: installed, wired and tested seven control panels across seven sites, then "
-        "diagnosed the faults that took them down — mode switching that would not latch, relay "
-        "chatter, sensor nodes dropping off — and restored the manual fail-safe where automation "
-        "failed. Configures and supports ESP32 and Raspberry Pi devices, runs MQTT/TLS telemetry, "
-        "and builds the internal tools field staff actually use. Comfortable on Linux, Docker and "
-        "PostgreSQL/MySQL, with clear written handover."
+        "IT support and hardware engineer in Bandung with two years of on-site device support: "
+        "installed, configured and repaired control panels and sensor nodes across seven sites, "
+        "diagnosed faults to root cause, then documented every fix for handover. Builds the "
+        "spreadsheets and dashboards that turn raw equipment data into something a team can act on "
+        "— including a motorcycle telemetry system built end to end. Works in Windows and Linux, "
+        "handles user account setup and data backup, and keeps equipment running instead of "
+        "replacing it."
         if en else
-        "Lulusan Teknik Informatika (IPK 3.47/4.00) dengan dua tahun dukungan perangkat keras di "
-        "lapangan: memasang, mengkabel, dan menguji tujuh panel kontrol di tujuh lokasi, lalu "
-        "mendiagnosis gangguannya — peralihan mode tidak mengunci, relay chatter, node sensor "
-        "putus — dan memulihkan jalur fail-safe manual saat otomasi gagal. Mengonfigurasi "
-        "perangkat ESP32 dan Raspberry Pi, menjalankan telemetri MQTT/TLS, membangun tools "
-        "internal yang dipakai staf lapangan. Terbiasa Linux, Docker, PostgreSQL/MySQL, dan serah "
-        "terima tertulis."
+        "IT support dan engineer perangkat keras di Bandung dengan dua tahun dukungan perangkat di "
+        "lapangan: memasang, mengonfigurasi, dan memperbaiki panel kontrol serta node sensor di "
+        "tujuh lokasi, mendiagnosis gangguan sampai akar masalah, lalu mendokumentasikan tiap "
+        "perbaikan untuk serah terima. Membangun spreadsheet dan dashboard yang mengubah data "
+        "peralatan mentah jadi bisa dipakai tim — termasuk telemetri sepeda motor dari sensor "
+        "sampai dashboard. Terbiasa Windows dan Linux, pengaturan akun pengguna, backup data, dan "
+        "menjaga peralatan tetap jalan."
     )
     p = para(doc, space_after=0, line=1.02)
     r = p.add_run(summary)
@@ -217,18 +219,18 @@ def build(lang, out_path):
                     if en else
                     "Team Aligness · Proyek Smart Greenhouse, Kementerian Pertanian — Subang & Sumedang"),
             "bullets": [
-                "Installed, wired and commissioned seven control panels across seven 18 × 18 m greenhouse sites — cutting and drilling the mounting plate, fitting every component, then soldering, crimping and clamping the full harness."
+                "Installed, configured and commissioned seven control panels across seven 18 × 18 m greenhouse sites — component fitting, wiring, then functional testing before handover to the users."
                 if en else
-                "Memasang, mengkabel, dan mengomisioning tujuh panel kontrol di tujuh lokasi greenhouse 18 × 18 m — potong dan lubang pelat dudukan, pasang komponen, lalu solder, crimp, dan klem seluruh harness.",
-                "Diagnosed on-site faults down to root cause: mode switching that would not latch, relay chatter, and sensor nodes dropping their connection — then fixed the wiring or replaced the part and re-tested until the panel held."
+                "Memasang, mengonfigurasi, dan mengomisioning tujuh panel kontrol di tujuh lokasi greenhouse 18 × 18 m — pemasangan komponen, pengkabelan, lalu uji fungsi sebelum diserahkan ke pengguna.",
+                "Diagnosed on-site faults down to root cause: mode switching that would not latch, relay chatter, sensor nodes dropping their connection — then repaired the wiring or replaced the part and re-tested until the panel held."
                 if en else
                 "Mendiagnosis gangguan di lokasi sampai akar masalahnya: peralihan mode tidak mengunci, relay chatter, node sensor lepas koneksi — lalu perbaiki jalur kabel atau ganti komponen dan uji ulang sampai stabil.",
-                "Configured and tested the CO2/light sensor nodes reporting every 10 seconds, plus the relay and fail-safe paths behind them, verifying no uncommanded actuation after every change."
+                "Configured the CO2/light sensor nodes reporting every 10 seconds over the network to ThingsBoard, plus the relay and fail-safe paths behind them — verifying no uncommanded actuation after every change."
                 if en else
-                "Mengonfigurasi dan menguji node sensor CO2/cahaya yang melapor tiap 10 detik, beserta jalur relay dan fail-safe di belakangnya, memastikan tidak ada aktuasi tak terkendali setelah tiap perubahan.",
-                "Documented and escalated that two of the seven sites could not hold automated mode, then recommended the manual fail-safe — which is what still runs daily."
+                "Mengonfigurasi node sensor CO2/cahaya yang melapor tiap 10 detik lewat jaringan ke ThingsBoard, serta jalur relay dan fail-safe di belakangnya — memastikan tidak ada aktuasi tak terkendali setelah tiap perubahan.",
+                "Documented each fault and its fix, then escalated that two of the seven sites could not hold automated mode and recommended the manual fail-safe — which is what still runs daily."
                 if en else
-                "Mendokumentasikan dan melaporkan bahwa dua dari tujuh situs tidak mampu bertahan di mode otomatis, lalu merekomendasikan jalur fail-safe manual — yang sampai sekarang masih dipakai harian.",
+                "Mendokumentasikan tiap gangguan dan perbaikannya, lalu melaporkan bahwa dua dari tujuh situs tidak mampu bertahan di mode otomatis dan merekomendasikan jalur fail-safe manual — yang masih dipakai harian sampai sekarang.",
             ],
         },
         {
@@ -236,12 +238,12 @@ def build(lang, out_path):
             "dates": "Aug 2025 – Jan 2026",
             "sub": "Leapfactor · PT Lattice Teknologi Mandiri — Bandung, Indonesia",
             "bullets": [
-                "Supported and extended Arjuna Mobile, the inventory app field staff run on their phones — fixed camera-lifecycle bugs, added debounce against duplicate scans, and kept REST sync consistent with the backend."
+                "Supported and extended Arjuna Mobile, the inventory app field staff run on their phones — handling user-reported defects, reproducing them, fixing, then verifying the fix."
                 if en else
-                "Mendukung dan mengembangkan Arjuna Mobile, aplikasi inventaris yang dipakai staf lapangan di ponselnya — membenahi bug siklus kamera, menambah debounce anti scan-ganda, dan menjaga sinkronisasi REST dengan backend.",
-                "Integrated barcode/QR scanner hardware through mobile_scanner, including releasing the camera on route exit so the device did not hang."
+                "Mendukung dan mengembangkan Arjuna Mobile, aplikasi inventaris yang dipakai staf lapangan di ponselnya — menangani laporan bug dari pengguna, mereproduksi, memperbaiki, lalu memverifikasi perbaikannya.",
+                "Integrated barcode/QR scanner hardware through mobile_scanner, including releasing the camera on route exit so the device did not hang, and kept REST sync consistent with the backend."
                 if en else
-                "Mengintegrasikan pemindai barcode/QR lewat mobile_scanner, termasuk melepas kamera saat keluar route supaya perangkat tidak menggantung.",
+                "Mengintegrasikan pemindai barcode/QR lewat mobile_scanner, termasuk melepas kamera saat keluar route supaya perangkat tidak menggantung, dan menjaga sinkronisasi REST dengan backend.",
             ],
         },
     ]
@@ -258,18 +260,18 @@ def build(lang, out_path):
 
     PROJ = [
         {
-            "title": ("IoT Fuel Consumption Monitoring for Carburettor Motorcycles" if en
-                      else "Monitoring Konsumsi BBM Motor Karburator Berbasis IoT"),
+            "title": ("IoT Fuel Consumption Telemetry for Carburettor Motorcycles" if en
+                      else "Telemetri Konsumsi BBM Sepeda Motor Karburator Berbasis IoT"),
             "dates": "2025 – 2026",
             "sub": ("S1 Capstone Thesis · UNIKOM — Hardware & Software Developer" if en
                     else "Tugas Akhir S1 · UNIKOM — Hardware & Software Developer"),
             "bullets": [
-                "Integrated the sensor chain end to end — a 16-bit ADS1115 ADC on the tank float, NEO-6M GPS over serial, an ESP32 pushing MQTT/TLS — then traced the noise that made readings unusable to engine vibration and fuel slosh."
+                "Built the sensor chain end to end on a carburettor motorcycle — a 16-bit ADS1115 ADC on the tank float, NEO-6M GPS over serial, an ESP32 pushing MQTT/TLS — then traced the bad readings to engine vibration and fuel slosh."
                 if en else
-                "Merangkai jalur sensor dari ujung ke ujung — ADC 16-bit ADS1115 pada pelampung tangki, GPS NEO-6M lewat serial, ESP32 mengirim MQTT/TLS — lalu menelusuri noise pembacaan ke getaran mesin dan fuel slosh.",
-                "Fixed it in firmware with a three-stage filter (7-sample median > EMA alpha 0.1 > 0.03 L hysteresis) and streamed telemetry every second to a Django + PostgreSQL dashboard."
+                "Merangkai jalur sensor dari ujung ke ujung pada sepeda motor karburator — ADC 16-bit ADS1115 pada pelampung tangki, GPS NEO-6M lewat serial, ESP32 mengirim MQTT/TLS — lalu menelusuri noise pembacaan ke getaran mesin dan fuel slosh.",
+                "Fixed it in firmware with a three-stage filter (7-sample median > EMA alpha 0.1 > 0.03 L hysteresis), streamed telemetry every second to a Django + PostgreSQL dashboard, and shaped the readings into Excel tables for reporting."
                 if en else
-                "Memperbaikinya di firmware dengan filter tiga lapis (median 7 sampel > EMA alpha 0.1 > histeresis 0.03 L) dan mengalirkan telemetri per detik ke dashboard Django + PostgreSQL.",
+                "Memperbaikinya di firmware dengan filter tiga lapis (median 7 sampel > EMA alpha 0.1 > histeresis 0.03 L), mengalirkan telemetri tiap detik ke dashboard Django + PostgreSQL, dan merapikannya jadi tabel Excel untuk laporan.",
             ],
         },
         {
@@ -290,7 +292,7 @@ def build(lang, out_path):
             "bullets": [
                 "Wrote the SRS, the full UML set and the ERD before any code was written, then built the PHP/Laravel app with a team of six — the same documentation habit used for handover notes and fault reports."
                 if en else
-                "Menulis SKPL/SRS, seluruh diagram UML, dan ERD sebelum satu baris kode ditulis, lalu membangun aplikasi PHP/Laravel-nya bersama tim enam orang — kebiasaan dokumentasi yang sama dipakai untuk catatan serah terima dan laporan gangguan.",
+                "Menulis SKPL/SRS, seluruh UML, dan ERD sebelum satu baris kode ditulis, lalu membangun aplikasi PHP/Laravel-nya bersama tim enam orang — kebiasaan dokumentasi yang sama dipakai untuk serah terima dan laporan gangguan.",
             ],
         },
     ]
@@ -305,24 +307,35 @@ def build(lang, out_path):
     # ---- skills -------------------------------------------------------
     section_heading(doc, "Technical Skills" if en else "Keahlian Teknis")
     SKILLS = [
-        ("Hardware & Device Support" if en else "Dukungan Perangkat Keras",
-         ("panel installation & commissioning, wiring (solder/crimp/clamp), component fitting, "
-          "fault diagnosis & root-cause tracing, corrective maintenance & repair, functional testing, device configuration, "
-          "relays, fail-safe paths"
+        ("IT Support",
+         ("hardware & software troubleshooting, installation & configuration, user account setup, "
+          "data backup & security, network troubleshooting, remote support, maintenance & repair"
           if en else
-          "instalasi & komisioning panel, pengkabelan (solder/crimp/klem), pemasangan komponen, "
-          "diagnosis gangguan & pelacakan akar masalah, perawatan korektif & perbaikan, uji fungsi, konfigurasi perangkat, relay, "
-          "jalur fail-safe")),
-        ("Systems & Tools" if en else "Sistem & Perkakas",
-         "Linux / Raspberry Pi OS, Windows, Docker, Git & GitHub, VS Code, PlatformIO, Postman, remote troubleshooting"),
+          "troubleshooting perangkat keras & lunak, instalasi & konfigurasi, pengaturan akun "
+          "pengguna, backup & keamanan data, troubleshooting jaringan, dukungan jarak jauh, "
+          "perawatan & perbaikan")),
+        ("Device Repair" if en else "Perbaikan Perangkat",
+         ("laptops & PCs (teardown, RAM/SSD upgrade, keyboard/screen/battery replacement, thermal "
+          "paste), phones (LCD/battery/connector replacement, flashing), component-level solder & "
+          "multimeter work, basic motorcycle servicing"
+          if en else
+          "laptop & PC (bongkar-pasang, upgrade RAM/SSD, ganti keyboard/layar/baterai, thermal "
+          "paste), ponsel (ganti LCD/baterai/konektor, flashing), solder & multimeter level "
+          "komponen, servis motor dasar")),
+        ("Spreadsheet & Reporting" if en else "Spreadsheet & Laporan",
+         ("Microsoft Excel (formulas, pivot tables, charts), data cleaning & validation, "
+          "operational reporting"
+          if en else
+          "Microsoft Excel (rumus, pivot table, grafik), pembersihan & validasi data, laporan "
+          "operasional")),
+        ("Systems & Network" if en else "Sistem & Jaringan",
+         "Windows, Linux / Raspberry Pi OS, Docker, Git & GitHub, VS Code, Postman, PlatformIO"),
         ("Instrumentation & IoT" if en else "Instrumentasi & IoT",
-         ("ESP32, Raspberry Pi, CO2/light sensor nodes, ADS1115 ADC, NEO-6M GPS, MQTT/TLS, ThingsBoard"
+         ("ESP32, Raspberry Pi, sensor nodes, ADS1115 ADC, NEO-6M GPS, MQTT/TLS, ThingsBoard"
           if en else
-          "ESP32, Raspberry Pi, node sensor CO2/cahaya, ADC ADS1115, GPS NEO-6M, MQTT/TLS, ThingsBoard")),
+          "ESP32, Raspberry Pi, node sensor, ADC ADS1115, GPS NEO-6M, MQTT/TLS, ThingsBoard")),
         ("Data & Backend",
-         "PostgreSQL, MySQL, Django, REST APIs, Laravel"),
-        ("Programming & Mobile" if en else "Pemrograman & Mobile",
-         "Python, C/C++, SQL, Dart, PHP, JavaScript, HTML/CSS, Flutter, Provider, mobile_scanner"),
+         "PostgreSQL, MySQL, Django, REST APIs, Laravel, Python, C/C++, SQL, Dart, PHP, JavaScript, Flutter"),
         ("Documentation & Analysis" if en else "Dokumentasi & Analisis",
          ("SRS/SyRS, UML, ERD, DFD, requirement gathering, Agile & Waterfall, Figma"
           if en else
@@ -351,8 +364,8 @@ def build(lang, out_path):
     cp.author = "Hilmy Abdurrahman Darmawan"
     cp.title = "Hilmy Abdurrahman Darmawan — CV (IT Support Engineer)"
     cp.subject = "Curriculum Vitae"
-    cp.keywords = ("IT Support, Hardware Support, Troubleshooting, Device Configuration, "
-                   "Linux, Windows, Docker, ESP32, MQTT")
+    cp.keywords = ("IT Support Engineer, Hardware Troubleshooting, User Account Management, "
+                   "Microsoft Excel, Data Security, Device Repair, Windows, Linux")
 
     doc.save(out_path)
     print(f"wrote {out_path}")

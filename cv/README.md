@@ -91,9 +91,9 @@ uses tabular numerals so the column stays straight. Then mirror it in the matchi
 
 | File | Height |
 |---|---|
-| generalist EN / ID | 1043 / 1047 px |
-| IT Support EN | 1013 / 1047 px |
-| IT Support ID | 1044 / 1047 px |
+| generalist EN / ID | 1043 / 1043 px |
+| IT Support EN | 1029 / 1047 px |
+| IT Support ID | 1043 / 1047 px |
 
 Roughly one bullet line of headroom each. Add a line here and you will need to cut one
 somewhere else. Past that, cut something first, or accept two pages deliberately and drop
@@ -102,4 +102,5 @@ the page check in `build.mjs` and `_build_and_count.py`.
 ## Backups
 
 `assets/backup-2026-11-25/` holds the four CV files as they stood before the IT Support
-variant was added.
+variant was added. `assets/backup-2026-11-25-itsupport/` holds the first IT Support draft,
+before it was retuned to the Stanley Marthin posting.
