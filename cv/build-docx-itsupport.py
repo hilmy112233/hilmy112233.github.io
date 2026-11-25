@@ -190,7 +190,7 @@ def build(lang, out_path):
     summary = (
         "IT support and hardware engineer in Bandung with two years of on-site device support: "
         "installed, configured and repaired control panels and sensor nodes across seven sites, "
-        "diagnosed faults to root cause, then documented every fix for handover. Builds the "
+        "diagnosed faults to root cause, then documented every fix. Builds the "
         "spreadsheets and dashboards that turn raw equipment data into something a team can act on "
         "— including a motorcycle telemetry system built end to end. Works in Windows and Linux, "
         "handles user account setup and data backup, and keeps equipment running instead of "
@@ -199,7 +199,7 @@ def build(lang, out_path):
         "IT support dan engineer perangkat keras di Bandung dengan dua tahun dukungan perangkat di "
         "lapangan: memasang, mengonfigurasi, dan memperbaiki panel kontrol serta node sensor di "
         "tujuh lokasi, mendiagnosis gangguan sampai akar masalah, lalu mendokumentasikan tiap "
-        "perbaikan untuk serah terima. Membangun spreadsheet dan dashboard yang mengubah data "
+        "perbaikan. Membangun spreadsheet dan dashboard yang mengubah data "
         "peralatan mentah jadi bisa dipakai tim — termasuk telemetri sepeda motor dari sensor "
         "sampai dashboard. Terbiasa Windows dan Linux, pengaturan akun pengguna, backup data, dan "
         "menjaga peralatan tetap jalan."
@@ -269,9 +269,9 @@ def build(lang, out_path):
                 "Built the sensor chain end to end on a carburettor motorcycle — a 16-bit ADS1115 ADC on the tank float, NEO-6M GPS over serial, an ESP32 pushing MQTT/TLS — then traced the bad readings to engine vibration and fuel slosh."
                 if en else
                 "Merangkai jalur sensor dari ujung ke ujung pada sepeda motor karburator — ADC 16-bit ADS1115 pada pelampung tangki, GPS NEO-6M lewat serial, ESP32 mengirim MQTT/TLS — lalu menelusuri noise pembacaan ke getaran mesin dan fuel slosh.",
-                "Fixed it in firmware with a three-stage filter (7-sample median > EMA alpha 0.1 > 0.03 L hysteresis), streamed telemetry every second to a Django + PostgreSQL dashboard, and shaped the readings into Excel tables for reporting."
+                "Fixed it in firmware with a three-stage filter (7-sample median > EMA alpha 0.1 > 0.03 L hysteresis), then streamed telemetry every second to a Django + PostgreSQL dashboard."
                 if en else
-                "Memperbaikinya di firmware dengan filter tiga lapis (median 7 sampel > EMA alpha 0.1 > histeresis 0.03 L), mengalirkan telemetri tiap detik ke dashboard Django + PostgreSQL, dan merapikannya jadi tabel Excel untuk laporan.",
+                "Memperbaikinya di firmware dengan filter tiga lapis (median 7 sampel > EMA alpha 0.1 > histeresis 0.03 L), lalu mengalirkan telemetri tiap detik ke dashboard Django + PostgreSQL.",
             ],
         },
         {
@@ -280,9 +280,9 @@ def build(lang, out_path):
             "dates": ("2026 – Present" if en else "2026 – Sekarang"),
             "sub": "Team Aligness — UI/UX Designer",
             "bullets": [
-                "Designed the companion mobile app (25 Figma frames) on the same status vocabulary as the panel, so a fault reads the same on the wall as on the user's phone."
+                "Designed the companion app (25 Figma frames) on the panel’s status vocabulary, so a fault reads the same on the wall and on the phone."
                 if en else
-                "Merancang aplikasi pendamping seluler (25 layar Figma) memakai kosakata status yang sama dengan panel, supaya satu gangguan terbaca sama di dinding maupun di ponsel pengguna.",
+                "Merancang aplikasi pendamping seluler (25 layar Figma) dengan kosakata status yang sama seperti panel, supaya satu gangguan terbaca sama di dinding dan di ponsel.",
             ],
         },
         {
@@ -323,11 +323,11 @@ def build(lang, out_path):
           "paste), ponsel (ganti LCD/baterai/konektor, flashing), solder & multimeter level "
           "komponen, servis motor dasar")),
         ("Spreadsheet & Reporting" if en else "Spreadsheet & Laporan",
-         ("Microsoft Excel (formulas, pivot tables, charts), data cleaning & validation, "
-          "operational reporting"
+         ("Microsoft Excel (basic formulas, simple tables, data recaps), Microsoft Word "
+          "(document formatting, reports)"
           if en else
-          "Microsoft Excel (rumus, pivot table, grafik), pembersihan & validasi data, laporan "
-          "operasional")),
+          "Microsoft Excel (rumus dasar, tabel sederhana, rekap data), Microsoft Word "
+          "(format dokumen, laporan)")),
         ("Systems & Network" if en else "Sistem & Jaringan",
          "Windows, Linux / Raspberry Pi OS, Docker, Git & GitHub, VS Code, Postman, PlatformIO"),
         ("Instrumentation & IoT" if en else "Instrumentasi & IoT",
