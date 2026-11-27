@@ -191,7 +191,7 @@ def build(lang, out_path):
         "IT support and hardware engineer in Bandung with two years of on-site device support: "
         "installed, configured and repaired control panels and sensor nodes across seven sites, "
         "diagnosed faults to root cause, then documented every fix. Builds the "
-        "spreadsheets and dashboards that turn raw equipment data into something a team can act on "
+        "dashboards that turn raw equipment data into something a team can act on "
         "— including a motorcycle telemetry system built end to end. Works in Windows and Linux, "
         "handles user account setup and data backup, and keeps equipment running instead of "
         "replacing it."
@@ -199,7 +199,7 @@ def build(lang, out_path):
         "IT support dan engineer perangkat keras di Bandung dengan dua tahun dukungan perangkat di "
         "lapangan: memasang, mengonfigurasi, dan memperbaiki panel kontrol serta node sensor di "
         "tujuh lokasi, mendiagnosis gangguan sampai akar masalah, lalu mendokumentasikan tiap "
-        "perbaikan. Membangun spreadsheet dan dashboard yang mengubah data "
+        "perbaikan. Membangun dashboard yang mengubah data "
         "peralatan mentah jadi bisa dipakai tim — termasuk telemetri sepeda motor dari sensor "
         "sampai dashboard. Terbiasa Windows dan Linux, pengaturan akun pengguna, backup data, dan "
         "menjaga peralatan tetap jalan."
@@ -322,7 +322,7 @@ def build(lang, out_path):
           "laptop & PC (bongkar-pasang, upgrade RAM/SSD, ganti keyboard/layar/baterai, thermal "
           "paste), ponsel (ganti LCD/baterai/konektor, flashing), solder & multimeter level "
           "komponen, servis motor dasar")),
-        ("Spreadsheet & Reporting" if en else "Spreadsheet & Laporan",
+        ("Excel & Word",
          ("Microsoft Excel (basic formulas, simple tables, data recaps), Microsoft Word "
           "(document formatting, reports)"
           if en else
